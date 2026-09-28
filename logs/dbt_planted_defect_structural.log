@@ -1,0 +1,10 @@
+rows before: 66
+planted: duplicated account 1200 (Accounts Receivables) in lsmb_raw.account; rows now 67
+19:05:25  18 of 162 FAIL 1 unique_stg_lsmb__accounts_account_id .......................... [FAIL 1 in 0.04s]
+19:05:26  19 of 162 FAIL 1 unique_stg_lsmb__accounts_account_number ...................... [FAIL 1 in 0.12s]
+19:05:27  Done. PASS=90 WARN=0 ERROR=2 SKIP=70 NO-OP=0 TOTAL=162
+reverted with OPTIMIZE … FINAL DEDUPLICATE; rows now 66
+  v1 passed — 0 control(s) fired
+  v2 passed — 0 control(s) fired
+  v3 passed — 0 control(s) fired
+19:05:45  Done. PASS=162 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=162

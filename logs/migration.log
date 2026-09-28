@@ -5005,3 +5005,17 @@ Report written to /home/legion/PycharmProjects/ledgersmb-analytics-demo/docs/mig
 
 Not signable. The blockers above are mechanical: none of them is a judgement call at sign-off.
 ### exit=0  wall=2.0s
+
+### 2026-09-28T19:05:37Z  ekos migrate validate --unit public.account --tier v3
+  skipping custom_attributes: no canonical rule for jsonb
+public.account -> lsmb_raw.account
+  source LSN: 0/384D5880
+  v1 passed — 0 control(s) fired
+    read via postgres:lsmb-pg/ledgersmb and clickhouse:reader
+  v2 passed — 0 control(s) fired
+    read via postgres:lsmb-pg/ledgersmb and clickhouse:reader
+  v3 passed — 0 control(s) fired
+    read via postgres:lsmb-pg/ledgersmb and clickhouse:reader
+
+Every tier run passed. Note: no planted controls were run, so this says the tiers found nothing — not that they would have.
+### exit=0  wall=1.6s

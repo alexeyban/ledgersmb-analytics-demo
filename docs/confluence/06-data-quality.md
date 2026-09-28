@@ -1,12 +1,13 @@
 # 06 — Data quality: tests, invariants and an independent oracle
 
-Data quality is enforced at four levels. Each has been **shown to fail** on a planted defect, because
-a check that has only ever passed proves nothing.
+Data quality is enforced at four levels. **On the real data every check passes.** Each level has also
+been **proven able to fail**: a defect was planted, the check caught it, and the defect was removed.
+A check that has only ever passed proves nothing.
 
 | Level | What | Where | Result | Negative check |
 |---|---|---|---|---|
 | 1. Migration | EKOS V1 (counts) / V2 (column aggregates) / V3 (row hashes) | `ekos migrate validate` | 30/30 | +0.01 on one journal line in ClickHouse → **V3 failed**, exit 1 |
-| 2. Structure | dbt generic tests: unique, not-null, relationships, accepted values, non-negative, row count vs source | `dbt/models/**/_*.yml` | 114/114 | — |
+| 2. Structure | dbt generic tests: unique, not-null, relationships, accepted values, non-negative, row count vs source | `dbt/models/**/_*.yml` | 114/114 | account 1200 duplicated in `lsmb_raw.account` → **2 uniqueness tests failed**, 70 downstream nodes skipped; removed with `OPTIMIZE … FINAL DEDUPLICATE`, re-validated V1–V3 |
 | 3. Accounting invariants | dbt singular tests (below) | `dbt/tests/` | 10/10 | +10.00 on one Sales line in `lsmb_raw` → **2 tests failed**, 24 downstream nodes skipped |
 | 4. Independent oracle | marts vs **LedgerSMB's own reports** in PostgreSQL | `pipelines/lsmb_pipelines/reconcile.py` | 6/6 | stale target (PG regenerated, CH not reloaded) → **6/6 failed** |
 

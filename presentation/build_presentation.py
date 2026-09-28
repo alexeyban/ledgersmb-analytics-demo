@@ -450,12 +450,15 @@ WHERE `entry_id` >= 1 AND `entry_id` < 100001</pre>
 <div><h3>Top suppliers by spend</h3><div data-chart="suppliers"></div></div></div></section>""")
 
     # DQ
-    add("""<section class="slide"><div class="kicker">6 · Trust</div><h2>Four levels of data quality — each shown to fail</h2>
-<table><tr><th>Level</th><th>What</th><th>Result</th><th>Planted defect</th></tr>
-<tr><td>Migration</td><td>EKOS V1 / V2 / V3</td><td><span class="pill ok">30/30</span></td><td>+0.01 → V3 fails</td></tr>
-<tr><td>Structure</td><td>dbt generic: unique, not-null, relationships, accepted values, non-negative, row count vs source</td><td><span class="pill ok">114/114</span></td><td>—</td></tr>
-<tr><td>Accounting</td><td>10 invariants: balances, trial balance, balance sheet, subledgers, revenue, COGS, inventory, shrinkage</td><td><span class="pill ok">10/10</span></td><td>+10.00 on a sales line → 2 fail, 24 downstream skipped</td></tr>
-<tr><td>Oracle</td><td>marts vs LedgerSMB's own reports in PostgreSQL</td><td><span class="pill ok">6/6</span></td><td>stale target → 6/6 fail</td></tr></table></section>""")
+    add("""<section class="slide"><div class="kicker">6 · Trust</div><h2>Four levels of data quality — all passing, each proven able to fail</h2>
+<p class="lede">On the real data <b>every check passes</b>. To prove the checks are real, a defect was planted at each level,
+the check was shown to catch it, and the defect was removed: a check that has only ever passed proves nothing.</p>
+<table><tr><th>Level</th><th>What</th><th>On the real data</th><th>Planted defect → caught</th><th>After removing it</th></tr>
+<tr><td>Migration</td><td>EKOS V1 / V2 / V3</td><td><span class="pill ok">30/30 pass</span></td><td>+0.01 on one journal line, ClickHouse only → <b>V3 failed</b> (bucket 43, exit 1); V1/V2 blind by design</td><td><span class="pill ok">pass</span></td></tr>
+<tr><td>Structure</td><td>dbt generic: unique, not-null, relationships, accepted values, non-negative, row count vs source</td><td><span class="pill ok">114/114 pass</span></td><td>account 1200 duplicated in <code>lsmb_raw.account</code> → <b>2 uniqueness tests failed</b>, 70 downstream nodes skipped</td><td><span class="pill ok">162/162</span></td></tr>
+<tr><td>Accounting</td><td>10 invariants: balances, trial balance, balance sheet, subledgers, revenue, COGS, inventory, shrinkage</td><td><span class="pill ok">10/10 pass</span></td><td>+10.00 on a sales line → <b>2 invariants failed</b>, 24 downstream skipped</td><td><span class="pill ok">162/162</span></td></tr>
+<tr><td>Oracle</td><td>marts vs LedgerSMB's own reports in PostgreSQL</td><td><span class="pill ok">6/6 exact</span></td><td>stale target (PostgreSQL regenerated, ClickHouse not reloaded) → <b>6/6 failed</b></td><td><span class="pill ok">6/6</span></td></tr></table>
+<p class="note">The duplicate was removed with <code>OPTIMIZE … FINAL DEDUPLICATE</code> (drops only identical rows) and the table re-validated V1–V3 against PostgreSQL, so the revert is exact. Logs: <code>logs/dbt_planted_defect*.log</code>, <code>logs/negative_checks/</code>.</p></section>""")
     def verdict(c: dict) -> str:
         if c["passed"]:
             return '<span class="pill ok">exact</span>'
