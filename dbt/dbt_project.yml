@@ -1,0 +1,48 @@
+name: lsmb_analytics
+version: "1.0.0"
+config-version: 2
+profile: lsmb_analytics
+
+# LedgerSMB → ClickHouse analytical layer (ledgersmb-analytics-demo).
+# Sources: lsmb_raw.*, loaded from LedgerSMB's PostgreSQL by EKOS Migrate (RFC 0160) and
+# validated V1/V2/V3 (RFC 0156) before dbt touches them.
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+seed-paths: ["seeds"]
+analysis-paths: ["analyses"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+vars:
+  # The reporting cut-off: aging and positions are computed "as of" this date.
+  as_of_date: "2026-06-30"
+  # LedgerSMB account numbers the marts depend on (US General chart, locale/coa/us/General.xml).
+  acc_cash: "1060"
+  acc_ar: "1200"
+  acc_inventory: "1510"
+  acc_ap: "2100"
+  acc_sales_tax: "2150"
+  acc_sales: "4010"
+  acc_cogs: "5010"
+
+models:
+  lsmb_analytics:
+    +schema: ""
+    staging:
+      +materialized: view
+      +tags: ["staging"]
+    intermediate:
+      +materialized: table
+      +tags: ["intermediate"]
+    marts:
+      +materialized: table
+      +tags: ["marts"]
+      finance:
+        +tags: ["finance"]
+      materials:
+        +tags: ["materials"]
+
+tests:
+  lsmb_analytics:
+    +severity: error

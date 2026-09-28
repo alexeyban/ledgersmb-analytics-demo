@@ -1,0 +1,14 @@
+# Local ClickHouse sandbox from EKOS's docker-compose.migrate.yml. The password comes from the
+# environment (LSMB_CH_PASSWORD), never from this file.
+lsmb_analytics:
+  target: sandbox
+  outputs:
+    sandbox:
+      type: clickhouse
+      host: 127.0.0.1
+      port: 58123
+      user: ekos
+      password: "{{ env_var('LSMB_CH_PASSWORD') }}"
+      schema: lsmb_analytics
+      secure: false
+      threads: 4

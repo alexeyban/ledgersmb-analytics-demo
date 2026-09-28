@@ -1,0 +1,16 @@
+# EKOS Migrate approval policy for the LedgerSMB demo (RFC 0161).
+# Its content hash is recorded on every approval, so a decision can be read against the rules in
+# force when it was made.
+
+scan-budget-rows = 50000000
+
+[thresholds]
+# A unit whose table has more compiled dependents than this escalates one risk class.
+blast-radius = 10
+# A load touching more rows than this escalates one risk class.
+affected-rows = 1000
+
+[approvers]
+r2 = ["data-engineering"]
+r3 = ["data-engineering", "finance-controller"]
+r4 = ["finance-controller", "cfo"]

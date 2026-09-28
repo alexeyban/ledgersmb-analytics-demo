@@ -1,0 +1,5 @@
+phase,timestamp_utc,context_tokens_remaining,note
+start,2026-09-28T12:40:00Z,15000000,counter when the demo request arrived (session context budget; an ESTIMATE of Claude Code usage, not a billing figure)
+0-scaffold,2026-09-28T12:45:00Z,14985472,plan + repo scaffold + environment discovery
+2-ekos-rebuild,2026-09-28T14:41:00Z,14919734,schema loader (4 fixes) + EKOS config/proxy + LedgerSMB rebuild + schema/procedure research
+3-data,2026-09-28T15:20:00Z,14868014,discovery + generator (5 fixes found by checking against LedgerSMB) + integrity verification
