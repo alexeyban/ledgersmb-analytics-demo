@@ -1,8 +1,10 @@
 phase,timestamp_utc,context_tokens_remaining,note
-start,2026-09-28T12:40:00Z,15000000,counter when the demo request arrived (session context budget; an ESTIMATE of Claude Code usage, not a billing figure)
+start,2026-09-28T12:40:00Z,15000000,"counter when the demo request arrived (session context budget; an ESTIMATE of Claude Code usage, not a billing figure)"
 0-scaffold,2026-09-28T12:45:00Z,14985472,plan + repo scaffold + environment discovery
 2-ekos-rebuild,2026-09-28T14:41:00Z,14919734,schema loader (4 fixes) + EKOS config/proxy + LedgerSMB rebuild + schema/procedure research
 3-data,2026-09-28T15:20:00Z,14868014,discovery + generator (5 fixes found by checking against LedgerSMB) + integrity verification
-5-validated,2026-09-28T15:40:00Z,14730494,migration: 9 EKOS defects found+fixed (pg-live, load, policy, approval, evidence, typemap, sampling, canonical scale, NULL/length/empty-set, exit code)
+5-validated,2026-09-28T15:40:00Z,14730494,"migration: 9 EKOS defects found+fixed (pg-live, load, policy, approval, evidence, typemap, sampling, canonical scale, NULL/length/empty-set, exit code)"
 6-pipelines,2026-09-28T16:00:00Z,14648042,dbt project (38 models/124 tests) + python pipelines + realism fix; starting full end-to-end run
-7-docs,2026-09-28T16:15:00Z,14524750,confluence pages, report/query-log generators, 50-slide deck, analyst SQL, DDL dump; 2 more EKOS governance defects fixed
+7-docs,2026-09-28T16:15:00Z,14524750,"confluence pages, report/query-log generators, 50-slide deck, analyst SQL, DDL dump; 2 more EKOS governance defects fixed"
+8-final,2026-09-28T17:02:58Z,14509816,"final release run (8 R3 gates, 30/30, 6/6, 162/162) + regeneration"
+9-complete,2026-09-28T17:04:10Z,14500123,final docs/report/deck regeneration and commit

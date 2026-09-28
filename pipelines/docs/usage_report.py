@@ -158,6 +158,12 @@ def main() -> None:
         "proxy now sets its own User-Agent (confirmed by a no-generation probe: 403 → 400), and the "
         "compile was re-run so the semantic-naming step actually ran.",
         "",
+        f"**Other failures.** {sum(1 for r in calls if r['status'] == 404)} cloud call(s) returned HTTP 404 "
+        "after long waits (on the largest prompts: the whole-schema file `sql/Pg-database.sql` and two other "
+        "very large SQL files); EKOS logged them and kept the structural analysis for those files. "
+        f"{sum(1 for r in calls if r['status'] == 400)} call returned 400: the deliberate no-generation "
+        "connectivity probe.",
+        "",
         "### Claude Code",
         "",
         "Claude Code's usage is **estimated** from the session's context counter, recorded at each phase "

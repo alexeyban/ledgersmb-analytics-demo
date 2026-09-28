@@ -2680,3 +2680,623 @@
 
 > The parts table depends on the database object.
 
+### 268. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `acc_trans`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'acc_trans'"}`  
+**Result:** ok, 1250 ms
+
+```json
+{"count": 1, "rows": [{"id": "c74280fe-7b9a-5c74-b97c-afcc35f7f318", "kind": "Table", "name": "acc_trans"}]}
+```
+
+### 269. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `acc_trans`  
+**Arguments:** `{"id": "c74280fe-7b9a-5c74-b97c-afcc35f7f318"}`  
+**Result:** ok, 14 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:40.649783921Z", "fragment": "CREATE TABLE acc_trans", "id": "8ea891c2-324a-4bc9-b6d0-9a6fb8577077", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:43.677635328Z", "fragment": "COMMENT ON TABLE acc_trans IS This table stores line items for financial transactions.  Please note that\npayments in 1.3 are not full-fledged transactions.", "id": "d89c5f7d-0765-4067-b1bf-3d9a859c973e", "location": {"column": null, "line": 1142, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:13.388841616Z", "fragment": "COMMENT ON COLUMN acc_trans.source IS Document Source identifier for individual line items, usually used\nfor payments.", "id": "a764a08f-9446-4960-aba4-c2a9b75b0a2e", "location": {"column": null, "line": 1146, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:08.950933095Z", "fragment": "COMMENT ON COLUMN acc_trans.fx_transaction IS When 'f', indicates that the amount column states the amount in the currency\nas specified in the associated ar, ap, payment or gl record.\n\nWhen 't', indicates that the amount column states the difference between\nthe foreighn currency amount and the base amount so that their sum equals the\nbase amount.", "id": "8c9f12d6-72e4-412f-a62a-f6abfb18fafe", "location": {"column": null, "line": 1150, "path": "sql/Pg-database.sql"}}], "object": { …
+```
+
+### 270. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `account`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'account'"}`  
+**Result:** ok, 734 ms
+
+```json
+{"count": 1, "rows": [{"id": "4463dabc-b615-5f4b-92f8-37e3275fbbaa", "kind": "Table", "name": "account"}]}
+```
+
+### 271. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `account`  
+**Arguments:** `{"id": "4463dabc-b615-5f4b-92f8-37e3275fbbaa"}`  
+**Result:** ok, 29 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:11.606475168Z", "fragment": "CREATE TABLE account", "id": "5d29ebb7-6d95-4896-9acd-c6ab07e7477c", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:27.326383430Z", "fragment": "COMMENT ON COLUMN account.category IS A=asset,L=liability,Q=Equity,I=Income,E=expense", "id": "8ae5a98e-20f6-4b75-b929-cdd963f47ec9", "location": {"column": null, "line": 72, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:40.228817875Z", "fragment": "COMMENT ON COLUMN account.is_temp IS Only affects equity accounts.  If set, close at end of year.", "id": "65af29bc-3fcb-49c2-9b4e-36eedadb0b0c", "location": {"column": null, "line": 75, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:35.378899310Z", "fragment": "COMMENT ON TABLE account IS This table stores the main account info.", "id": "816342ae-f58e-405c-8250-fdc79b245478", "location": {"column": null, "line": 78, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.006377734Z", "evidence": ["5d29ebb7-6d95-4896-9acd-c6ab07e7477c", "8ae5a98e-20f6-4b75-b929-cdd963f47ec9", "65af29bc-3fcb-49c2-9b4e-36eedadb0b0c", "816342ae-f58e-405c-8250-fdc79b245478"], "id": "4463dabc-b615-5f4b-92f8-37e3275fbbaa", "kind": "Table", "name": "account", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "T …
+```
+
+### 272. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `account_heading`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'account_heading'"}`  
+**Result:** ok, 734 ms
+
+```json
+{"count": 1, "rows": [{"id": "e7b1a9be-ac14-54f9-8cc3-7e92de186c6f", "kind": "Table", "name": "account_heading"}]}
+```
+
+### 273. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `account_heading`  
+**Arguments:** `{"id": "e7b1a9be-ac14-54f9-8cc3-7e92de186c6f"}`  
+**Result:** ok, 12 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:29.429293299Z", "fragment": "CREATE TABLE account_heading", "id": "a93de642-4768-4e8d-9772-87e2c921d1f6", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:49.564769970Z", "fragment": "COMMENT ON TABLE account_heading IS This table holds the account headings in the system.  Each account must belong\nto a heading, and a heading can belong to another heading.  In this way it is\npossible to nest accounts for reporting purposes.", "id": "deb794cc-7d19-4f0f-ab98-9b3ac6c04c69", "location": {"column": null, "line": 49, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:06.774029073Z", "fragment": "COMMENT ON COLUMN account_heading.category IS Same as the column account.category, except that if NULL the category\nis automatically derived from the linked accounts.", "id": "169a2b83-c7cd-468e-8bb9-33b75189d3b7", "location": {"column": null, "line": 54, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:56.986524117Z", "evidence": ["a93de642-4768-4e8d-9772-87e2c921d1f6", "deb794cc-7d19-4f0f-ab98-9b3ac6c04c69", "169a2b83-c7cd-468e-8bb9-33b75189d3b7"], "id": "e7b1a9be-ac14-54f9-8cc3-7e92de186c6f", "kind": "Table", "name": "account_heading", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "TEXT", "name": "accno"}, {"data_type": "INT", "name": "parent_id"},  …
+```
+
+### 274. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `account_link`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'account_link'"}`  
+**Result:** ok, 733 ms
+
+```json
+{"count": 1, "rows": [{"id": "f0b041a2-2a84-5909-805f-07a146cf963a", "kind": "Table", "name": "account_link"}]}
+```
+
+### 275. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `account_link`  
+**Arguments:** `{"id": "f0b041a2-2a84-5909-805f-07a146cf963a"}`  
+**Result:** ok, 7 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:23.044181896Z", "fragment": "CREATE TABLE account_link", "id": "2f9a6c1d-53d4-4e59-9435-cf855c2b5ee1", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.059074779Z", "evidence": ["2f9a6c1d-53d4-4e59-9435-cf855c2b5ee1"], "id": "f0b041a2-2a84-5909-805f-07a146cf963a", "kind": "Table", "name": "account_link", "properties": {"columns": [{"data_type": "INT", "name": "account_id"}, {"data_type": "TEXT", "name": "description"}]}}, "relationships": [{"created_at": "2026-09-16T14:59:23.839858321Z", "evidence": ["f1c75431-2fc4-5266-97e2-00362c5a931e"], "from": "d87b3d95-0623-5b7c-bc42-41d04b4d7c45", "id": "3664cf81-f00e-5d6f-a4e6-a578711a28a4", "kind": "ReadsFrom", "properties": {}, "to": "f0b041a2-2a84-5909-805f-07a146cf963a", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-28T16:55:35.921466915Z", "evidence": ["09f4d1bc-27cf-431c-9a8d-7f46058108dc"], "from": "f0b041a2-2a84-5909-805f-07a146cf963a", "id": "572552d6-bd3e-5850-8958-f2eed1fedb6b", "kind": "ForeignKey", "properties": {"fk_desc": "account_link.description → account_link_description.description"}, "to": "16928103-1b38-5cb4-9342-b9e9d8cf9da8", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-28T16:55:35.906206906Z", "evidence": ["8772cd4e-4bdb-46eb-8dab-c7caf60b98fd"], "from": "f0b041a2-2a84-5909-805f-07a146cf963a", "id": "6d8a6772-89ec-5eaf-a08f-62713f6de …
+```
+
+### 276. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `ap`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'ap'"}`  
+**Result:** ok, 727 ms
+
+```json
+{"count": 1, "rows": [{"id": "a337a7d7-e368-58e4-9c45-cba719c6046b", "kind": "Table", "name": "ap"}]}
+```
+
+### 277. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `ap`  
+**Arguments:** `{"id": "a337a7d7-e368-58e4-9c45-cba719c6046b"}`  
+**Result:** ok, 14 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:41.831950883Z", "fragment": "CREATE TABLE ap", "id": "73c80fcd-3ee7-4ce2-b3ef-b0d1a711cf19", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:31.778060893Z", "fragment": "COMMENT ON TABLE ap IS Summary/header information for AP transactions and vendor invoices.\nNote that some constraints here are hard to enforce because we haven not gotten\nto rewriting the relevant code here.\nHV TODO drop entity_id", "id": "e4089e46-d610-49fb-8bfb-4861cfabe6dc", "location": {"column": null, "line": 1442, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:42.326814343Z", "fragment": "COMMENT ON COLUMN ap.invnumber IS Text identifier for the invoice.  Must be unique.", "id": "0898c073-887a-458f-9de2-47d35109212b", "location": {"column": null, "line": 1449, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:40.392067972Z", "fragment": "COMMENT ON COLUMN ap.invoice IS True if the transaction tracks goods/services purchase using the invoice\ntable.  False otherwise.", "id": "bc50b8a7-37dd-430b-9d14-7132d27fdfc6", "location": {"column": null, "line": 1452, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:19.781308710Z", "fragment": "COMMENT ON COLUMN ap.amount IS This stores the total amount (including taxes) for the transaction.", "id": "ec350e7a-d97 …
+```
+
+### 278. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `ar`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'ar'"}`  
+**Result:** ok, 734 ms
+
+```json
+{"count": 1, "rows": [{"id": "ccdf16c2-236c-55c2-a135-1a00c662c231", "kind": "Table", "name": "ar"}]}
+```
+
+### 279. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `ar`  
+**Arguments:** `{"id": "ccdf16c2-236c-55c2-a135-1a00c662c231"}`  
+**Result:** ok, 15 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:38.452027153Z", "fragment": "CREATE TABLE ar", "id": "9f8edbe8-706c-4798-80f4-82be79e2c019", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:17.027442002Z", "fragment": "COMMENT ON TABLE ar IS Summary/header information for AR transactions and sales invoices.\nNote that some constraints here are hard to enforce because we haven not gotten\nto rewriting the relevant code here.\nHV TODO drop entity_id", "id": "af8c8005-11a5-4005-b1bb-08342838b4d2", "location": {"column": null, "line": 1355, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:11.770594904Z", "fragment": "COMMENT ON COLUMN ar.invnumber IS Text identifier for the invoice.  Must be unique.", "id": "8044c1d2-f45a-4cfa-a4e3-6d8719613a7c", "location": {"column": null, "line": 1362, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:18.495480875Z", "fragment": "COMMENT ON COLUMN ar.invoice IS True if the transaction tracks goods/services purchase using the invoice\ntable.  False otherwise.", "id": "6496b43c-0635-4c81-9516-8e3f955ec979", "location": {"column": null, "line": 1365, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:45.677752412Z", "fragment": "COMMENT ON COLUMN ar.amount IS This stores the total amount (including taxes) for the transaction.", "id": "a86c4f36-d2b8 …
+```
+
+### 280. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `business`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'business'"}`  
+**Result:** ok, 719 ms
+
+```json
+{"count": 1, "rows": [{"id": "6a3a8d48-4425-58e2-acf1-cc488d9cd7e8", "kind": "Table", "name": "business"}]}
+```
+
+### 281. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `business`  
+**Arguments:** `{"id": "6a3a8d48-4425-58e2-acf1-cc488d9cd7e8"}`  
+**Result:** ok, 8 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:33.409669226Z", "fragment": "CREATE TABLE business", "id": "63411f1f-3f95-49b1-b1bf-2f160937af2d", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:53.528612708Z", "fragment": "COMMENT ON TABLE business IS Groups of Customers assigned joint discounts.", "id": "ea3c1821-7607-48e9-b7fc-a548362e8dc9", "location": {"column": null, "line": 1825, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:58.203593189Z", "evidence": ["63411f1f-3f95-49b1-b1bf-2f160937af2d", "ea3c1821-7607-48e9-b7fc-a548362e8dc9"], "id": "6a3a8d48-4425-58e2-acf1-cc488d9cd7e8", "kind": "Table", "name": "business", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "TEXT", "name": "description"}, {"data_type": "NUMERIC", "name": "discount"}], "description": "Groups of Customers assigned joint discounts.", "sql_comment": "Groups of Customers assigned joint discounts."}}, "relationships": [{"created_at": "2026-09-16T14:59:23.839534395Z", "evidence": ["941b72ff-1b7d-5f90-bb40-423759bceee8"], "from": "e22be6c2-402f-5a60-b753-e4cdcef9827f", "id": "18d9bb41-d196-5efe-87c2-98cfc84dd0fc", "kind": "ReadsFrom", "properties": {}, "to": "6a3a8d48-4425-58e2-acf1-cc488d9cd7e8", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-28T16:55:50.465242340Z", "evidence": ["210d04b7-3584-49ab-8989-9ff33e0eebcd"], "from":  …
+```
+
+### 282. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `company`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'company'"}`  
+**Result:** ok, 724 ms
+
+```json
+{"count": 1, "rows": [{"id": "ebaa9398-3b6a-597f-8b54-b5cecf3acec5", "kind": "Table", "name": "company"}]}
+```
+
+### 283. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `company`  
+**Arguments:** `{"id": "ebaa9398-3b6a-597f-8b54-b5cecf3acec5"}`  
+**Result:** ok, 11 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:15.776624717Z", "fragment": "CREATE TABLE company", "id": "f47ad5ef-e260-4b19-8ffb-52c62fe6b7c7", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:37.454780849Z", "fragment": "COMMENT ON COLUMN company.tax_id IS In the US this would be a EIN.", "id": "99fb36a2-16ba-4da3-bec6-415f5b89e287", "location": {"column": null, "line": 414, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.213199479Z", "evidence": ["f47ad5ef-e260-4b19-8ffb-52c62fe6b7c7", "99fb36a2-16ba-4da3-bec6-415f5b89e287"], "id": "ebaa9398-3b6a-597f-8b54-b5cecf3acec5", "kind": "Table", "name": "company", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "INTEGER", "name": "entity_id"}, {"data_type": "TEXT", "name": "legal_name"}, {"data_type": "TEXT", "description": "In the US this would be a EIN.", "name": "tax_id"}, {"data_type": "TEXT", "name": "sales_tax_id"}, {"data_type": "TEXT", "name": "license_number"}, {"data_type": "VARCHAR", "name": "sic_code"}, {"data_type": "DATE", "name": "created"}]}}, "relationships": [{"created_at": "2026-09-16T14:59:23.839521126Z", "evidence": ["0717a3ae-1326-53ad-83d9-07fe69d1256f"], "from": "03377bc4-ee2e-5328-b43b-0f1878c55835", "id": "0616e748-0f9e-5952-ac01-a81a9e4e95f6", "kind": "ReadsFrom", "properties": {}, "to": "ebaa9398-3b6a-597f-8b54-b5cecf3acec5", "valid_from": null …
+```
+
+### 284. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `country`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'country'"}`  
+**Result:** ok, 730 ms
+
+```json
+{"count": 1, "rows": [{"id": "bb7c1236-8a1a-538d-9cb5-d51ef1653e94", "kind": "Table", "name": "country"}]}
+```
+
+### 285. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `country`  
+**Arguments:** `{"id": "bb7c1236-8a1a-538d-9cb5-d51ef1653e94"}`  
+**Result:** ok, 14 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:05.858257719Z", "fragment": "CREATE TABLE country", "id": "0d833b0d-eb90-4d5b-be74-7ae81176c571", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:05.525084242Z", "fragment": "COMMENT ON COLUMN country.itu IS The ITU Telecommunication Standardization Sector code for calling internationally. For example, the US is 1, Great Britain is 44", "id": "f179d0d2-db9b-4eaa-babd-412e6fdcab1f", "location": {"column": null, "line": 190, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.083966409Z", "evidence": ["0d833b0d-eb90-4d5b-be74-7ae81176c571", "f179d0d2-db9b-4eaa-babd-412e6fdcab1f"], "id": "bb7c1236-8a1a-538d-9cb5-d51ef1653e94", "kind": "Table", "name": "country", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "TEXT", "name": "name"}, {"data_type": "TEXT", "name": "short_name"}, {"data_type": "TEXT", "description": "The ITU Telecommunication Standardization Sector code for calling internationally. For example, the US is 1, Great Britain is 44", "name": "itu"}]}}, "relationships": [{"created_at": "2026-09-28T16:55:35.984976965Z", "evidence": ["cbe79f35-c04f-4713-89fb-29cd64b047ce"], "from": "3993d440-1c22-52d8-8367-30854bbe7119", "id": "03de8f51-34b5-58f1-a1f5-177743703d00", "kind": "ForeignKey", "properties": {"fk_desc": "entity.country_id → country.id"}, "to": "bb7c1236-8a1a-5 …
+```
+
+### 286. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `currency`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'currency'"}`  
+**Result:** ok, 730 ms
+
+```json
+{"count": 1, "rows": [{"id": "9bcf0658-bb38-5118-9a5c-68d807745540", "kind": "Table", "name": "currency"}]}
+```
+
+### 287. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `currency`  
+**Arguments:** `{"id": "9bcf0658-bb38-5118-9a5c-68d807745540"}`  
+**Result:** ok, 8 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:53.269801207Z", "fragment": "CREATE TABLE currency", "id": "7dedfa12-de84-4af6-96ef-6c0a2f007aab", "location": {"column": null, "line": null, "path": "sql/changes/mc/new-tables.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:29.808717077Z", "fragment": "COMMENT ON TABLE currency IS This table holds the list of currencies available for posting in the system;\nit mostly serves as the canonical definition of currency codes.", "id": "edcbdf65-3c18-41e8-a4c9-8e7cebeb9f1b", "location": {"column": null, "line": 7, "path": "sql/changes/mc/new-tables.sql"}}], "object": {"created_at": "2026-09-28T16:55:34.756432773Z", "evidence": ["7dedfa12-de84-4af6-96ef-6c0a2f007aab", "edcbdf65-3c18-41e8-a4c9-8e7cebeb9f1b"], "id": "9bcf0658-bb38-5118-9a5c-68d807745540", "kind": "Table", "name": "currency", "properties": {"columns": [{"data_type": "CHAR(3)", "name": "curr"}, {"data_type": "TEXT", "name": "description"}], "description": "This table holds the list of currencies available for posting in the system;\nit mostly serves as the canonical definition of currency codes.", "entity_name": "Currency", "entity_type": "lookup", "llm_description": "Reference table of currency codes and descriptions.", "sql_comment": "This table holds the list of currencies available for posting in the system;\nit mostly serves as the canonical definition of currency codes."}}, "relationships": [{"created_at": "2026-09-16T14:59:23.838632881Z" …
+```
+
+### 288. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `eca_to_location`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'eca_to_location'"}`  
+**Result:** ok, 731 ms
+
+```json
+{"count": 1, "rows": [{"id": "be13d243-a016-5b14-ba59-545dae283bc3", "kind": "Table", "name": "eca_to_location"}]}
+```
+
+### 289. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `eca_to_location`  
+**Arguments:** `{"id": "be13d243-a016-5b14-ba59-545dae283bc3"}`  
+**Result:** ok, 8 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:39.101764616Z", "fragment": "CREATE TABLE eca_to_location", "id": "44bba6e6-4f5a-46c4-a73c-14cdc3013cf9", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:32.110464001Z", "fragment": "COMMENT ON TABLE eca_to_location IS This table is used for locations bound to contracts.  For generic contact\naddresses, use entity_to_location instead", "id": "0b25f1d2-6874-48b4-8442-d32d98df4253", "location": {"column": null, "line": 597, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.347303640Z", "evidence": ["44bba6e6-4f5a-46c4-a73c-14cdc3013cf9", "0b25f1d2-6874-48b4-8442-d32d98df4253"], "id": "be13d243-a016-5b14-ba59-545dae283bc3", "kind": "Table", "name": "eca_to_location", "properties": {"columns": [{"data_type": "INTEGER", "name": "location_id"}, {"data_type": "INTEGER", "name": "location_class"}, {"data_type": "INTEGER", "name": "credit_id"}], "description": "This table is used for locations bound to contracts.  For generic contact\naddresses, use entity_to_location instead", "sql_comment": "This table is used for locations bound to contracts.  For generic contact\naddresses, use entity_to_location instead"}}, "relationships": [{"created_at": "2026-09-28T16:55:36.389357257Z", "evidence": ["f41eec93-6656-464c-931a-2620688a2a8b"], "from": "be13d243-a016-5b14-ba59-545dae283bc3", "id": "2719fc74-00ed-5640-9744-c63 …
+```
+
+### 290. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `entity`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'entity'"}`  
+**Result:** ok, 718 ms
+
+```json
+{"count": 1, "rows": [{"id": "3993d440-1c22-52d8-8367-30854bbe7119", "kind": "Table", "name": "entity"}]}
+```
+
+### 291. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `entity`  
+**Arguments:** `{"id": "3993d440-1c22-52d8-8367-30854bbe7119"}`  
+**Result:** ok, 34 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:20.016043656Z", "fragment": "CREATE TABLE entity", "id": "c1e1e19d-85fe-44b6-a44c-3eae4d702c79", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:14.491062240Z", "fragment": "COMMENT ON TABLE entity IS The primary entity table to map to all contacts", "id": "6708672c-9a4c-42ec-8f48-7cae1536257b", "location": {"column": null, "line": 230, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:54.548098152Z", "fragment": "COMMENT ON COLUMN entity.name IS This is the common name of an entity. If it was a person it may be Joshua Drake, a company Acme Corp. You may also choose to use a domain such as commandprompt.com", "id": "da2bd4ae-145b-4e35-9925-6007144b837b", "location": {"column": null, "line": 231, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:07.766358015Z", "fragment": "COMMENT ON TABLE entity IS The primary entity table to map to all contacts", "id": "1b3ad0fd-78c6-4112-93c1-745296e58432", "location": {"column": null, "line": 559, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.109258440Z", "evidence": ["c1e1e19d-85fe-44b6-a44c-3eae4d702c79", "6708672c-9a4c-42ec-8f48-7cae1536257b", "da2bd4ae-145b-4e35-9925-6007144b837b", "1b3ad0fd-78c6-4112-93c1-745296e58432"], "id": "3993d440-1c22-52d8-8367-30854bbe7119", "kind": "Table", "name …
+```
+
+### 292. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `entity_class`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'entity_class'"}`  
+**Result:** ok, 737 ms
+
+```json
+{"count": 1, "rows": [{"id": "9a74248d-a8ff-5ba5-ae20-fd280d091bfc", "kind": "Table", "name": "entity_class"}]}
+```
+
+### 293. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `entity_class`  
+**Arguments:** `{"id": "9a74248d-a8ff-5ba5-ae20-fd280d091bfc"}`  
+**Result:** ok, 10 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:31.636283203Z", "fragment": "CREATE TABLE entity_class", "id": "af982980-7973-46f0-80c0-618339b7ec39", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:46.704752332Z", "fragment": "COMMENT ON TABLE entity_class IS Defines the class type such as vendor, customer, contact, employee", "id": "44dd157a-dd9a-453b-969f-65f560051c75", "location": {"column": null, "line": 214, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:29.566785099Z", "fragment": "COMMENT ON COLUMN entity_class.id IS The first 7 values are reserved and\npermanent.  Individuals who create new classes, however, should coordinate\nwith others for ranges to use.", "id": "8c94b74b-fa68-4627-b523-38e22f7ecd2b", "location": {"column": null, "line": 215, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.100521764Z", "evidence": ["af982980-7973-46f0-80c0-618339b7ec39", "44dd157a-dd9a-453b-969f-65f560051c75", "8c94b74b-fa68-4627-b523-38e22f7ecd2b"], "id": "9a74248d-a8ff-5ba5-ae20-fd280d091bfc", "kind": "Table", "name": "entity_class", "properties": {"columns": [{"data_type": "serial", "description": "The first 7 values are reserved and\npermanent.  Individuals who create new classes, however, should coordinate\nwith others for ranges to use.", "name": "id"}, {"data_type": "TEXT", "name": "class"}, {"data_type": "BO …
+```
+
+### 294. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `entity_credit_account`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'entity_credit_account'"}`  
+**Result:** ok, 719 ms
+
+```json
+{"count": 1, "rows": [{"id": "dd5393ba-4a3d-54cb-a816-be338e0cc992", "kind": "Table", "name": "entity_credit_account"}]}
+```
+
+### 295. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `entity_credit_account`  
+**Arguments:** `{"id": "dd5393ba-4a3d-54cb-a816-be338e0cc992"}`  
+**Result:** ok, 25 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:30.042542980Z", "fragment": "CREATE TABLE entity_credit_account", "id": "4a67ef1a-b077-4a39-b1bc-7b85db510425", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:48.345838005Z", "fragment": "COMMENT ON TABLE entity_credit_account IS This table stores information relating to general relationships regarding\nmoneys owed on invoice.  Invoices, whether AR or AP, must be attached to\na record in this table.", "id": "2a255861-8d91-4286-ade7-163866ba3d88", "location": {"column": null, "line": 560, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:07.321797241Z", "fragment": "COMMENT ON COLUMN entity_credit_account.meta_number IS This stores the human readable control code for the customer/vendor record.\nThis is typically called the customer/vendor \"account\" in the application.", "id": "8d27c327-4e2a-4909-9357-33dfe9288180", "location": {"column": null, "line": 565, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.322119095Z", "evidence": ["4a67ef1a-b077-4a39-b1bc-7b85db510425", "2a255861-8d91-4286-ade7-163866ba3d88", "8d27c327-4e2a-4909-9357-33dfe9288180"], "id": "dd5393ba-4a3d-54cb-a816-be338e0cc992", "kind": "Table", "name": "entity_credit_account", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "INT", "name": "entity_id"}, {"data_type": " …
+```
+
+### 296. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `gl`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'gl'"}`  
+**Result:** ok, 765 ms
+
+```json
+{"count": 1, "rows": [{"id": "411f9c4b-8946-54f1-8783-0b6c3adfcee7", "kind": "Table", "name": "gl"}]}
+```
+
+### 297. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `gl`  
+**Arguments:** `{"id": "411f9c4b-8946-54f1-8783-0b6c3adfcee7"}`  
+**Result:** ok, 10 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:27.722911510Z", "fragment": "CREATE TABLE gl", "id": "5aac7235-a939-414a-b61b-fdc20dc174b2", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:42.040438259Z", "fragment": "COMMENT ON TABLE gl IS This table holds summary information for entries in the general journal.\nDoes not hold summary information in 1.3 for AR or AP entries.", "id": "226932d0-73aa-41d0-aa29-d19d25728d44", "location": {"column": null, "line": 991, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:21.270747299Z", "fragment": "COMMENT ON COLUMN gl.person_id IS the person_id of the employee who created\nthe entry.", "id": "ebc311ee-2878-4556-ab06-72256b979554", "location": {"column": null, "line": 995, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.700899204Z", "evidence": ["5aac7235-a939-414a-b61b-fdc20dc174b2", "226932d0-73aa-41d0-aa29-d19d25728d44", "ebc311ee-2878-4556-ab06-72256b979554"], "id": "411f9c4b-8946-54f1-8783-0b6c3adfcee7", "kind": "Table", "name": "gl", "properties": {"columns": [{"data_type": "INT", "name": "id"}, {"data_type": "TEXT", "name": "reference"}, {"data_type": "TEXT", "name": "description"}, {"data_type": "DATE", "name": "transdate"}, {"data_type": "INTEGER", "description": "the person_id of the employee who created\nthe entry.", "name": "person_id"}, {"data_type": "TEXT",  …
+```
+
+### 298. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `inventory_report`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'inventory_report'"}`  
+**Result:** ok, 718 ms
+
+```json
+{"count": 1, "rows": [{"id": "6b9e7416-2185-5be6-86c8-783c3aee5207", "kind": "Table", "name": "inventory_report"}]}
+```
+
+### 299. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `inventory_report`  
+**Arguments:** `{"id": "6b9e7416-2185-5be6-86c8-783c3aee5207"}`  
+**Result:** ok, 8 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:54.749314908Z", "fragment": "CREATE TABLE inventory_report", "id": "47b68ca2-0463-4b04-bb88-609a03f8a530", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.900910500Z", "evidence": ["47b68ca2-0463-4b04-bb88-609a03f8a530"], "id": "6b9e7416-2185-5be6-86c8-783c3aee5207", "kind": "Table", "name": "inventory_report", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "DATE", "name": "transdate"}, {"data_type": "TEXT", "name": "source"}, {"data_type": "INT", "name": "ar_trans_id"}, {"data_type": "INT", "name": "ap_trans_id"}]}}, "relationships": [{"created_at": "2026-09-16T14:59:23.838880958Z", "evidence": ["f5e7e8b9-9b8e-5cc0-a38b-4b9dd138d86a"], "from": "f9909e05-f2e1-5e65-982f-ecce68ba1eb7", "id": "6d604d09-ccbc-55c5-a162-16ee277d6604", "kind": "ReadsFrom", "properties": {}, "to": "6b9e7416-2185-5be6-86c8-783c3aee5207", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-16T14:59:23.838430899Z", "evidence": ["7a1b6426-2dbe-5d90-9f03-78f55d32e58a"], "from": "6f642978-3e19-5182-af1f-b15ff1274232", "id": "96e665e5-38f5-5279-bba9-1c62b37476c2", "kind": "ReadsFrom", "properties": {}, "to": "6b9e7416-2185-5be6-86c8-783c3aee5207", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-16T14:59:23.839576440Z", "evidence": ["8cc02ec4-21e5-5907-b3b4-b7d59c38758b"], "from": "a6869a5e-5717-5a7d-90c8- …
+```
+
+### 300. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `inventory_report_line`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'inventory_report_line'"}`  
+**Result:** ok, 726 ms
+
+```json
+{"count": 1, "rows": [{"id": "0f8e2bad-af2f-5d34-921c-14e60709a98b", "kind": "Table", "name": "inventory_report_line"}]}
+```
+
+### 301. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `inventory_report_line`  
+**Arguments:** `{"id": "0f8e2bad-af2f-5d34-921c-14e60709a98b"}`  
+**Result:** ok, 7 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:43.330181647Z", "fragment": "CREATE TABLE inventory_report_line", "id": "e73fa1e3-3ffb-4dc1-949c-7646e82327cd", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.913998298Z", "evidence": ["e73fa1e3-3ffb-4dc1-949c-7646e82327cd"], "id": "0f8e2bad-af2f-5d34-921c-14e60709a98b", "kind": "Table", "name": "inventory_report_line", "properties": {"columns": [{"data_type": "INT", "name": "adjust_id"}, {"data_type": "INT", "name": "parts_id"}, {"data_type": "NUMERIC", "name": "counted"}, {"data_type": "NUMERIC", "name": "expected"}, {"data_type": "NUMERIC", "name": "variance"}]}}, "relationships": [{"created_at": "2026-09-28T16:55:37.256020809Z", "evidence": ["4fd4e37e-8f59-45cd-880d-df1fa99ef158"], "from": "0f8e2bad-af2f-5d34-921c-14e60709a98b", "id": "63acbbec-841d-5a3b-a075-a08da5f3f657", "kind": "ForeignKey", "properties": {"fk_desc": "inventory_report_line.parts_id → parts.id"}, "to": "13575f92-6f74-5533-8a33-04ceabd3b710", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-16T14:59:23.838036434Z", "evidence": ["16dd4120-05e7-52ae-a8bc-8cf211309b2e"], "from": "478d75e3-12ec-507a-b90b-d0f04c793424", "id": "9fab1efa-9a77-5cd4-bb0a-a9897790552f", "kind": "ReadsFrom", "properties": {}, "to": "0f8e2bad-af2f-5d34-921c-14e60709a98b", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-28T16:55:37.247548203Z", "evidence": [" …
+```
+
+### 302. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `invoice`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'invoice'"}`  
+**Result:** ok, 728 ms
+
+```json
+{"count": 1, "rows": [{"id": "007811f7-d983-545d-9927-998a016f81da", "kind": "Table", "name": "invoice"}]}
+```
+
+### 303. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `invoice`  
+**Arguments:** `{"id": "007811f7-d983-545d-9927-998a016f81da"}`  
+**Result:** ok, 11 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:25.382945457Z", "fragment": "CREATE TABLE invoice", "id": "ca164058-5e1a-4d03-891b-c35f7d3634e2", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:17.363431929Z", "fragment": "COMMENT ON TABLE invoice IS Line items of invoices with goods/services attached.", "id": "d30a501a-9892-4429-a64d-e2c06faec841", "location": {"column": null, "line": 1264, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:51.026827890Z", "fragment": "COMMENT ON COLUMN invoice.allocated IS Number of allocated items, negative relative to qty.\nWhen qty + allocated = 0, then the item is fully used for purposes of COGS\ncalculations.", "id": "69677c0e-4afe-4d52-b434-eae0c5846e55", "location": {"column": null, "line": 1267, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:11.844318465Z", "fragment": "COMMENT ON COLUMN invoice.qty IS Positive is normal for sales invoices, negative for vendor invoices.", "id": "e517760f-eb33-47bc-925c-e2201a6ece46", "location": {"column": null, "line": 1272, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.841544156Z", "evidence": ["ca164058-5e1a-4d03-891b-c35f7d3634e2", "d30a501a-9892-4429-a64d-e2c06faec841", "69677c0e-4afe-4d52-b434-eae0c5846e55", "e517760f-eb33-47bc-925c-e2201a6ece46"], "id": "007811f7-d983-545d-9927-998a016f81da", …
+```
+
+### 304. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `location`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'location'"}`  
+**Result:** ok, 742 ms
+
+```json
+{"count": 1, "rows": [{"id": "4bd59c1f-3554-5637-8606-52cdb89bac7d", "kind": "Table", "name": "location"}]}
+```
+
+### 305. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `location`  
+**Arguments:** `{"id": "4bd59c1f-3554-5637-8606-52cdb89bac7d"}`  
+**Result:** ok, 13 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:32.216603564Z", "fragment": "CREATE TABLE location", "id": "505493d7-efc3-4131-af51-f47e184cb725", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:19.969558388Z", "fragment": "COMMENT ON TABLE location IS This table stores addresses, such as shipto and bill to addresses.", "id": "c9ffe3d7-22b4-4cf5-a3ee-0fbdf294aa0e", "location": {"column": null, "line": 399, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.197658850Z", "evidence": ["505493d7-efc3-4131-af51-f47e184cb725", "c9ffe3d7-22b4-4cf5-a3ee-0fbdf294aa0e"], "id": "4bd59c1f-3554-5637-8606-52cdb89bac7d", "kind": "Table", "name": "location", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "TEXT", "name": "line_one"}, {"data_type": "TEXT", "name": "line_two"}, {"data_type": "TEXT", "name": "line_three"}, {"data_type": "TEXT", "name": "city"}, {"data_type": "TEXT", "name": "state"}, {"data_type": "INTEGER", "name": "country_id"}, {"data_type": "TEXT", "name": "mail_code"}, {"data_type": "DATE", "name": "created"}, {"data_type": "TIMESTAMP", "name": "inactive_date"}, {"data_type": "BOOLEAN", "name": "active"}], "description": "This table stores addresses, such as shipto and bill to addresses.", "sql_comment": "This table stores addresses, such as shipto and bill to addresses."}}, "relationships": [{"created_at": "2026-09- …
+```
+
+### 306. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `oe`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'oe'"}`  
+**Result:** ok, 731 ms
+
+```json
+{"count": 1, "rows": [{"id": "d1b46d64-5445-5e88-ae13-d18e0e8fbb23", "kind": "Table", "name": "oe"}]}
+```
+
+### 307. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `oe`  
+**Arguments:** `{"id": "d1b46d64-5445-5e88-ae13-d18e0e8fbb23"}`  
+**Result:** ok, 14 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:24.969539223Z", "fragment": "CREATE TABLE oe", "id": "44a02aac-f29c-43fa-a926-dc899474e3b4", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:31.716998318Z", "fragment": "COMMENT ON TABLE oe IS Header information for:\n* Sales orders\n* Purchase Orders\n* Quotations\n* Requests for Quotation", "id": "6cdefb33-4acd-42ef-b22c-fe1f294b7149", "location": {"column": null, "line": 1614, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:58.008766082Z", "evidence": ["44a02aac-f29c-43fa-a926-dc899474e3b4", "6cdefb33-4acd-42ef-b22c-fe1f294b7149"], "id": "d1b46d64-5445-5e88-ae13-d18e0e8fbb23", "kind": "Table", "name": "oe", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "TEXT", "name": "ordnumber"}, {"data_type": "DATE", "name": "transdate"}, {"data_type": "INTEGER", "name": "entity_id"}, {"data_type": "NUMERIC", "name": "amount"}, {"data_type": "NUMERIC", "name": "netamount"}, {"data_type": "DATE", "name": "reqdate"}, {"data_type": "BOOL", "name": "taxincluded"}, {"data_type": "TEXT", "name": "shippingpoint"}, {"data_type": "TEXT", "name": "notes"}, {"data_type": "CHAR(3)", "name": "curr"}, {"data_type": "INTEGER", "name": "person_id"}, {"data_type": "BOOL", "name": "closed"}, {"data_type": "BOOL", "name": "quotation"}, {"data_type": "TEXT", "name": "quonumber"}, {"data_type": "TEXT", …
+```
+
+### 308. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `oe_class`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'oe_class'"}`  
+**Result:** ok, 740 ms
+
+```json
+{"count": 1, "rows": [{"id": "ee5ad1c8-a825-5255-a204-aa9e74be7ed6", "kind": "Table", "name": "oe_class"}]}
+```
+
+### 309. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `oe_class`  
+**Arguments:** `{"id": "ee5ad1c8-a825-5255-a204-aa9e74be7ed6"}`  
+**Result:** ok, 7 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:10.608730839Z", "fragment": "CREATE TABLE oe_class", "id": "046227df-c43e-46af-b400-b7d324a1cebf", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:20.132919376Z", "fragment": "COMMENT ON TABLE oe_class IS Hardwired classifications for orders and quotations.\nCoordinate before adding.", "id": "b3684aa3-480f-4f87-8f4a-34dd23ac1259", "location": {"column": null, "line": 1585, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:58.001140863Z", "evidence": ["046227df-c43e-46af-b400-b7d324a1cebf", "b3684aa3-480f-4f87-8f4a-34dd23ac1259"], "id": "ee5ad1c8-a825-5255-a204-aa9e74be7ed6", "kind": "Table", "name": "oe_class", "properties": {"columns": [{"data_type": "SMALLINT", "name": "id"}, {"data_type": "TEXT", "name": "oe_class"}], "description": "Hardwired classifications for orders and quotations.\nCoordinate before adding.", "sql_comment": "Hardwired classifications for orders and quotations.\nCoordinate before adding."}}, "relationships": [{"created_at": "2026-09-16T14:59:23.839077143Z", "evidence": ["062ae994-abdb-56f7-b9e2-f430e4406ce2"], "from": "7bc096c6-f0ca-5b18-93d7-21a610c71769", "id": "8fdb48e9-989b-5f80-bf21-9eef77ee6115", "kind": "ReadsFrom", "properties": {}, "to": "ee5ad1c8-a825-5255-a204-aa9e74be7ed6", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-28T16:55:37.408086196Z", "eviden …
+```
+
+### 310. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `open_item`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'open_item'"}`  
+**Result:** ok, 721 ms
+
+```json
+{"count": 1, "rows": [{"id": "4050340b-d85d-5da8-960c-74d76fc458a6", "kind": "Table", "name": "open_item"}]}
+```
+
+### 311. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `open_item`  
+**Arguments:** `{"id": "4050340b-d85d-5da8-960c-74d76fc458a6"}`  
+**Result:** ok, 7 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:30.213823647Z", "fragment": "CREATE TABLE open_item", "id": "bd685f53-7d5f-4ff5-8fff-11ac1497a93b", "location": {"column": null, "line": null, "path": "sql/changes/1.14/open-item-tracking.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:31.086973347Z", "fragment": "COMMENT ON TABLE open_item IS Allows tracking of items to be cleared/handled in subsequent transactions.", "id": "ef859700-0e56-4977-b1ee-dd63337437c1", "location": {"column": null, "line": 93, "path": "sql/changes/1.14/open-item-tracking.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:37.484303592Z", "fragment": "COMMENT ON COLUMN open_item.id IS Internal identifier for the open item.", "id": "418e09d3-b898-4fac-9046-fd88284cd830", "location": {"column": null, "line": 96, "path": "sql/changes/1.14/open-item-tracking.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:19.286475695Z", "fragment": "COMMENT ON COLUMN open_item.item_number IS Identifier as presented in the user interface.", "id": "f03ab24d-dbeb-4a0c-8550-34bb8f9b5bcf", "location": {"column": null, "line": 98, "path": "sql/changes/1.14/open-item-tracking.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:52.737545798Z", "fragment": "COMMENT ON COLUMN open_item.item_type IS Type of open item; currently 'gl','ar' or 'ap'.", "id": "a6bc1242-8d61-4273-95a7-9abdc8678d3f", "location": {"column": null, "line": 100, "path": "sql/changes/1.14/open-item-track …
+```
+
+### 312. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `orderitems`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'orderitems'"}`  
+**Result:** ok, 725 ms
+
+```json
+{"count": 1, "rows": [{"id": "cd6546c8-7658-5a84-ab3a-1f557f383cd2", "kind": "Table", "name": "orderitems"}]}
+```
+
+### 313. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `orderitems`  
+**Arguments:** `{"id": "cd6546c8-7658-5a84-ab3a-1f557f383cd2"}`  
+**Result:** ok, 8 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:11.869990846Z", "fragment": "CREATE TABLE orderitems", "id": "d9400a75-b360-4530-b644-3d75398d75f6", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:24.839374282Z", "fragment": "COMMENT ON TABLE orderitems IS Line items for sales/purchase orders and quotations.", "id": "c73c4a06-aa6b-42b7-ad88-090fc7a3cbad", "location": {"column": null, "line": 1637, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:58.016670248Z", "evidence": ["d9400a75-b360-4530-b644-3d75398d75f6", "c73c4a06-aa6b-42b7-ad88-090fc7a3cbad"], "id": "cd6546c8-7658-5a84-ab3a-1f557f383cd2", "kind": "Table", "name": "orderitems", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "INT", "name": "trans_id"}, {"data_type": "INT", "name": "parts_id"}, {"data_type": "TEXT", "name": "description"}, {"data_type": "NUMERIC", "name": "qty"}, {"data_type": "NUMERIC", "name": "sellprice"}, {"data_type": "INT", "name": "precision"}, {"data_type": "NUMERIC", "name": "discount"}, {"data_type": "VARCHAR(5)", "name": "unit"}, {"data_type": "DATE", "name": "reqdate"}, {"data_type": "NUMERIC", "name": "ship"}, {"data_type": "TEXT", "name": "serialnumber"}, {"data_type": "TEXT", "name": "notes"}], "description": "Line items for sales/purchase orders and quotations.", "sql_comment": "Line items for sales/purchase orders and quotations. …
+```
+
+### 314. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `parts`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'parts'"}`  
+**Result:** ok, 724 ms
+
+```json
+{"count": 1, "rows": [{"id": "13575f92-6f74-5533-8a33-04ceabd3b710", "kind": "Table", "name": "parts"}]}
+```
+
+### 315. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `parts`  
+**Arguments:** `{"id": "13575f92-6f74-5533-8a33-04ceabd3b710"}`  
+**Result:** ok, 26 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:29.113880242Z", "fragment": "CREATE TABLE parts", "id": "b3312938-6067-465c-ab0a-6b63aa172e9b", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:52.903439126Z", "fragment": "COMMENT ON TABLE parts IS This stores detail information about goods and services.  The type of part\nis currently defined according to the following rules:\n* If assembly is true, then an assembly\n* If inventory_accno_id, income_accno_id, and expense_accno_id are not null then\n  a part.\n* If inventory_accno_id is null but the other two are not, then a service.\n* Otherwise, a labor/overhead entry.", "id": "984dcdce-b39f-4b6d-84c8-c78b1080cfb7", "location": {"column": null, "line": 1195, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:50.410754028Z", "fragment": "COMMENT ON COLUMN parts.rop IS Re-order point.  Used to select parts for short inventory report.", "id": "0be54004-5027-4fbf-8d5a-7f44c6e75103", "location": {"column": null, "line": 1205, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:20.948086881Z", "fragment": "COMMENT ON COLUMN parts.bin IS Text identifier for where a part is stored.", "id": "bd93086a-3cf3-4ed9-bd02-1af057977bc1", "location": {"column": null, "line": 1208, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:13.698194643Z", "f …
+```
+
+### 316. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `partsgroup`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'partsgroup'"}`  
+**Result:** ok, 725 ms
+
+```json
+{"count": 1, "rows": [{"id": "1feb9c21-7673-59d0-9266-ba8cf1c065ab", "kind": "Table", "name": "partsgroup"}]}
+```
+
+### 317. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `partsgroup`  
+**Arguments:** `{"id": "1feb9c21-7673-59d0-9266-ba8cf1c065ab"}`  
+**Result:** ok, 10 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:51.987693722Z", "fragment": "CREATE TABLE partsgroup", "id": "752ce570-0e35-4f56-85f1-895fad7f456b", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:43.838087021Z", "fragment": "COMMENT ON TABLE partsgroup IS Groups of parts for Point of Sale screen.", "id": "d40d4992-6238-4109-8a6f-9abd4c2ab42f", "location": {"column": null, "line": 1803, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:58.187849950Z", "evidence": ["752ce570-0e35-4f56-85f1-895fad7f456b", "d40d4992-6238-4109-8a6f-9abd4c2ab42f"], "id": "1feb9c21-7673-59d0-9266-ba8cf1c065ab", "kind": "Table", "name": "partsgroup", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "TEXT", "name": "partsgroup"}, {"data_type": "INT", "name": "parent"}], "description": "Groups of parts for Point of Sale screen.", "sql_comment": "Groups of parts for Point of Sale screen."}}, "relationships": [{"created_at": "2026-09-16T14:59:23.839744968Z", "evidence": ["226187f4-0a33-5028-b2a0-edbb695e4a38"], "from": "2412ef55-d1f2-50be-9a60-b6a17caec760", "id": "1976c3d6-8fc8-5b4d-a67f-af72cd50cc47", "kind": "ReadsFrom", "properties": {}, "to": "1feb9c21-7673-59d0-9266-ba8cf1c065ab", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-16T14:59:23.838853370Z", "evidence": ["e76295cd-ff2c-566f-a85b-ab36d57d5635"], "from": "095d2cd5-623 …
+```
+
+### 318. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `partstax`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'partstax'"}`  
+**Result:** ok, 732 ms
+
+```json
+{"count": 1, "rows": [{"id": "2ea7f176-56d7-5564-831c-2bb5449d91d4", "kind": "Table", "name": "partstax"}]}
+```
+
+### 319. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `partstax`  
+**Arguments:** `{"id": "2ea7f176-56d7-5564-831c-2bb5449d91d4"}`  
+**Result:** ok, 8 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:34.245828265Z", "fragment": "CREATE TABLE partstax", "id": "c35eb492-6872-4b94-bcc1-21a237b249ce", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:31.958695563Z", "fragment": "COMMENT ON TABLE partstax IS Mapping of parts to taxes.", "id": "95e9aabf-6069-4581-a303-0c6e48c8bb0b", "location": {"column": null, "line": 1538, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.959492595Z", "evidence": ["c35eb492-6872-4b94-bcc1-21a237b249ce", "95e9aabf-6069-4581-a303-0c6e48c8bb0b"], "id": "2ea7f176-56d7-5564-831c-2bb5449d91d4", "kind": "Table", "name": "partstax", "properties": {"columns": [{"data_type": "INT", "name": "parts_id"}, {"data_type": "INT", "name": "chart_id"}, {"data_type": "INT", "name": "taxcategory_id"}], "description": "Mapping of parts to taxes.", "sql_comment": "Mapping of parts to taxes."}}, "relationships": [{"created_at": "2026-09-28T16:55:37.273207675Z", "evidence": ["444ff220-c5be-4a59-9cc7-5a08d39177bf"], "from": "2ea7f176-56d7-5564-831c-2bb5449d91d4", "id": "527c92bf-114e-5ce0-a713-5359d7b6688d", "kind": "ForeignKey", "properties": {"fk_desc": "partstax.parts_id → parts.id"}, "to": "13575f92-6f74-5533-8a33-04ceabd3b710", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-28T16:55:37.281862987Z", "evidence": ["581e7e9e-307c-4696-b4b5-870676351c5d"], "from": "2ea7f176-56d7 …
+```
+
+### 320. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `payment`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'payment'"}`  
+**Result:** ok, 717 ms
+
+```json
+{"count": 1, "rows": [{"id": "c600e4f4-f88b-5d21-94ac-7d918d48dcf3", "kind": "Table", "name": "payment"}]}
+```
+
+### 321. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `payment`  
+**Arguments:** `{"id": "c600e4f4-f88b-5d21-94ac-7d918d48dcf3"}`  
+**Result:** ok, 12 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:16.340195166Z", "fragment": "CREATE TABLE payment", "id": "d0d64f44-d4ba-4444-aa73-c3ce5e997cef", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:32.626410607Z", "fragment": "COMMENT ON TABLE payment IS This table will store the main data on a payment, prepayment, overpayment, et", "id": "efd170b9-c341-4c0b-8f21-e06ced8df2d9", "location": {"column": null, "line": 3417, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:13.979318046Z", "fragment": "COMMENT ON COLUMN payment.reference IS This field will store the code for both receipts and payment order", "id": "6422bc74-4ff3-44c1-86fc-7835f2a333f1", "location": {"column": null, "line": 3418, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:18.652523656Z", "fragment": "COMMENT ON COLUMN payment.closed IS This will store the current state of a payment/receipt order", "id": "edb0e44d-4501-45d8-92c3-fba9ece814ea", "location": {"column": null, "line": 3419, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:41.707322470Z", "fragment": "COMMENT ON COLUMN payment.gl_id IS A payment should always be linked to a GL movement", "id": "337934d3-9406-4d7d-b2bb-2b2da9f7cc6b", "location": {"column": null, "line": 3420, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:5 …
+```
+
+### 322. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `tax`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'tax'"}`  
+**Result:** ok, 721 ms
+
+```json
+{"count": 1, "rows": [{"id": "1ae6e156-42d7-5a40-abda-6c86b441ef29", "kind": "Table", "name": "tax"}]}
+```
+
+### 323. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `tax`  
+**Arguments:** `{"id": "1ae6e156-42d7-5a40-abda-6c86b441ef29"}`  
+**Result:** ok, 7 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:18.989424666Z", "fragment": "CREATE TABLE tax", "id": "1bac55e2-0b8b-4afd-a0b8-1ad4558aca75", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:54.192954210Z", "fragment": "COMMENT ON TABLE tax IS Information on tax rates.", "id": "1c664f40-8083-40fa-a138-c4920f1cb486", "location": {"column": null, "line": 1554, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:43.829656182Z", "fragment": "COMMENT ON COLUMN tax.pass IS This is an integer indicating the pass of the tax. This is to support\ncumultative sales tax rules (for example, Quebec charging taxes on the federal\ntaxes collected).", "id": "7818c3da-7e7d-4002-917e-243cbd0e7d4b", "location": {"column": null, "line": 1557, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.978835532Z", "evidence": ["1bac55e2-0b8b-4afd-a0b8-1ad4558aca75", "1c664f40-8083-40fa-a138-c4920f1cb486", "7818c3da-7e7d-4002-917e-243cbd0e7d4b"], "id": "1ae6e156-42d7-5a40-abda-6c86b441ef29", "kind": "Table", "name": "tax", "properties": {"columns": [{"data_type": "INT", "name": "chart_id"}, {"data_type": "NUMERIC", "name": "rate"}, {"data_type": "NUMERIC", "name": "minvalue"}, {"data_type": "NUMERIC", "name": "maxvalue"}, {"data_type": "TEXT", "name": "taxnumber"}, {"data_type": "TIMESTAMP", "name": "validto"}, {"data_type": "INTEGER", "description": …
+```
+
+### 324. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `trans_type`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'trans_type'"}`  
+**Result:** ok, 739 ms
+
+```json
+{"count": 1, "rows": [{"id": "0d3c2be1-0fce-5594-bc86-61952763202b", "kind": "Table", "name": "trans_type"}]}
+```
+
+### 325. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `trans_type`  
+**Arguments:** `{"id": "0d3c2be1-0fce-5594-bc86-61952763202b"}`  
+**Result:** ok, 7 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:13.357297456Z", "fragment": "CREATE TABLE trans_type", "id": "b3c78561-d0c4-4af1-ae59-4bbf7865e138", "location": {"column": null, "line": null, "path": "sql/changes/1.6/gl-trans-type.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:04.746790427Z", "fragment": "COMMENT ON TABLE trans_type IS Documents the transaction type codes used in the 'gl' table.\n\nPlease note that the codes in this table are hard-coded into other\n(SQL) parts of the application. As such, this table merely serves\nas documentation; do *not* modify its content other than inserting\nnew codes.", "id": "2c49b530-ab9c-4cf4-9390-10305e857b2a", "location": {"column": null, "line": 7, "path": "sql/changes/1.6/gl-trans-type.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:53.156332331Z", "fragment": "COMMENT ON COLUMN trans_type.code IS Code of the transaction type. The 72 alphanumeric codes starting\nwith 'x' or 'X' are reserved for custom internal extensions.\n\nFor extensions distributed for wide(r) use, please request a code\nfrom the LedgerSMB development team.", "id": "81dc3943-f823-4826-8aab-5fa0d6fd52a8", "location": {"column": null, "line": 15, "path": "sql/changes/1.6/gl-trans-type.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:33.084956215Z", "fragment": "COMMENT ON COLUMN trans_type.description IS This column contains the full documentation as to the origin\nand purpose of the transaction type.", "id" …
+```
+
+### 326. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `transactions`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'transactions'"}`  
+**Result:** ok, 727 ms
+
+```json
+{"count": 1, "rows": [{"id": "eeb63b84-6b6b-5bd7-8283-67bc35274b38", "kind": "Table", "name": "transactions"}]}
+```
+
+### 327. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `transactions`  
+**Arguments:** `{"id": "eeb63b84-6b6b-5bd7-8283-67bc35274b38"}`  
+**Result:** ok, 21 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:45.598957091Z", "fragment": "CREATE TABLE transactions", "id": "c71fc90b-2e47-43ba-aaaf-bff57de584f0", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:13.824818545Z", "fragment": "COMMENT ON TABLE transactions IS This table provides referential integrity between AR, AP, GL tables on one\nhand and acc_trans on the other, pending the refactoring of those tables.  It\nalso is used to provide discretionary locking of financial transactions across\ndatabase connections, for example in batch payment workflows.", "id": "c35bd085-4bdf-4772-9684-5edbebd9a0ae", "location": {"column": null, "line": 308, "path": "sql/Pg-database.sql"}}, {"confidence": 1.0, "created_at": "2026-09-28T16:54:36.023694502Z", "fragment": "COMMENT ON COLUMN transactions.locked_by IS This should only be used in pessimistic locking measures as required by large\nbatch work flows.", "id": "1958eb3c-a226-4589-8f66-d61016141bd7", "location": {"column": null, "line": 338, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:57.155866080Z", "evidence": ["c71fc90b-2e47-43ba-aaaf-bff57de584f0", "c35bd085-4bdf-4772-9684-5edbebd9a0ae", "1958eb3c-a226-4589-8f66-d61016141bd7"], "id": "eeb63b84-6b6b-5bd7-8283-67bc35274b38", "kind": "Table", "name": "transactions", "properties": {"columns": [{"data_type": "INT", "name": "id"}, {"data_type": "TEXT", "name": "t …
+```
+
+### 328. `ekos_ekl` — 8-documentation
+
+**Why:** dbt docs: locate `warehouse`  
+**Arguments:** `{"query": "FIND Object WHERE kind = 'Table' AND name = 'warehouse'"}`  
+**Result:** ok, 723 ms
+
+```json
+{"count": 1, "rows": [{"id": "cb63feeb-3d78-5175-8948-db542ce600da", "kind": "Table", "name": "warehouse"}]}
+```
+
+### 329. `ekos_state` — 8-documentation
+
+**Why:** dbt docs: descriptions of `warehouse`  
+**Arguments:** `{"id": "cb63feeb-3d78-5175-8948-db542ce600da"}`  
+**Result:** ok, 8 ms
+
+```json
+{"evidence": [{"confidence": 1.0, "created_at": "2026-09-28T16:54:11.530693031Z", "fragment": "CREATE TABLE warehouse", "id": "4c5af174-2cbe-45ab-a1d7-e687b5260a94", "location": {"column": null, "line": null, "path": "sql/Pg-database.sql"}}], "object": {"created_at": "2026-09-28T16:54:58.222812157Z", "evidence": ["4c5af174-2cbe-45ab-a1d7-e687b5260a94"], "id": "cb63feeb-3d78-5175-8948-db542ce600da", "kind": "Table", "name": "warehouse", "properties": {"columns": [{"data_type": "serial", "name": "id"}, {"data_type": "TEXT", "name": "description"}]}}, "relationships": [{"created_at": "2026-09-28T16:55:38.012374043Z", "evidence": ["ed5c10cf-c132-4544-a055-afb4ff9ba46b"], "from": "6e2475a2-326b-529e-99dc-1eb7474eccbc", "id": "13a02980-74ea-5af7-8498-143387ee4e97", "kind": "ForeignKey", "properties": {"fk_desc": "asset_item.location_id → warehouse.id"}, "to": "cb63feeb-3d78-5175-8948-db542ce600da", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-16T14:59:23.839987458Z", "evidence": ["7409a82f-bf5e-591e-85fa-54d47c935330"], "from": "49312b51-74ab-5d74-b7dd-7fbf88d57aa2", "id": "7e01f7e3-49ab-586f-9c7f-0c7193c7070b", "kind": "ReadsFrom", "properties": {}, "to": "cb63feeb-3d78-5175-8948-db542ce600da", "valid_from": null, "valid_until": null}, {"created_at": "2026-09-16T14:59:23.840177497Z", "evidence": ["1591db61-4f66-54a5-9efb-9dd5d48df2f2"], "from": "465692b3-daca-5e4b-a4d5-8d046f435b7d", "id": "8ce0a240-c520-5e32-901e-0d51689a36e7", "kind": "ReadsFrom", "propertie …
+```
+

@@ -23,7 +23,7 @@ tokens per model.
 | | |
 |---|---|
 | Tables migrated and validated V1 + V2 + V3 | 30 / 30 (plus `tax` via Python, with a recorded decision) |
-| Human approvals required by computed risk | 6 units; self-approval refused 6 / 6 |
+| Human approvals required by computed risk | 8 units; self-approval refused 8 / 8 |
 | dbt | 162 / 162 (38 models, 124 tests) |
 | Reconciliation against LedgerSMB's own reports | 6 / 6, to the cent |
 | EKOS defects found by the demo and fixed | 16 (EKOS devlog_226) |

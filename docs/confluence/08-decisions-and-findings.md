@@ -50,6 +50,7 @@ that fails without it (devlog_226, plus the two found afterwards).
 | Unit state machine not advanced by `assess`/`map`/`approve`/`load`; `load`/`validate` swallow the illegal-transition error | the report cannot see validated units ("Not signable") |
 | `ekos ask --json` prints an INFO log line on stdout before the JSON | breaks naïve JSON consumers |
 | A rebuild whose every LLM call fails (403) still exits 0 with warnings | the first rebuild's semantic naming silently did not happen |
+| Very large SQL files are sent to the LLM whole | 3 calls (incl. `sql/Pg-database.sql`) ran ~10 min and returned HTTP 404; the second compile's `recover` took 54 min |
 | `ekos ask` answer quality on LedgerSMB: cautious but thin; structural MCP tools were more useful | see 02 |
 
 ## LedgerSMB (upstream) findings

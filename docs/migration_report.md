@@ -1,6 +1,6 @@
-# Migration report — ledgersmb-analytics-official
+# Migration report — ledgersmb-analytics-release
 
-**Snapshot:** `2214 facts #5ada06149834`
+**Snapshot:** `2217 facts #fd14a1f18060`
 
 **Not signable.** The blockers are listed below, before the content.
 
@@ -1710,11 +1710,15 @@ Every approval request and what was decided.
 
 REQ:public.acc_trans:sandbox is approved. [MigrationApproval:REQ:public.acc_trans:sandbox]
 
+REQ:public.account:sandbox is approved. [MigrationApproval:REQ:public.account:sandbox]
+
 REQ:public.country:sandbox is approved. [MigrationApproval:REQ:public.country:sandbox]
 
 REQ:public.entity:sandbox is approved. [MigrationApproval:REQ:public.entity:sandbox]
 
 REQ:public.entity_credit_account:sandbox is approved. [MigrationApproval:REQ:public.entity_credit_account:sandbox]
+
+REQ:public.location:sandbox is approved. [MigrationApproval:REQ:public.location:sandbox]
 
 REQ:public.parts:sandbox is approved. [MigrationApproval:REQ:public.parts:sandbox]
 

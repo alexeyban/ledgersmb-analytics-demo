@@ -57,10 +57,10 @@ order backlog, ABC classification, and supplier spend.
 |---|---|
 | Tables migrated | 31 (30 by EKOS Migrate, 1 by Python with a recorded decision) |
 | Validation | **30/30 pass V1 + V2 + V3** (row counts, per-column aggregates, bucketed row hashes) |
-| Risk-gated loads | 6 units computed R3 by EKOS → human approval required; **self-approval refused 6/6** |
+| Risk-gated loads | 8 units computed R3 by EKOS → human approval required; **self-approval refused 8/8** |
 | dbt | **162/162** pass (38 models, 124 tests) |
 | Independent reconciliation | **6/6** checks vs LedgerSMB's own reports, to the cent |
-| EKOS defects found and fixed | **14** (devlog_226), incl. a self-approval bypass and a cents-blind validator |
+| EKOS defects found and fixed | **16** (devlog_226), incl. a self-approval bypass, a cents-blind validator and two risk-gate holes |
 | End-to-end runtime | ≈ 5 minutes from an empty database |
 
 See [05 — Key figures](05-kpis.md) for the numbers and [08 — Decisions and findings](08-decisions-and-findings.md)

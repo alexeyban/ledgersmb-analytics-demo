@@ -34,7 +34,10 @@ def load() -> dict:
         models.append({"label": f"{model} ({route})", "calls": c.get("calls", 0), "ok": c.get("ok", 0),
                        "in": c.get("input_tokens", 0), "out": c.get("output_tokens", 0),
                        "total": c.get("input_tokens", 0) + c.get("output_tokens", 0)})
-    return {"kpis": kpis, "usage": {**usage, "models": models}, "units": units, "recon": recon,
+    import re
+    snap = re.search(r"Snapshot:\*\* `(\d+) facts", (ROOT / "docs" / "migration_report.md").read_text())
+    report_facts = f"{int(snap.group(1)):,}" if snap else "?"
+    return {"report_facts": report_facts, "kpis": kpis, "usage": {**usage, "models": models}, "units": units, "recon": recon,
             "runs": [{"step": r["step"], "seconds": r["seconds"]} for r in runs], "queries": queries}
 
 
@@ -200,7 +203,7 @@ a way the loader differed from LedgerSMB's installer.</p>
 <div class="card stat"><div class="v">11,084</div><div class="k">objects compiled</div></div>
 <div class="card stat"><div class="v">9,228</div><div class="k">relationships</div></div>
 <div class="card stat"><div class="v">185</div><div class="k">tables recovered from sql/</div></div>
-<div class="card stat"><div class="v">2,579</div><div class="k">Perl packages + symbols</div></div></div>
+<div class="card stat"><div class="v">2,511</div><div class="k">Perl packages + symbols (this compile)</div></div></div>
 <h3>What it surfaced</h3><ul class="tight">
 <li><b>15 cross-language homonyms</b> stopped <code>resolve</code> (Table <code>gl</code> vs Perl <code>LedgerSMB::GL</code>). <code>--force</code> continues and merges nothing; an open EKOS finding.</li>
 <li>The first compile's <b>26 cloud LLM calls all failed</b> (HTTP 403, a harness problem), yet EKOS exited 0 with warnings. After the fix, the compile was re-run for real.</li></ul></section>""")
@@ -351,8 +354,8 @@ WHERE `entry_id` >= 1 AND `entry_id` < 100001</pre>
 <p class="note">Verified against real PostgreSQL 16 and ClickHouse 24.8 with EKOS's live three-way tests (12 pass).</p></section>""")
 
     # 25 report
-    add("""<section class="slide"><div class="kicker">3 · The migration</div><h2>report: compiled, cited — and "Not signable"</h2>
-<p class="lede">The migration report is compiled from 2,214 ledger facts with groundedness 1.000. It refuses sign-off, and it is right to.</p>
+    add(f"""<section class="slide"><div class="kicker">3 · The migration</div><h2>report: compiled, cited — and "Not signable"</h2>
+<p class="lede">The migration report is compiled from {d["report_facts"]} ledger facts with groundedness 1.000. It refuses sign-off, and it is right to.</p>
 <table><tr><th>Blocker</th><th>Why</th></tr>
 <tr><td>Units not validated in the state machine</td><td>The lifecycle needs assessed → … → validated; units with blocking findings cannot advance until dispositions exist, and load/validate swallow the illegal-transition error (open EKOS finding)</td></tr>
 <tr><td>Unexplained divergences</td><td>No approved dispositions yet (the disposition workflow is not built)</td></tr>

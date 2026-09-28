@@ -1,6 +1,6 @@
 # 03 — The migration: EKOS Migrate, PostgreSQL → ClickHouse
 
-Project `ledgersmb-analytics-official`. Every command and its full output is in `logs/migration.log`;
+Project `ledgersmb-analytics-release` (the final run, with all 16 EKOS fixes). Every command and its full output is in `logs/migration.log`;
 the per-unit summary is `logs/migration_units.tsv`. Credentials never appear in a statement or in the
 ledger. The source is read through a ClickHouse **named collection** (`lsmb_source`), and passwords
 come from environment variables that the config only *names* (`LSMB_PG_PASSWORD`,
@@ -16,7 +16,7 @@ come from environment variables that the config only *names* (`LSMB_PG_PASSWORD`
 | profile | `ekos migrate profile --tier p1` | 168 units profiled; **28 columns classified as personal data**, whose bounds and top-k are never recorded |
 | assess | `ekos migrate assess` | **674 findings, 276 blocking**; 28 inferred-FK candidates from real code joins and `pg_stat_statements` |
 | map | `ekos migrate map --emit` | ClickHouse DDL for 158 tables with the reasoning as comments (`clickhouse/ddl/ekos_generated_raw.sql`) |
-| review / approve | `ekos migrate review …` / `approve …` | Risk computed per unit; 6 units **R3** needed a human approval |
+| review / approve | `ekos migrate review …` / `approve …` | Risk computed per unit; 8 units **R3** needed a human approval |
 | load | `ekos migrate load --unit … --env sandbox` | 30 tables, each statement parsed, classified and gated |
 | validate | `ekos migrate validate --unit … --tier v3` | **30/30 pass V1, V2 and V3** |
 | report | `ekos migrate report` | Compiled from ledger facts; **"Not signable"**, with its reasons (below) |
@@ -25,19 +25,25 @@ come from environment variables that the config only *names* (`LSMB_PG_PASSWORD`
 
 EKOS computes each load's risk from statement class × environment × lossiness × **blast radius**
 (how many compiled objects depend on the table) × affected rows. With the demo policy
-(`migration/migrate.policy.toml`: blast radius > 10 or > 1000 rows escalates), six units needed an
+(`migration/migrate.policy.toml`: blast radius > 10 or > 1000 rows escalates), eight units needed an
 approval even in the sandbox:
 
 | Unit | Why R3 (EKOS's own words) |
 |---|---|
-| `acc_trans` | 11 downstream consumers depend on this (threshold 10) |
+| `account` | 37 downstream consumers depend on this (threshold 10) |
+| `acc_trans` | 11 downstream consumers |
 | `transactions` | 26 downstream consumers |
 | `parts` | 27 downstream consumers |
+| `entity` | 50 downstream consumers |
 | `entity_credit_account` | 26 downstream consumers |
 | `country` | 16 downstream consumers |
-| `entity` | computed at run time (varies with the compiled graph) |
+| `location` | 12 downstream consumers |
 
-For each one the demo raised the request, **tried to approve it as the requester (refused all six
+An earlier run gated only six units, and `review` computed `entity` as R1 while `load` computed R3.
+Blast radius had matched tables by name suffix, and `load` accepted an approval of a lower class
+(defects #15 and #16). With both fixed, `review` and `load` agree.
+
+For each one the demo raised the request, **tried to approve it as the requester (refused all eight
 times: "an approver may not be the requester")**, then approved it as `demo.finance-controller` with
 the evidence rendered. Each approval is pinned to the artifacts' content hashes and to an evidence
 snapshot; if either changes, the approval dies.
@@ -68,7 +74,7 @@ reconciles the table (1/1 rows, 0 mismatches).
 
 ## Why the report says "Not signable"
 
-`docs/migration_report.md` is compiled from 2,214 ledger facts, with groundedness 1.000. It refuses
+`docs/migration_report.md` is compiled from 2,217 ledger facts, with groundedness 1.000. It refuses
 sign-off, correctly:
 
 1. **Units not validated in the state machine.** RFC 0154's lifecycle needs *assessed → planned →

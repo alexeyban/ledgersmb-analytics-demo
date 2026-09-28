@@ -1,4 +1,4 @@
--- ClickHouse DDL deployed in database lsmb_raw, dumped 2026-09-28T16:13:14Z by clickhouse/dump_ddl.sh
+-- ClickHouse DDL deployed in database lsmb_raw, dumped 2026-09-28T17:02:58Z by clickhouse/dump_ddl.sh
 
 CREATE TABLE lsmb_raw.acc_trans
 (

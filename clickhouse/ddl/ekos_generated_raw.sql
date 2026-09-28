@@ -14,7 +14,7 @@ ORDER BY (`entry_id`);
 
 -- source: public.acc_trans
 -- engine: no updates or deletes recorded against the source, so the table is append-only
--- order by: derived from observed filter predicates (chart_id in 108 call(s)); the primary key follows for uniqueness
+-- order by: derived from observed filter predicates (chart_id in 144 call(s)); the primary key follows for uniqueness
 -- partitioning: no low-cardinality time column; an unpartitioned table is the right default
 -- codecs chosen from the profile, NOT emitted: the RFC 0160 classifier cannot parse a
 -- CODEC clause, and the control is worth more than the compression.
