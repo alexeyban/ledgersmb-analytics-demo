@@ -96,25 +96,43 @@ class EkosMcp:
         self.proc.wait(timeout=30)
 
 
-def ask(question: str, step: str, purpose: str) -> dict[str, Any]:
-    """``ekos ask --json`` — an LLM-written answer grounded in EKOS evidence. Logged in full."""
+def ask(
+    question: str,
+    step: str,
+    purpose: str,
+    config: str = CONFIG,
+    env: dict[str, str] | None = None,
+    label: str = "cloud",
+) -> dict[str, Any]:
+    """``ekos ask --json`` — an LLM-written answer grounded in EKOS evidence. Logged in full.
+
+    ``config`` / ``env`` select the model (the cloud config, or the Ollama variant with
+    ``OLLAMA_BASE_URL`` pointed at the logging proxy); ``label`` names it in the log.
+    """
+    import os
+
     started_ts = _now()
     started = time.monotonic()
     out = subprocess.run(
-        [EKOS, "--config", CONFIG, "ask", "--json", question],
+        [EKOS, "--config", config, "ask", "--json", question],
         cwd=WORKSPACE,
         capture_output=True,
         text=True,
         timeout=1800,
+        env={**os.environ, **(env or {})},
     )
+    # `ekos ask --json` prints its provider-selection INFO line on stdout ahead of the JSON (an EKOS
+    # wart: logs belong on stderr in --json mode), so parse from the first line that opens an object.
+    body = out.stdout[out.stdout.find("\n{") + 1:] if not out.stdout.lstrip().startswith("{") else out.stdout
     try:
-        answer: Any = json.loads(out.stdout)
+        answer: Any = json.loads(body)
     except json.JSONDecodeError:
         answer = {"raw_stdout": out.stdout[-20000:], "stderr": out.stderr[-4000:]}
     record = {
         "ts": started_ts,
         "ts_end": _now(),
         "kind": "ask",
+        "model_label": label,
         "step": step,
         "purpose": purpose,
         "question": question,

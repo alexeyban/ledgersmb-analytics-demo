@@ -85,6 +85,11 @@ class Proxy(BaseHTTPRequestHandler):
         req_body = self.rfile.read(length) if length else None
         url = f"{UPSTREAMS[route]}/{rest}"
         headers = {k: v for k, v in self.headers.items() if k.lower() not in {"host", "content-length"}}
+        # Without a client User-Agent, urllib sends "Python-urllib/3.x", which the cloud endpoint's
+        # Cloudflare front rejects with 403. Every cloud call in the first hours of the demo failed
+        # this way — EKOS's own client sends none. Identify the proxy instead.
+        if not any(k.lower() == "user-agent" for k in headers):
+            headers["User-Agent"] = "ekos-ledgersmb-demo-llm-proxy/1.0"
         started = time.monotonic()
         try:
             with urllib.request.urlopen(

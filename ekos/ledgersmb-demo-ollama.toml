@@ -1,0 +1,106 @@
+# Demo copy of LedgerSMB's ekos.toml (ledgersmb-analytics-demo). Two differences from the
+# original: the cloud LLM goes through the logging proxy, and EKOS Migrate is enabled with the
+# local sandbox connections. The original file in the LedgerSMB checkout is untouched.
+
+# EKOS workspace configuration for LedgerSMB (https://github.com/ledgersmb/LedgerSMB).
+#
+# LedgerSMB is a Perl 5 / PostgreSQL double-entry accounting ERP. What actually compiles here:
+#   * sql/ — the PostgreSQL schema + PL/pgSQL stored procedures (LedgerSMB keeps most of its
+#     business logic in the database, not in Perl) and 253 sql/changes/ migrations
+#   * UI/src + UI/js-src — Vue 3 / legacy Dojo frontend (real AST recovery, Calls graph)
+#   * git history (git_analyzer, last 500 commits) and Markdown docs (localdocs)
+#   * workflows/ — Workflow.pm XML state machines (ar-ap, gl, payment, reconciliation)
+#   * Perl .pm/.pl — File objects + harvested declaration symbols only; EKOS has no Perl AST
+#     analyzer today, so there is no Calls graph or module topology for the Perl layer.
+#
+# `paths = ["."]` rather than an enumerated subdirectory list: the observers run once per
+# `paths` entry with that entry as their workspace root, and `GitObserver::is_git_repo` is a
+# literal `root.join(".git").exists()` check — so with `paths = ["lib", "sql", ...]` no root
+# ever contains `.git` and the git connector silently yields 0 commits. Scope is narrowed by
+# `ignore-patterns` below instead.
+
+[workspace]
+root = "."
+log-level = "info"
+
+[observe]
+paths = ["."]
+
+# `ignore-patterns` matches on exact path *component* names — not globs, not path prefixes —
+# and the check runs on every component including the final filename, so both directories and
+# individual files can be named here.
+ignore-patterns = [
+    ".ekos",
+    ".git",
+    "node_modules",
+    "target",
+
+    # --- Binary files: deliberately out of scope --------------------------------------------
+    # Verified against `file --mime-type` over the whole tree: with these five entries pruned,
+    # every remaining observed file is text/JSON/XML. `images`/`css`/`img` only ever name UI
+    # asset directories in this repo (UI/images, UI/images/archive, UI/css/gnome, UI/css/gnome2,
+    # UI/payments/img); the two favicons sit loose at the UI root and are excluded by filename.
+    "images",
+    "css",
+    "img",
+    "favicon.ico",
+    "faviconHiRes.svg",
+
+    # --- Localisation data ------------------------------------------------------------------
+    # 14 MB of .po translation catalogues plus 1.9 MB of generated chart-of-accounts XML across
+    # 60 languages. Pure translation payload — no knowledge to compile, and it would dominate
+    # both the FTS index and every `ekos ask` context window.
+    "locale",
+
+    # Lockfile: a single 500 KB machine-generated dependency graph. UI/package.json is observed
+    # instead and carries the same declared dependencies as real Technology objects.
+    "yarn.lock",
+]
+
+[recover.sql]
+# LedgerSMB is PostgreSQL-only: Pg-database.sql, sql/modules/*.sql (PL/pgSQL stored procedures)
+# and every sql/changes/* migration are pg-specific. Leaving this at the "generic" ANSI default
+# makes each file fail to parse wholesale, which silently yields zero Table objects with only a
+# buried SQL001 diagnostic to show for it.
+#
+# Requires an EKOS build with RFC 0146 (PostgreSQL dialect coverage for hand-written schemas).
+# Before it, `postgres` was correct here and still not sufficient: `parse_ddl_structural` is
+# all-or-nothing per file, and LedgerSMB writes `COMMENT ON <object> IS $$...$$` with
+# dollar-quoted bodies throughout, which sqlparser rejects ("Expected: literal string") — so
+# sql/Pg-database.sql, the core schema, recovered 0 of its 158 tables. RFC 0146 preprocesses that
+# construct (and INHERITS, SECURITY DEFINER, RETURNS SETOF, `:=`, DO blocks, CREATE RULE, psql
+# meta-commands and COPY-from-stdin payloads) out of the way; the same file now yields 158 tables
+# and 214 foreign keys.
+default-dialect = "postgres"
+
+[llm]
+# Local-model variant of the demo config: EKOS's Ollama provider, reached through the logging proxy
+# (OLLAMA_BASE_URL=http://127.0.0.1:8765/ollama), so its calls and tokens are logged like the cloud's.
+provider = "ollama"
+model = "llama3:latest"
+context-window = 8192
+
+[ai]
+max-tokens = 1024  # local 8B model with an 8k context: leave room for the evidence
+
+
+# ── EKOS Migrate (RFC 0154-0168) — local sandboxes from EKOS's docker-compose.migrate.yml ───
+[migrate]
+enabled = true
+project = "ledgersmb-analytics-official"
+default-environment = "sandbox"
+policy = "/home/legion/PycharmProjects/ledgersmb-analytics-demo/migration/migrate.policy.toml"
+# Server-side ClickHouse collection holding the source credential (migration/clickhouse_setup.sql).
+source-named-collection = "lsmb_source"
+
+[migrate.connections.lsmb-pg]
+host = "127.0.0.1"
+port = 55432
+user = "ekos"
+secret-env = "LSMB_PG_PASSWORD"
+
+[migrate.connections.lsmb-ch]
+host = "127.0.0.1"
+port = 58123
+user = "ekos"
+secret-env = "LSMB_CH_PASSWORD"

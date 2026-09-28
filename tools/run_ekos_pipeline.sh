@@ -3,6 +3,7 @@
 # Each stage's wall time and full output go to logs/ekos_pipeline.log. The cloud LLM goes through
 # tools/llm_proxy.py (see ekos/ledgersmb-demo.toml), so every call lands in logs/llm_calls.jsonl.
 set -uo pipefail
+export LC_ALL=C  # decimal point, not the locale's comma, in the wall-time printf
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
 EKOS=/home/legion/PycharmProjects/EKOS/ekos/target/release/ekos
 CFG="$HERE/ekos/ledgersmb-demo.toml"

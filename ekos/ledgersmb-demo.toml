@@ -98,7 +98,7 @@ max-tokens = 8192  # deepseek-v4-flash reasons; hidden reasoning tokens count ag
 # ── EKOS Migrate (RFC 0154-0168) — local sandboxes from EKOS's docker-compose.migrate.yml ───
 [migrate]
 enabled = true
-project = "ledgersmb-analytics"
+project = "ledgersmb-analytics-official"
 default-environment = "sandbox"
 policy = "/home/legion/PycharmProjects/ledgersmb-analytics-demo/migration/migrate.policy.toml"
 # Server-side ClickHouse collection holding the source credential (migration/clickhouse_setup.sql).

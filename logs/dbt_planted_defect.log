@@ -1,0 +1,5 @@
+planted +10.00 on a Sales (4010) line, entry_id=127
+15:39:15  101 of 162 FAIL 1 assert_every_transaction_balances ............................ [FAIL 1 in 0.03s]
+15:39:16  138 of 162 FAIL 1 assert_sales_revenue_ties_to_gl .............................. [FAIL 1 in 0.05s]
+15:39:17  Done. PASS=136 WARN=0 ERROR=2 SKIP=24 NO-OP=0 TOTAL=162
+reverted

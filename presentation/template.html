@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LedgerSMB → ClickHouse with EKOS</title>
+<style>
+:root {
+  --bg: #f7f6f2; --panel: #ffffff; --ink: #1d232b; --ink-soft: #5b6573; --line: #dcd9d0;
+  --accent: #0f6e6a; --accent-2: #b4552d; --accent-3: #3c5a99; --ok: #2f7d32; --bad: #b3261e;
+  --warn: #9a6b00; --code-bg: #eeece6; --shadow: 0 1px 3px rgba(0,0,0,.08);
+  --c1: #0f6e6a; --c2: #b4552d; --c3: #3c5a99; --c4: #8a6d1d; --c5: #6b4c8a; --c6: #4f7f4f; --c7: #9b3b5a; --c8: #5d6d7e;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14181d; --panel: #1c2128; --ink: #e8e6e1; --ink-soft: #9aa3ad; --line: #2e353e;
+    --accent: #4fb3ab; --accent-2: #e08a62; --accent-3: #8aa6e0; --ok: #6cc070; --bad: #f28b82;
+    --warn: #e0b54a; --code-bg: #232931; --shadow: none;
+    --c1: #4fb3ab; --c2: #e08a62; --c3: #8aa6e0; --c4: #d6b45a; --c5: #b39ad6; --c6: #8cc28c; --c7: #e28aa6; --c8: #a3b1bf;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14181d; --panel: #1c2128; --ink: #e8e6e1; --ink-soft: #9aa3ad; --line: #2e353e;
+  --accent: #4fb3ab; --accent-2: #e08a62; --accent-3: #8aa6e0; --ok: #6cc070; --bad: #f28b82;
+  --warn: #e0b54a; --code-bg: #232931; --shadow: none;
+  --c1: #4fb3ab; --c2: #e08a62; --c3: #8aa6e0; --c4: #d6b45a; --c5: #b39ad6; --c6: #8cc28c; --c7: #e28aa6; --c8: #a3b1bf;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
+  font: 16px/1.5 "Inter", "Segoe UI", system-ui, -apple-system, sans-serif; }
+.deck { position: relative; height: 100%; overflow: hidden; }
+.slide { position: absolute; inset: 0; padding: 3.2rem 4rem 4.2rem; overflow-y: auto; display: none; }
+.slide.active { display: block; animation: fade .25s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.slide h1 { font-size: 2.6rem; line-height: 1.15; margin: 0 0 .6rem; letter-spacing: -.01em; }
+.slide h2 { font-size: 1.9rem; margin: 0 0 .3rem; letter-spacing: -.01em; }
+.slide h3 { font-size: 1.1rem; margin: 1.2rem 0 .4rem; color: var(--accent); }
+.kicker { text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; color: var(--accent-2); font-weight: 700; margin-bottom: .5rem; }
+.lede { font-size: 1.12rem; color: var(--ink-soft); max-width: 62rem; margin: .2rem 0 1.4rem; }
+.grid { display: grid; gap: 1rem; }
+.g2 { grid-template-columns: repeat(2, minmax(0,1fr)); } .g3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.g4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1.2rem; box-shadow: var(--shadow); }
+.card h4 { margin: 0 0 .35rem; font-size: 1rem; }
+.card p { margin: .2rem 0; color: var(--ink-soft); font-size: .95rem; }
+.stat .v { font-size: 2rem; font-weight: 700; letter-spacing: -.02em; }
+.stat .k { color: var(--ink-soft); font-size: .85rem; }
+.stat .v.ok { color: var(--ok); } .stat .v.bad { color: var(--bad); } .stat .v.acc { color: var(--accent); }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; background: var(--panel); }
+th, td { text-align: left; padding: .42rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 600; color: var(--ink-soft); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
+td.n { text-align: right; font-variant-numeric: tabular-nums; }
+code, pre { font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: .85em; }
+code { background: var(--code-bg); padding: .08rem .3rem; border-radius: 4px; }
+pre { background: var(--code-bg); padding: .8rem 1rem; border-radius: 8px; overflow-x: auto; line-height: 1.45; }
+.pill { display: inline-block; padding: .05rem .5rem; border-radius: 999px; font-size: .75rem; font-weight: 600; border: 1px solid currentColor; }
+.pill.ok { color: var(--ok); } .pill.bad { color: var(--bad); } .pill.warn { color: var(--warn); } .pill.acc { color: var(--accent); }
+.flow { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .8rem 0; }
+.flow .step { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: .45rem .75rem; font-weight: 600; font-size: .9rem; }
+.flow .arrow { color: var(--ink-soft); }
+.chart { width: 100%; height: auto; }
+.chart text { fill: var(--ink-soft); font-size: 11px; }
+.chart .axis { stroke: var(--line); }
+.legend { display: flex; flex-wrap: wrap; gap: .8rem; font-size: .8rem; color: var(--ink-soft); margin-top: .3rem; }
+.legend i { display: inline-block; width: .8rem; height: .8rem; border-radius: 2px; margin-right: .3rem; vertical-align: -1px; }
+.note { font-size: .82rem; color: var(--ink-soft); margin-top: .8rem; }
+.src { font-size: .75rem; color: var(--ink-soft); margin-top: .6rem; }
+.quote { border-left: 3px solid var(--accent); padding: .4rem .9rem; margin: .6rem 0; background: var(--panel); font-size: .92rem; }
+ul.tight { margin: .3rem 0; padding-left: 1.2rem; } ul.tight li { margin: .15rem 0; }
+.bar { position: fixed; left: 0; bottom: 0; height: 3px; background: var(--accent); transition: width .2s; z-index: 5; }
+.hud { position: fixed; right: 1rem; bottom: .6rem; font-size: .8rem; color: var(--ink-soft); z-index: 5; display: flex; gap: .8rem; align-items: center; }
+.hud button { background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: .25rem .6rem; cursor: pointer; font: inherit; }
+.overview { position: fixed; inset: 0; background: var(--bg); overflow-y: auto; padding: 2rem; display: none; z-index: 10; }
+.overview.on { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: .8rem; align-content: start; }
+.overview a { display: block; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: .7rem .8rem; color: var(--ink); text-decoration: none; font-size: .85rem; }
+.overview a b { display: block; color: var(--accent-2); font-size: .72rem; }
+/* flex only while active: a bare `.cover { display:flex }` overrode `.slide { display:none }` and
+   left both cover slides visible under every other slide. */
+.slide.cover.active { display: flex; flex-direction: column; justify-content: center; }
+.cover h1 { font-size: 3.2rem; max-width: 60rem; }
+.disclaimer { border: 1px dashed var(--warn); color: var(--warn); border-radius: 8px; padding: .5rem .8rem; font-size: .88rem; display: inline-block; margin-top: 1rem; }
+@media (max-width: 900px) {
+  .slide { padding: 1.6rem 1rem 4rem; } .g2, .g3, .g4 { grid-template-columns: 1fr; }
+  .slide h1 { font-size: 1.9rem; } .cover h1 { font-size: 2.1rem; } .slide h2 { font-size: 1.45rem; }
+  table { font-size: .78rem; } th, td { padding: .3rem .35rem; }
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+__SLIDES__
+</div>
+<div class="bar" id="bar"></div>
+<div class="hud"><span id="count"></span><button id="ov" title="Overview (O)">Overview</button><button id="th" title="Theme (T)">Theme</button></div>
+<nav class="overview" id="overview"></nav>
+<script>
+const DATA = __DATA__;
+const $ = (s, r = document) => r.querySelector(s);
+const fmt = (v, d = 0) => (v === null || v === undefined || v === "") ? "—" :
+  Number(v).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+const money = v => "$" + fmt(v, 0);
+const colors = ["--c1","--c2","--c3","--c4","--c5","--c6","--c7","--c8"].map(c => `var(${c})`);
+
+function table(el, cols, rows, numeric = []) {
+  const head = "<tr>" + cols.map((c, i) => `<th${numeric.includes(i) ? ' style="text-align:right"' : ""}>${c}</th>`).join("") + "</tr>";
+  const body = rows.map(r => "<tr>" + r.map((v, i) => `<td class="${numeric.includes(i) ? "n" : ""}">${v}</td>`).join("") + "</tr>").join("");
+  el.innerHTML = `<table>${head}${body}</table>`;
+}
+
+/* Bars: series = [{name, values}] over labels; stacked or grouped; optional line series. */
+function bars(el, labels, series, { stacked = false, h = 260, line = null, money: isMoney = true } = {}) {
+  const W = 900, H = h, L = 64, R = 12, T = 14, B = 34;
+  const iw = W - L - R, ih = H - T - B;
+  let max = 0, min = 0;
+  labels.forEach((_, i) => {
+    if (stacked) {
+      let pos = 0, neg = 0;
+      series.forEach(s => { const v = +s.values[i] || 0; v >= 0 ? pos += v : neg += v; });
+      max = Math.max(max, pos); min = Math.min(min, neg);
+    } else series.forEach(s => { const v = +s.values[i] || 0; max = Math.max(max, v); min = Math.min(min, v); });
+  });
+  if (line) line.values.forEach(v => { max = Math.max(max, +v); min = Math.min(min, +v); });
+  const span = (max - min) || 1, y = v => T + ih - ((v - min) / span) * ih;
+  const bw = iw / labels.length, gap = Math.min(10, bw * .25);
+  let svg = `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img">`;
+  for (let k = 0; k <= 4; k++) {
+    const v = min + span * k / 4, yy = y(v);
+    svg += `<line class="axis" x1="${L}" x2="${W - R}" y1="${yy}" y2="${yy}" stroke-dasharray="${k ? "2 4" : ""}"/>`;
+    svg += `<text x="${L - 6}" y="${yy + 4}" text-anchor="end">${isMoney ? (v < 0 ? "-" : "") + (Math.abs(v) >= 1e6 ? "$" + (Math.abs(v) / 1e6).toFixed(1) + "M" : "$" + Math.round(Math.abs(v) / 1e3) + "k") : fmt(v, 0)}</text>`;
+  }
+  labels.forEach((lab, i) => {
+    const x0 = L + i * bw + gap / 2, w = bw - gap;
+    if (stacked) {
+      let pos = 0, neg = 0;
+      series.forEach((s, j) => {
+        const v = +s.values[i] || 0; const base = v >= 0 ? pos : neg; const top = base + v;
+        svg += `<rect x="${x0}" width="${w}" y="${Math.min(y(base), y(top))}" height="${Math.abs(y(base) - y(top))}" fill="${colors[j % 8]}"><title>${lab} · ${s.name}: ${fmt(v, 0)}</title></rect>`;
+        v >= 0 ? pos = top : neg = top;
+      });
+    } else {
+      const sw = w / series.length;
+      series.forEach((s, j) => {
+        const v = +s.values[i] || 0;
+        svg += `<rect x="${x0 + j * sw}" width="${sw - 1}" y="${Math.min(y(0), y(v))}" height="${Math.abs(y(0) - y(v))}" fill="${colors[j % 8]}"><title>${lab} · ${s.name}: ${fmt(v, 0)}</title></rect>`;
+      });
+    }
+    if (labels.length <= 20 || i % 2 === 0) svg += `<text x="${x0 + w / 2}" y="${H - 12}" text-anchor="middle">${lab}</text>`;
+  });
+  if (line) {
+    const pts = line.values.map((v, i) => `${L + i * bw + bw / 2},${y(+v)}`).join(" ");
+    svg += `<polyline points="${pts}" fill="none" stroke="var(--ink)" stroke-width="2"/>`;
+    line.values.forEach((v, i) => svg += `<circle cx="${L + i * bw + bw / 2}" cy="${y(+v)}" r="3" fill="var(--ink)"><title>${labels[i]} · ${line.name}: ${fmt(v, 0)}</title></circle>`);
+  }
+  svg += "</svg>";
+  const leg = series.map((s, j) => `<span><i style="background:${colors[j % 8]}"></i>${s.name}</span>`).join("") +
+    (line ? `<span><i style="background:var(--ink)"></i>${line.name}</span>` : "");
+  el.innerHTML = svg + `<div class="legend">${leg}</div>`;
+}
+
+function hbars(el, labels, values, { money: isMoney = true, suffix = "" } = {}) {
+  const max = Math.max(...values.map(Number), 1);
+  el.innerHTML = labels.map((l, i) => `<div style="display:grid;grid-template-columns:minmax(120px,15rem) 1fr 7rem;gap:.6rem;align-items:center;margin:.22rem 0;font-size:.88rem">
+    <span>${l}</span><span style="background:var(--line);border-radius:4px;height:.9rem;position:relative">
+    <span style="position:absolute;inset:0 auto 0 0;width:${(+values[i] / max * 100).toFixed(1)}%;background:${colors[i % 8]};border-radius:4px"></span></span>
+    <span style="text-align:right;font-variant-numeric:tabular-nums">${isMoney ? money(values[i]) : fmt(values[i], 1) + suffix}</span></div>`).join("");
+}
+
+const K = DATA.kpis, col = (sec, name) => K[sec].rows.map(r => r[K[sec].columns.indexOf(name)]);
+function renderCharts() {
+  document.querySelectorAll("[data-chart]").forEach(el => {
+    const c = el.dataset.chart;
+    try {
+      if (c === "pnl") bars(el, col("pnl_monthly", "month").map(m => m.slice(2)), [
+        { name: "Revenue", values: col("pnl_monthly", "revenue") },
+        { name: "COGS", values: col("pnl_monthly", "cogs").map(v => -v) },
+      ], { line: { name: "Net income", values: col("pnl_monthly", "net_income") } });
+      if (c === "margin") bars(el, col("pnl_monthly", "month").map(m => m.slice(2)), [
+        { name: "Gross margin %", values: col("pnl_monthly", "gross_margin_pct") },
+        { name: "Net margin %", values: col("pnl_monthly", "net_margin_pct") },
+      ], { money: false });
+      if (c === "groups") hbars(el, col("part_groups", "part_group"), col("part_groups", "group_revenue"));
+      if (c === "groupmargin") hbars(el, col("part_groups", "part_group"), col("part_groups", "margin_pct"), { money: false, suffix: "%" });
+      if (c === "wc") bars(el, col("working_capital", "month").slice().reverse().map(m => m.slice(2)), [
+        { name: "DSO", values: col("working_capital", "dso_days").slice().reverse() },
+        { name: "DPO", values: col("working_capital", "dpo_days").slice().reverse() },
+        { name: "DIO", values: col("working_capital", "dio_days").slice().reverse() },
+      ], { money: false });
+      if (c === "aging") { const r = K.ar_aging.rows[0]; hbars(el, ["Not yet due", "1–30", "31–60", "61–90", "90+"], r.slice(1)); }
+      if (c === "cash") { const r = K.cash_flow.rows[0]; hbars(el, ["Customer receipts", "Supplier payments", "Payroll", "Capex", "Financing", "Other operating", "Net"], r.map(v => Math.abs(+v))); }
+      if (c === "abc") hbars(el, col("abc", "abc_class").map(x => "Class " + x), col("abc", "class_revenue"));
+      if (c === "suppliers") hbars(el, col("suppliers", "vendor_name"), col("suppliers", "total_spend"));
+      if (c === "customers") hbars(el, col("top_customers", "customer_name"), col("top_customers", "revenue"));
+      if (c === "shrink") bars(el, col("shrinkage", "count_date").map(String), [{ name: "Variance value", values: col("shrinkage", "value").map(v => Math.abs(+v)) }]);
+      if (c === "tokens") hbars(el, DATA.usage.models.map(m => m.label), DATA.usage.models.map(m => m.total), { money: false });
+      if (c === "steps") hbars(el, DATA.runs.map(r => r.step), DATA.runs.map(r => r.seconds), { money: false, suffix: " s" });
+    } catch (e) { el.innerHTML = `<p class="note">chart unavailable: ${e}</p>`; }
+  });
+  document.querySelectorAll("[data-table]").forEach(el => {
+    const t = el.dataset.table, sec = K[t];
+    if (sec) {
+      const numeric = sec.columns.map((_, i) => i).filter(i => sec.rows.some(r => r[i] !== null && !isNaN(+r[i]) && typeof r[i] !== "boolean"));
+      table(el, sec.columns, sec.rows.map(r => r.map((v, i) => numeric.includes(i) && v !== null ? fmt(v, String(v).includes(".") ? 2 : 0) : (v ?? "—"))), numeric);
+    }
+  });
+}
+
+/* navigation */
+const slides = [...document.querySelectorAll(".slide")];
+let cur = 0;
+function show(i) {
+  cur = Math.max(0, Math.min(slides.length - 1, i));
+  slides.forEach((s, j) => s.classList.toggle("active", j === cur));
+  $("#bar").style.width = ((cur + 1) / slides.length * 100) + "%";
+  $("#count").textContent = `${cur + 1} / ${slides.length}`;
+  history.replaceState(null, "", "#" + (cur + 1));
+}
+const ov = $("#overview");
+ov.innerHTML = slides.map((s, i) => `<a href="#${i + 1}" data-i="${i}"><b>${i + 1}</b>${(s.querySelector("h1,h2") || {}).textContent || ""}</a>`).join("");
+ov.addEventListener("click", e => { const a = e.target.closest("a"); if (a) { e.preventDefault(); ov.classList.remove("on"); show(+a.dataset.i); } });
+$("#ov").onclick = () => ov.classList.toggle("on");
+$("#th").onclick = () => {
+  const r = document.documentElement, dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  r.dataset.theme = dark ? "light" : "dark";
+};
+document.addEventListener("keydown", e => {
+  if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); show(cur + 1); }
+  if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); show(cur - 1); }
+  if (e.key === "Home") show(0); if (e.key === "End") show(slides.length - 1);
+  if (e.key.toLowerCase() === "o") ov.classList.toggle("on");
+  if (e.key.toLowerCase() === "t") $("#th").click();
+  if (e.key === "Escape") ov.classList.remove("on");
+});
+let tx = null;
+document.addEventListener("touchstart", e => tx = e.touches[0].clientX, { passive: true });
+document.addEventListener("touchend", e => { if (tx === null) return; const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 60) show(cur + (d < 0 ? 1 : -1)); tx = null; });
+renderCharts();
+show(Math.max(0, (parseInt(location.hash.slice(1)) || 1) - 1));
+</script>
+</body>
+</html>

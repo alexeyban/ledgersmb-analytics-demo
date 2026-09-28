@@ -12,3 +12,8 @@ lsmb_analytics:
       schema: lsmb_analytics
       secure: false
       threads: 4
+      # Standard SQL outer-join semantics (NULL, not a type default, when a LEFT JOIN finds no
+      # match), for every view and table in the project. Set once for the session: a view created
+      # under one join_use_nulls value cannot be read under the other.
+      custom_settings:
+        join_use_nulls: 1

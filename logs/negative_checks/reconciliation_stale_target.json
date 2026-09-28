@@ -1,0 +1,4007 @@
+{
+  "period": [
+    "2025-01-01",
+    "2026-06-30"
+  ],
+  "checks": [
+    {
+      "check": "trial balance",
+      "compared": 66,
+      "differences": [
+        {
+          "key": "1060",
+          "ledgersmb": "503774.98",
+          "mart": "-1342017.86"
+        },
+        {
+          "key": "1200",
+          "ledgersmb": "373669.79",
+          "mart": "410713.21"
+        },
+        {
+          "key": "1510",
+          "ledgersmb": "460634.47",
+          "mart": "1894684.32"
+        },
+        {
+          "key": "2100",
+          "ledgersmb": "89621.36",
+          "mart": "124703.84"
+        },
+        {
+          "key": "2150",
+          "ledgersmb": "205701.53",
+          "mart": "191225.46"
+        },
+        {
+          "key": "2620",
+          "ledgersmb": "500000.00",
+          "mart": "0.00"
+        },
+        {
+          "key": "4010",
+          "ledgersmb": "3142870.83",
+          "mart": "3347927.77"
+        },
+        {
+          "key": "5010",
+          "ledgersmb": "1830988.64",
+          "mart": "1987535.90"
+        },
+        {
+          "key": "5690",
+          "ledgersmb": "52975.00",
+          "mart": "0.00"
+        },
+        {
+          "key": "5790",
+          "ledgersmb": "37103.83",
+          "mart": "33894.49"
+        }
+      ],
+      "passed": false,
+      "oracle": "trial_balance__generate()"
+    },
+    {
+      "check": "income statement (accrual)",
+      "compared": 14,
+      "differences": [
+        {
+          "key": "4000",
+          "ledgersmb": "3142870.83",
+          "mart": "0"
+        },
+        {
+          "key": "4010",
+          "ledgersmb": "3142870.83",
+          "mart": "3347927.77"
+        },
+        {
+          "key": "5000",
+          "ledgersmb": "-1830988.64",
+          "mart": "0"
+        },
+        {
+          "key": "5010",
+          "ledgersmb": "-1830988.64",
+          "mart": "-1987535.90"
+        },
+        {
+          "key": "5400",
+          "ledgersmb": "-805827.01",
+          "mart": "0"
+        },
+        {
+          "key": "5600",
+          "ledgersmb": "-329298.83",
+          "mart": "0"
+        },
+        {
+          "key": "5690",
+          "ledgersmb": "-52975.00",
+          "mart": "0"
+        },
+        {
+          "key": "5790",
+          "ledgersmb": "-37103.83",
+          "mart": "-33894.49"
+        }
+      ],
+      "passed": false,
+      "oracle": "pnl__income_statement_accrual()"
+    },
+    {
+      "check": "balance sheet",
+      "compared": 29,
+      "differences": [
+        {
+          "key": "1000",
+          "ledgersmb": "-877444.77",
+          "mart": "0"
+        },
+        {
+          "key": "1060",
+          "ledgersmb": "-503774.98",
+          "mart": "-1342017.86"
+        },
+        {
+          "key": "1200",
+          "ledgersmb": "-373669.79",
+          "mart": "410713.21"
+        },
+        {
+          "key": "1500",
+          "ledgersmb": "-460634.47",
+          "mart": "0"
+        },
+        {
+          "key": "1510",
+          "ledgersmb": "-460634.47",
+          "mart": "1894684.32"
+        },
+        {
+          "key": "1800",
+          "ledgersmb": "-84000.00",
+          "mart": "0"
+        },
+        {
+          "key": "1820",
+          "ledgersmb": "-120000.00",
+          "mart": "120000.00"
+        },
+        {
+          "key": "1825",
+          "ledgersmb": "36000.00",
+          "mart": "-36000.00"
+        },
+        {
+          "key": "2000",
+          "ledgersmb": "295322.89",
+          "mart": "0"
+        },
+        {
+          "key": "2100",
+          "ledgersmb": "89621.36",
+          "mart": "124703.84"
+        },
+        {
+          "key": "2150",
+          "ledgersmb": "205701.53",
+          "mart": "191225.46"
+        },
+        {
+          "key": "2600",
+          "ledgersmb": "500000.00",
+          "mart": "0"
+        },
+        {
+          "key": "2620",
+          "ledgersmb": "500000.00",
+          "mart": "0"
+        },
+        {
+          "key": "3300",
+          "ledgersmb": "450000.00",
+          "mart": "0"
+        },
+        {
+          "key": "4000",
+          "ledgersmb": "3142870.83",
+          "mart": "0"
+        },
+        {
+          "key": "4010",
+          "ledgersmb": "3142870.83",
+          "mart": "0"
+        },
+        {
+          "key": "5000",
+          "ledgersmb": "-1830988.64",
+          "mart": "0"
+        },
+        {
+          "key": "5010",
+          "ledgersmb": "-1830988.64",
+          "mart": "0"
+        },
+        {
+          "key": "5400",
+          "ledgersmb": "-805827.01",
+          "mart": "0"
+        },
+        {
+          "key": "5410",
+          "ledgersmb": "-748562.00",
+          "mart": "0"
+        },
+        {
+          "key": "5440",
+          "ledgersmb": "-57265.01",
+          "mart": "0"
+        },
+        {
+          "key": "5600",
+          "ledgersmb": "-329298.83",
+          "mart": "0"
+        },
+        {
+          "key": "5660",
+          "ledgersmb": "-36000.00",
+          "mart": "0"
+        },
+        {
+          "key": "5685",
+          "ledgersmb": "-20700.00",
+          "mart": "0"
+        },
+        {
+          "key": "5690",
+          "ledgersmb": "-52975.00",
+          "mart": "0"
+        },
+        {
+          "key": "5760",
+          "ledgersmb": "-171000.00",
+          "mart": "0"
+        },
+        {
+          "key": "5780",
+          "ledgersmb": "-11520.00",
+          "mart": "0"
+        },
+        {
+          "key": "5790",
+          "ledgersmb": "-37103.83",
+          "mart": "0"
+        }
+      ],
+      "passed": false,
+      "oracle": "report__balance_sheet(\u2026, 'ultimo')"
+    },
+    {
+      "check": "AR open items",
+      "compared": 626,
+      "differences": [
+        {
+          "key": "2701",
+          "ledgersmb": "0",
+          "mart": "384.54"
+        },
+        {
+          "key": "2770",
+          "ledgersmb": "0",
+          "mart": "1246.24"
+        },
+        {
+          "key": "2818",
+          "ledgersmb": "0",
+          "mart": "1800.39"
+        },
+        {
+          "key": "2819",
+          "ledgersmb": "0",
+          "mart": "2565.44"
+        },
+        {
+          "key": "2856",
+          "ledgersmb": "0",
+          "mart": "547.34"
+        },
+        {
+          "key": "2858",
+          "ledgersmb": "1793.66",
+          "mart": "0"
+        },
+        {
+          "key": "2864",
+          "ledgersmb": "0",
+          "mart": "523.06"
+        },
+        {
+          "key": "2867",
+          "ledgersmb": "0",
+          "mart": "153.55"
+        },
+        {
+          "key": "2868",
+          "ledgersmb": "0",
+          "mart": "1771.63"
+        },
+        {
+          "key": "2871",
+          "ledgersmb": "0",
+          "mart": "2727.66"
+        },
+        {
+          "key": "2875",
+          "ledgersmb": "0",
+          "mart": "536.23"
+        },
+        {
+          "key": "2882",
+          "ledgersmb": "0",
+          "mart": "117.86"
+        },
+        {
+          "key": "2890",
+          "ledgersmb": "0",
+          "mart": "295.75"
+        },
+        {
+          "key": "2891",
+          "ledgersmb": "0",
+          "mart": "322.01"
+        },
+        {
+          "key": "2892",
+          "ledgersmb": "0",
+          "mart": "399.36"
+        },
+        {
+          "key": "2899",
+          "ledgersmb": "0",
+          "mart": "816.55"
+        },
+        {
+          "key": "2902",
+          "ledgersmb": "0",
+          "mart": "188.53"
+        },
+        {
+          "key": "2906",
+          "ledgersmb": "648.21",
+          "mart": "0"
+        },
+        {
+          "key": "2908",
+          "ledgersmb": "0",
+          "mart": "956.07"
+        },
+        {
+          "key": "2909",
+          "ledgersmb": "0",
+          "mart": "1892.13"
+        },
+        {
+          "key": "2911",
+          "ledgersmb": "0",
+          "mart": "378.93"
+        },
+        {
+          "key": "2913",
+          "ledgersmb": "0",
+          "mart": "977.15"
+        },
+        {
+          "key": "2915",
+          "ledgersmb": "0",
+          "mart": "1508.95"
+        },
+        {
+          "key": "2928",
+          "ledgersmb": "0",
+          "mart": "1539.41"
+        },
+        {
+          "key": "2943",
+          "ledgersmb": "0",
+          "mart": "809.27"
+        },
+        {
+          "key": "2944",
+          "ledgersmb": "0",
+          "mart": "1487.98"
+        },
+        {
+          "key": "2950",
+          "ledgersmb": "732.07",
+          "mart": "0"
+        },
+        {
+          "key": "2954",
+          "ledgersmb": "0",
+          "mart": "427.89"
+        },
+        {
+          "key": "2958",
+          "ledgersmb": "0",
+          "mart": "859.50"
+        },
+        {
+          "key": "2960",
+          "ledgersmb": "0",
+          "mart": "2505.39"
+        },
+        {
+          "key": "2961",
+          "ledgersmb": "0",
+          "mart": "1638.29"
+        },
+        {
+          "key": "2963",
+          "ledgersmb": "0",
+          "mart": "223.91"
+        },
+        {
+          "key": "2964",
+          "ledgersmb": "0",
+          "mart": "285.79"
+        },
+        {
+          "key": "2967",
+          "ledgersmb": "0",
+          "mart": "592.76"
+        },
+        {
+          "key": "2972",
+          "ledgersmb": "0",
+          "mart": "1469.25"
+        },
+        {
+          "key": "2973",
+          "ledgersmb": "0",
+          "mart": "3705.15"
+        },
+        {
+          "key": "2974",
+          "ledgersmb": "0",
+          "mart": "482.25"
+        },
+        {
+          "key": "2976",
+          "ledgersmb": "0",
+          "mart": "435.97"
+        },
+        {
+          "key": "2978",
+          "ledgersmb": "0",
+          "mart": "310.04"
+        },
+        {
+          "key": "2982",
+          "ledgersmb": "0",
+          "mart": "788.70"
+        },
+        {
+          "key": "2984",
+          "ledgersmb": "0",
+          "mart": "2444.91"
+        },
+        {
+          "key": "2985",
+          "ledgersmb": "0",
+          "mart": "1534.85"
+        },
+        {
+          "key": "2988",
+          "ledgersmb": "502.08",
+          "mart": "0"
+        },
+        {
+          "key": "2991",
+          "ledgersmb": "0",
+          "mart": "1782.14"
+        },
+        {
+          "key": "2993",
+          "ledgersmb": "0",
+          "mart": "1207.85"
+        },
+        {
+          "key": "2996",
+          "ledgersmb": "0",
+          "mart": "1461.31"
+        },
+        {
+          "key": "2999",
+          "ledgersmb": "1381.24",
+          "mart": "0"
+        },
+        {
+          "key": "3001",
+          "ledgersmb": "0",
+          "mart": "1346.54"
+        },
+        {
+          "key": "3003",
+          "ledgersmb": "0",
+          "mart": "3087.04"
+        },
+        {
+          "key": "3004",
+          "ledgersmb": "0",
+          "mart": "117.67"
+        },
+        {
+          "key": "3007",
+          "ledgersmb": "0",
+          "mart": "745.77"
+        },
+        {
+          "key": "3008",
+          "ledgersmb": "0",
+          "mart": "434.89"
+        },
+        {
+          "key": "3009",
+          "ledgersmb": "0",
+          "mart": "442.52"
+        },
+        {
+          "key": "3010",
+          "ledgersmb": "0",
+          "mart": "1139.94"
+        },
+        {
+          "key": "3011",
+          "ledgersmb": "0",
+          "mart": "450.70"
+        },
+        {
+          "key": "3015",
+          "ledgersmb": "0",
+          "mart": "840.29"
+        },
+        {
+          "key": "3016",
+          "ledgersmb": "1438.85",
+          "mart": "0"
+        },
+        {
+          "key": "3017",
+          "ledgersmb": "0",
+          "mart": "303.35"
+        },
+        {
+          "key": "3018",
+          "ledgersmb": "0",
+          "mart": "567.40"
+        },
+        {
+          "key": "3022",
+          "ledgersmb": "0",
+          "mart": "1053.92"
+        },
+        {
+          "key": "3023",
+          "ledgersmb": "0",
+          "mart": "249.26"
+        },
+        {
+          "key": "3024",
+          "ledgersmb": "0",
+          "mart": "2039.92"
+        },
+        {
+          "key": "3025",
+          "ledgersmb": "0",
+          "mart": "81.66"
+        },
+        {
+          "key": "3027",
+          "ledgersmb": "0",
+          "mart": "691.13"
+        },
+        {
+          "key": "3028",
+          "ledgersmb": "0",
+          "mart": "748.11"
+        },
+        {
+          "key": "3030",
+          "ledgersmb": "937.47",
+          "mart": "0"
+        },
+        {
+          "key": "3031",
+          "ledgersmb": "326.01",
+          "mart": "0"
+        },
+        {
+          "key": "3032",
+          "ledgersmb": "0",
+          "mart": "1257.08"
+        },
+        {
+          "key": "3034",
+          "ledgersmb": "0",
+          "mart": "1387.69"
+        },
+        {
+          "key": "3035",
+          "ledgersmb": "0",
+          "mart": "3633.41"
+        },
+        {
+          "key": "3036",
+          "ledgersmb": "0",
+          "mart": "1827.59"
+        },
+        {
+          "key": "3040",
+          "ledgersmb": "0",
+          "mart": "981.08"
+        },
+        {
+          "key": "3042",
+          "ledgersmb": "319.34",
+          "mart": "777.93"
+        },
+        {
+          "key": "3043",
+          "ledgersmb": "0",
+          "mart": "1017.84"
+        },
+        {
+          "key": "3045",
+          "ledgersmb": "0",
+          "mart": "780.48"
+        },
+        {
+          "key": "3046",
+          "ledgersmb": "0",
+          "mart": "174.67"
+        },
+        {
+          "key": "3051",
+          "ledgersmb": "0",
+          "mart": "712.59"
+        },
+        {
+          "key": "3052",
+          "ledgersmb": "3043.26",
+          "mart": "0"
+        },
+        {
+          "key": "3054",
+          "ledgersmb": "0",
+          "mart": "465.06"
+        },
+        {
+          "key": "3057",
+          "ledgersmb": "461.36",
+          "mart": "0"
+        },
+        {
+          "key": "3058",
+          "ledgersmb": "0",
+          "mart": "1141.74"
+        },
+        {
+          "key": "3060",
+          "ledgersmb": "513.31",
+          "mart": "1497.79"
+        },
+        {
+          "key": "3061",
+          "ledgersmb": "2632.37",
+          "mart": "0"
+        },
+        {
+          "key": "3062",
+          "ledgersmb": "0",
+          "mart": "1879.92"
+        },
+        {
+          "key": "3063",
+          "ledgersmb": "476.43",
+          "mart": "0"
+        },
+        {
+          "key": "3064",
+          "ledgersmb": "0",
+          "mart": "745.79"
+        },
+        {
+          "key": "3067",
+          "ledgersmb": "0",
+          "mart": "3910.18"
+        },
+        {
+          "key": "3070",
+          "ledgersmb": "0",
+          "mart": "1530.33"
+        },
+        {
+          "key": "3071",
+          "ledgersmb": "0",
+          "mart": "3729.29"
+        },
+        {
+          "key": "3073",
+          "ledgersmb": "0",
+          "mart": "588.02"
+        },
+        {
+          "key": "3074",
+          "ledgersmb": "0",
+          "mart": "3363.31"
+        },
+        {
+          "key": "3075",
+          "ledgersmb": "0",
+          "mart": "283.87"
+        },
+        {
+          "key": "3076",
+          "ledgersmb": "0",
+          "mart": "726.70"
+        },
+        {
+          "key": "3083",
+          "ledgersmb": "0",
+          "mart": "161.33"
+        },
+        {
+          "key": "3085",
+          "ledgersmb": "0",
+          "mart": "1465.17"
+        },
+        {
+          "key": "3087",
+          "ledgersmb": "0",
+          "mart": "968.11"
+        },
+        {
+          "key": "3089",
+          "ledgersmb": "0",
+          "mart": "1419.53"
+        },
+        {
+          "key": "3091",
+          "ledgersmb": "0",
+          "mart": "787.70"
+        },
+        {
+          "key": "3092",
+          "ledgersmb": "0",
+          "mart": "2490.49"
+        },
+        {
+          "key": "3094",
+          "ledgersmb": "61.26",
+          "mart": "0"
+        },
+        {
+          "key": "3098",
+          "ledgersmb": "1173.70",
+          "mart": "104.38"
+        },
+        {
+          "key": "3099",
+          "ledgersmb": "0",
+          "mart": "1817.35"
+        },
+        {
+          "key": "3100",
+          "ledgersmb": "1852.89",
+          "mart": "789.46"
+        },
+        {
+          "key": "3102",
+          "ledgersmb": "0",
+          "mart": "2980.30"
+        },
+        {
+          "key": "3106",
+          "ledgersmb": "0",
+          "mart": "225.35"
+        },
+        {
+          "key": "3109",
+          "ledgersmb": "0",
+          "mart": "1130.30"
+        },
+        {
+          "key": "3111",
+          "ledgersmb": "851.61",
+          "mart": "0"
+        },
+        {
+          "key": "3112",
+          "ledgersmb": "0",
+          "mart": "842.08"
+        },
+        {
+          "key": "3114",
+          "ledgersmb": "0",
+          "mart": "414.90"
+        },
+        {
+          "key": "3116",
+          "ledgersmb": "0",
+          "mart": "1897.00"
+        },
+        {
+          "key": "3117",
+          "ledgersmb": "0",
+          "mart": "1877.18"
+        },
+        {
+          "key": "3118",
+          "ledgersmb": "0",
+          "mart": "320.38"
+        },
+        {
+          "key": "3119",
+          "ledgersmb": "0",
+          "mart": "69.65"
+        },
+        {
+          "key": "3120",
+          "ledgersmb": "0",
+          "mart": "2588.77"
+        },
+        {
+          "key": "3123",
+          "ledgersmb": "0",
+          "mart": "106.54"
+        },
+        {
+          "key": "3124",
+          "ledgersmb": "249.14",
+          "mart": "0"
+        },
+        {
+          "key": "3126",
+          "ledgersmb": "0",
+          "mart": "1147.33"
+        },
+        {
+          "key": "3127",
+          "ledgersmb": "0",
+          "mart": "56.71"
+        },
+        {
+          "key": "3129",
+          "ledgersmb": "0",
+          "mart": "2046.73"
+        },
+        {
+          "key": "3130",
+          "ledgersmb": "0",
+          "mart": "1328.33"
+        },
+        {
+          "key": "3131",
+          "ledgersmb": "0",
+          "mart": "2176.88"
+        },
+        {
+          "key": "3132",
+          "ledgersmb": "1634.69",
+          "mart": "546.86"
+        },
+        {
+          "key": "3134",
+          "ledgersmb": "0",
+          "mart": "2106.48"
+        },
+        {
+          "key": "3135",
+          "ledgersmb": "0",
+          "mart": "376.27"
+        },
+        {
+          "key": "3136",
+          "ledgersmb": "0",
+          "mart": "975.38"
+        },
+        {
+          "key": "3137",
+          "ledgersmb": "0",
+          "mart": "622.31"
+        },
+        {
+          "key": "3138",
+          "ledgersmb": "0",
+          "mart": "481.40"
+        },
+        {
+          "key": "3139",
+          "ledgersmb": "678.86",
+          "mart": "0"
+        },
+        {
+          "key": "3140",
+          "ledgersmb": "0",
+          "mart": "18.17"
+        },
+        {
+          "key": "3141",
+          "ledgersmb": "95.77",
+          "mart": "620.00"
+        },
+        {
+          "key": "3142",
+          "ledgersmb": "0",
+          "mart": "996.14"
+        },
+        {
+          "key": "3143",
+          "ledgersmb": "0",
+          "mart": "1588.52"
+        },
+        {
+          "key": "3144",
+          "ledgersmb": "4760.74",
+          "mart": "1130.97"
+        },
+        {
+          "key": "3145",
+          "ledgersmb": "232.53",
+          "mart": "88.77"
+        },
+        {
+          "key": "3150",
+          "ledgersmb": "0",
+          "mart": "493.03"
+        },
+        {
+          "key": "3153",
+          "ledgersmb": "0",
+          "mart": "1214.65"
+        },
+        {
+          "key": "3154",
+          "ledgersmb": "0",
+          "mart": "1230.19"
+        },
+        {
+          "key": "3155",
+          "ledgersmb": "507.39",
+          "mart": "1363.30"
+        },
+        {
+          "key": "3156",
+          "ledgersmb": "0",
+          "mart": "521.30"
+        },
+        {
+          "key": "3157",
+          "ledgersmb": "17.85",
+          "mart": "536.46"
+        },
+        {
+          "key": "3158",
+          "ledgersmb": "131.44",
+          "mart": "90.84"
+        },
+        {
+          "key": "3160",
+          "ledgersmb": "370.88",
+          "mart": "0"
+        },
+        {
+          "key": "3161",
+          "ledgersmb": "416.98",
+          "mart": "494.21"
+        },
+        {
+          "key": "3162",
+          "ledgersmb": "0",
+          "mart": "2655.87"
+        },
+        {
+          "key": "3165",
+          "ledgersmb": "0",
+          "mart": "1118.18"
+        },
+        {
+          "key": "3166",
+          "ledgersmb": "2114.16",
+          "mart": "370.39"
+        },
+        {
+          "key": "3167",
+          "ledgersmb": "0",
+          "mart": "840.27"
+        },
+        {
+          "key": "3168",
+          "ledgersmb": "0",
+          "mart": "520.51"
+        },
+        {
+          "key": "3169",
+          "ledgersmb": "871.56",
+          "mart": "728.11"
+        },
+        {
+          "key": "3170",
+          "ledgersmb": "0",
+          "mart": "951.36"
+        },
+        {
+          "key": "3171",
+          "ledgersmb": "0",
+          "mart": "44.45"
+        },
+        {
+          "key": "3172",
+          "ledgersmb": "0",
+          "mart": "516.81"
+        },
+        {
+          "key": "3173",
+          "ledgersmb": "0",
+          "mart": "1439.49"
+        },
+        {
+          "key": "3174",
+          "ledgersmb": "0",
+          "mart": "741.66"
+        },
+        {
+          "key": "3175",
+          "ledgersmb": "0",
+          "mart": "935.83"
+        },
+        {
+          "key": "3176",
+          "ledgersmb": "804.69",
+          "mart": "1893.11"
+        },
+        {
+          "key": "3177",
+          "ledgersmb": "0",
+          "mart": "989.81"
+        },
+        {
+          "key": "3178",
+          "ledgersmb": "0",
+          "mart": "150.28"
+        },
+        {
+          "key": "3179",
+          "ledgersmb": "0",
+          "mart": "724.99"
+        },
+        {
+          "key": "3181",
+          "ledgersmb": "283.16",
+          "mart": "2244.90"
+        },
+        {
+          "key": "3182",
+          "ledgersmb": "0",
+          "mart": "3539.55"
+        },
+        {
+          "key": "3183",
+          "ledgersmb": "3009.30",
+          "mart": "1089.67"
+        },
+        {
+          "key": "3184",
+          "ledgersmb": "0",
+          "mart": "1902.62"
+        },
+        {
+          "key": "3185",
+          "ledgersmb": "0",
+          "mart": "326.40"
+        },
+        {
+          "key": "3186",
+          "ledgersmb": "0",
+          "mart": "664.05"
+        },
+        {
+          "key": "3187",
+          "ledgersmb": "882.53",
+          "mart": "954.38"
+        },
+        {
+          "key": "3188",
+          "ledgersmb": "0",
+          "mart": "3850.67"
+        },
+        {
+          "key": "3189",
+          "ledgersmb": "0",
+          "mart": "589.05"
+        },
+        {
+          "key": "3190",
+          "ledgersmb": "0",
+          "mart": "1052.32"
+        },
+        {
+          "key": "3191",
+          "ledgersmb": "1003.24",
+          "mart": "0"
+        },
+        {
+          "key": "3192",
+          "ledgersmb": "0",
+          "mart": "113.32"
+        },
+        {
+          "key": "3193",
+          "ledgersmb": "1688.10",
+          "mart": "318.25"
+        },
+        {
+          "key": "3194",
+          "ledgersmb": "0",
+          "mart": "1103.73"
+        },
+        {
+          "key": "3195",
+          "ledgersmb": "0",
+          "mart": "240.24"
+        },
+        {
+          "key": "3196",
+          "ledgersmb": "0",
+          "mart": "140.43"
+        },
+        {
+          "key": "3197",
+          "ledgersmb": "0",
+          "mart": "2675.17"
+        },
+        {
+          "key": "3198",
+          "ledgersmb": "0",
+          "mart": "1055.32"
+        },
+        {
+          "key": "3199",
+          "ledgersmb": "0",
+          "mart": "222.40"
+        },
+        {
+          "key": "3200",
+          "ledgersmb": "0",
+          "mart": "1959.41"
+        },
+        {
+          "key": "3201",
+          "ledgersmb": "0",
+          "mart": "404.48"
+        },
+        {
+          "key": "3202",
+          "ledgersmb": "0",
+          "mart": "884.19"
+        },
+        {
+          "key": "3203",
+          "ledgersmb": "0",
+          "mart": "73.60"
+        },
+        {
+          "key": "3205",
+          "ledgersmb": "1338.98",
+          "mart": "0"
+        },
+        {
+          "key": "3207",
+          "ledgersmb": "0",
+          "mart": "151.85"
+        },
+        {
+          "key": "3209",
+          "ledgersmb": "421.84",
+          "mart": "1093.96"
+        },
+        {
+          "key": "3210",
+          "ledgersmb": "0",
+          "mart": "619.98"
+        },
+        {
+          "key": "3211",
+          "ledgersmb": "28.06",
+          "mart": "0"
+        },
+        {
+          "key": "3212",
+          "ledgersmb": "458.02",
+          "mart": "28.36"
+        },
+        {
+          "key": "3213",
+          "ledgersmb": "0",
+          "mart": "558.70"
+        },
+        {
+          "key": "3214",
+          "ledgersmb": "5311.83",
+          "mart": "275.45"
+        },
+        {
+          "key": "3215",
+          "ledgersmb": "0",
+          "mart": "378.78"
+        },
+        {
+          "key": "3217",
+          "ledgersmb": "1930.64",
+          "mart": "1469.53"
+        },
+        {
+          "key": "3218",
+          "ledgersmb": "1040.14",
+          "mart": "261.83"
+        },
+        {
+          "key": "3219",
+          "ledgersmb": "235.67",
+          "mart": "3223.60"
+        },
+        {
+          "key": "3220",
+          "ledgersmb": "0",
+          "mart": "177.53"
+        },
+        {
+          "key": "3222",
+          "ledgersmb": "821.29",
+          "mart": "2072.53"
+        },
+        {
+          "key": "3223",
+          "ledgersmb": "388.26",
+          "mart": "0"
+        },
+        {
+          "key": "3224",
+          "ledgersmb": "0",
+          "mart": "813.23"
+        },
+        {
+          "key": "3225",
+          "ledgersmb": "2371.82",
+          "mart": "2740.70"
+        },
+        {
+          "key": "3226",
+          "ledgersmb": "1442.30",
+          "mart": "2588.29"
+        },
+        {
+          "key": "3227",
+          "ledgersmb": "0",
+          "mart": "2948.32"
+        },
+        {
+          "key": "3228",
+          "ledgersmb": "1296.02",
+          "mart": "0"
+        },
+        {
+          "key": "3229",
+          "ledgersmb": "1120.90",
+          "mart": "856.68"
+        },
+        {
+          "key": "3230",
+          "ledgersmb": "2709.99",
+          "mart": "737.36"
+        },
+        {
+          "key": "3231",
+          "ledgersmb": "0",
+          "mart": "596.70"
+        },
+        {
+          "key": "3232",
+          "ledgersmb": "383.23",
+          "mart": "876.05"
+        },
+        {
+          "key": "3233",
+          "ledgersmb": "1171.35",
+          "mart": "473.69"
+        },
+        {
+          "key": "3234",
+          "ledgersmb": "0",
+          "mart": "482.90"
+        },
+        {
+          "key": "3235",
+          "ledgersmb": "0",
+          "mart": "1086.90"
+        },
+        {
+          "key": "3236",
+          "ledgersmb": "483.94",
+          "mart": "280.85"
+        },
+        {
+          "key": "3237",
+          "ledgersmb": "0",
+          "mart": "2685.04"
+        },
+        {
+          "key": "3238",
+          "ledgersmb": "0",
+          "mart": "652.72"
+        },
+        {
+          "key": "3239",
+          "ledgersmb": "1884.14",
+          "mart": "1097.09"
+        },
+        {
+          "key": "3240",
+          "ledgersmb": "0",
+          "mart": "473.71"
+        },
+        {
+          "key": "3242",
+          "ledgersmb": "0",
+          "mart": "726.14"
+        },
+        {
+          "key": "3243",
+          "ledgersmb": "1386.19",
+          "mart": "1346.19"
+        },
+        {
+          "key": "3244",
+          "ledgersmb": "0",
+          "mart": "494.48"
+        },
+        {
+          "key": "3245",
+          "ledgersmb": "0",
+          "mart": "3285.57"
+        },
+        {
+          "key": "3246",
+          "ledgersmb": "0",
+          "mart": "369.00"
+        },
+        {
+          "key": "3247",
+          "ledgersmb": "0",
+          "mart": "872.67"
+        },
+        {
+          "key": "3248",
+          "ledgersmb": "0",
+          "mart": "366.88"
+        },
+        {
+          "key": "3249",
+          "ledgersmb": "0",
+          "mart": "1976.18"
+        },
+        {
+          "key": "3250",
+          "ledgersmb": "0",
+          "mart": "2258.59"
+        },
+        {
+          "key": "3251",
+          "ledgersmb": "387.55",
+          "mart": "1575.55"
+        },
+        {
+          "key": "3252",
+          "ledgersmb": "0",
+          "mart": "223.20"
+        },
+        {
+          "key": "3253",
+          "ledgersmb": "0",
+          "mart": "1605.17"
+        },
+        {
+          "key": "3254",
+          "ledgersmb": "0",
+          "mart": "1291.20"
+        },
+        {
+          "key": "3255",
+          "ledgersmb": "595.07",
+          "mart": "0"
+        },
+        {
+          "key": "3256",
+          "ledgersmb": "808.96",
+          "mart": "434.35"
+        },
+        {
+          "key": "3257",
+          "ledgersmb": "30.13",
+          "mart": "1186.47"
+        },
+        {
+          "key": "3258",
+          "ledgersmb": "1464.53",
+          "mart": "811.32"
+        },
+        {
+          "key": "3259",
+          "ledgersmb": "383.02",
+          "mart": "21.20"
+        },
+        {
+          "key": "3260",
+          "ledgersmb": "0",
+          "mart": "1830.78"
+        },
+        {
+          "key": "3261",
+          "ledgersmb": "576.95",
+          "mart": "636.75"
+        },
+        {
+          "key": "3262",
+          "ledgersmb": "1198.40",
+          "mart": "20.33"
+        },
+        {
+          "key": "3263",
+          "ledgersmb": "0",
+          "mart": "1751.30"
+        },
+        {
+          "key": "3264",
+          "ledgersmb": "0",
+          "mart": "113.74"
+        },
+        {
+          "key": "3265",
+          "ledgersmb": "0",
+          "mart": "142.01"
+        },
+        {
+          "key": "3266",
+          "ledgersmb": "264.06",
+          "mart": "972.22"
+        },
+        {
+          "key": "3267",
+          "ledgersmb": "282.54",
+          "mart": "1111.42"
+        },
+        {
+          "key": "3268",
+          "ledgersmb": "0",
+          "mart": "21.19"
+        },
+        {
+          "key": "3269",
+          "ledgersmb": "0",
+          "mart": "48.20"
+        },
+        {
+          "key": "3270",
+          "ledgersmb": "0",
+          "mart": "817.32"
+        },
+        {
+          "key": "3272",
+          "ledgersmb": "458.67",
+          "mart": "1463.24"
+        },
+        {
+          "key": "3273",
+          "ledgersmb": "0",
+          "mart": "1251.38"
+        },
+        {
+          "key": "3274",
+          "ledgersmb": "0",
+          "mart": "1070.54"
+        },
+        {
+          "key": "3275",
+          "ledgersmb": "0",
+          "mart": "770.51"
+        },
+        {
+          "key": "3276",
+          "ledgersmb": "596.48",
+          "mart": "268.89"
+        },
+        {
+          "key": "3277",
+          "ledgersmb": "0",
+          "mart": "1740.31"
+        },
+        {
+          "key": "3278",
+          "ledgersmb": "0",
+          "mart": "1232.55"
+        },
+        {
+          "key": "3279",
+          "ledgersmb": "222.56",
+          "mart": "729.16"
+        },
+        {
+          "key": "3280",
+          "ledgersmb": "1226.94",
+          "mart": "721.13"
+        },
+        {
+          "key": "3281",
+          "ledgersmb": "0",
+          "mart": "1019.80"
+        },
+        {
+          "key": "3282",
+          "ledgersmb": "913.63",
+          "mart": "1201.09"
+        },
+        {
+          "key": "3283",
+          "ledgersmb": "0",
+          "mart": "1310.13"
+        },
+        {
+          "key": "3284",
+          "ledgersmb": "1626.15",
+          "mart": "937.11"
+        },
+        {
+          "key": "3285",
+          "ledgersmb": "1259.74",
+          "mart": "0"
+        },
+        {
+          "key": "3286",
+          "ledgersmb": "0",
+          "mart": "1551.71"
+        },
+        {
+          "key": "3287",
+          "ledgersmb": "0",
+          "mart": "570.74"
+        },
+        {
+          "key": "3288",
+          "ledgersmb": "0",
+          "mart": "936.54"
+        },
+        {
+          "key": "3289",
+          "ledgersmb": "674.66",
+          "mart": "1872.37"
+        },
+        {
+          "key": "3290",
+          "ledgersmb": "0",
+          "mart": "1912.43"
+        },
+        {
+          "key": "3291",
+          "ledgersmb": "166.28",
+          "mart": "588.14"
+        },
+        {
+          "key": "3292",
+          "ledgersmb": "755.01",
+          "mart": "1171.31"
+        },
+        {
+          "key": "3293",
+          "ledgersmb": "434.64",
+          "mart": "936.11"
+        },
+        {
+          "key": "3294",
+          "ledgersmb": "0",
+          "mart": "1244.92"
+        },
+        {
+          "key": "3295",
+          "ledgersmb": "421.15",
+          "mart": "242.52"
+        },
+        {
+          "key": "3296",
+          "ledgersmb": "0",
+          "mart": "88.60"
+        },
+        {
+          "key": "3297",
+          "ledgersmb": "822.40",
+          "mart": "287.77"
+        },
+        {
+          "key": "3298",
+          "ledgersmb": "746.79",
+          "mart": "832.01"
+        },
+        {
+          "key": "3299",
+          "ledgersmb": "78.75",
+          "mart": "0"
+        },
+        {
+          "key": "3300",
+          "ledgersmb": "2411.18",
+          "mart": "538.80"
+        },
+        {
+          "key": "3301",
+          "ledgersmb": "0",
+          "mart": "701.17"
+        },
+        {
+          "key": "3302",
+          "ledgersmb": "0",
+          "mart": "4900.46"
+        },
+        {
+          "key": "3303",
+          "ledgersmb": "0",
+          "mart": "88.77"
+        },
+        {
+          "key": "3304",
+          "ledgersmb": "660.09",
+          "mart": "2367.22"
+        },
+        {
+          "key": "3305",
+          "ledgersmb": "662.18",
+          "mart": "474.59"
+        },
+        {
+          "key": "3306",
+          "ledgersmb": "0",
+          "mart": "1878.03"
+        },
+        {
+          "key": "3307",
+          "ledgersmb": "0",
+          "mart": "2092.18"
+        },
+        {
+          "key": "3308",
+          "ledgersmb": "0",
+          "mart": "1761.19"
+        },
+        {
+          "key": "3309",
+          "ledgersmb": "0",
+          "mart": "4211.93"
+        },
+        {
+          "key": "3310",
+          "ledgersmb": "506.39",
+          "mart": "2040.51"
+        },
+        {
+          "key": "3311",
+          "ledgersmb": "0",
+          "mart": "950.57"
+        },
+        {
+          "key": "3312",
+          "ledgersmb": "1065.98",
+          "mart": "2452.74"
+        },
+        {
+          "key": "3313",
+          "ledgersmb": "0",
+          "mart": "1044.14"
+        },
+        {
+          "key": "3314",
+          "ledgersmb": "0",
+          "mart": "125.56"
+        },
+        {
+          "key": "3316",
+          "ledgersmb": "670.89",
+          "mart": "711.35"
+        },
+        {
+          "key": "3317",
+          "ledgersmb": "0",
+          "mart": "1028.38"
+        },
+        {
+          "key": "3318",
+          "ledgersmb": "0",
+          "mart": "20.54"
+        },
+        {
+          "key": "3319",
+          "ledgersmb": "0",
+          "mart": "5643.16"
+        },
+        {
+          "key": "3320",
+          "ledgersmb": "0",
+          "mart": "1621.35"
+        },
+        {
+          "key": "3321",
+          "ledgersmb": "0",
+          "mart": "1490.54"
+        },
+        {
+          "key": "3322",
+          "ledgersmb": "417.64",
+          "mart": "68.63"
+        },
+        {
+          "key": "3323",
+          "ledgersmb": "898.71",
+          "mart": "2071.50"
+        },
+        {
+          "key": "3324",
+          "ledgersmb": "0",
+          "mart": "939.88"
+        },
+        {
+          "key": "3325",
+          "ledgersmb": "0",
+          "mart": "787.35"
+        },
+        {
+          "key": "3327",
+          "ledgersmb": "0",
+          "mart": "696.66"
+        },
+        {
+          "key": "3328",
+          "ledgersmb": "1956.13",
+          "mart": "121.70"
+        },
+        {
+          "key": "3329",
+          "ledgersmb": "16.05",
+          "mart": "1286.87"
+        },
+        {
+          "key": "3330",
+          "ledgersmb": "622.57",
+          "mart": "549.34"
+        },
+        {
+          "key": "3331",
+          "ledgersmb": "0",
+          "mart": "679.23"
+        },
+        {
+          "key": "3332",
+          "ledgersmb": "705.88",
+          "mart": "1689.49"
+        },
+        {
+          "key": "3333",
+          "ledgersmb": "0",
+          "mart": "592.63"
+        },
+        {
+          "key": "3334",
+          "ledgersmb": "203.73",
+          "mart": "54.14"
+        },
+        {
+          "key": "3335",
+          "ledgersmb": "0",
+          "mart": "445.16"
+        },
+        {
+          "key": "3336",
+          "ledgersmb": "1746.30",
+          "mart": "2.12"
+        },
+        {
+          "key": "3337",
+          "ledgersmb": "1218.54",
+          "mart": "1340.11"
+        },
+        {
+          "key": "3338",
+          "ledgersmb": "0",
+          "mart": "1600.86"
+        },
+        {
+          "key": "3339",
+          "ledgersmb": "0",
+          "mart": "1658.73"
+        },
+        {
+          "key": "3340",
+          "ledgersmb": "0",
+          "mart": "824.16"
+        },
+        {
+          "key": "3341",
+          "ledgersmb": "611.32",
+          "mart": "0"
+        },
+        {
+          "key": "3342",
+          "ledgersmb": "0",
+          "mart": "480.93"
+        },
+        {
+          "key": "3343",
+          "ledgersmb": "966.81",
+          "mart": "211.75"
+        },
+        {
+          "key": "3344",
+          "ledgersmb": "0",
+          "mart": "465.06"
+        },
+        {
+          "key": "3345",
+          "ledgersmb": "1347.37",
+          "mart": "553.83"
+        },
+        {
+          "key": "3346",
+          "ledgersmb": "0",
+          "mart": "386.42"
+        },
+        {
+          "key": "3347",
+          "ledgersmb": "0",
+          "mart": "471.66"
+        },
+        {
+          "key": "3348",
+          "ledgersmb": "0",
+          "mart": "1994.78"
+        },
+        {
+          "key": "3349",
+          "ledgersmb": "0",
+          "mart": "110.53"
+        },
+        {
+          "key": "3350",
+          "ledgersmb": "185.94",
+          "mart": "1558.95"
+        },
+        {
+          "key": "3351",
+          "ledgersmb": "503.14",
+          "mart": "215.11"
+        },
+        {
+          "key": "3352",
+          "ledgersmb": "1867.88",
+          "mart": "88.96"
+        },
+        {
+          "key": "3353",
+          "ledgersmb": "0",
+          "mart": "817.50"
+        },
+        {
+          "key": "3354",
+          "ledgersmb": "0",
+          "mart": "280.58"
+        },
+        {
+          "key": "3355",
+          "ledgersmb": "0",
+          "mart": "870.02"
+        },
+        {
+          "key": "3356",
+          "ledgersmb": "1287.01",
+          "mart": "1410.54"
+        },
+        {
+          "key": "3357",
+          "ledgersmb": "0",
+          "mart": "1428.46"
+        },
+        {
+          "key": "3358",
+          "ledgersmb": "1289.15",
+          "mart": "507.39"
+        },
+        {
+          "key": "3359",
+          "ledgersmb": "706.15",
+          "mart": "830.97"
+        },
+        {
+          "key": "3360",
+          "ledgersmb": "45.54",
+          "mart": "2618.28"
+        },
+        {
+          "key": "3361",
+          "ledgersmb": "0",
+          "mart": "1637.85"
+        },
+        {
+          "key": "3363",
+          "ledgersmb": "0",
+          "mart": "41.52"
+        },
+        {
+          "key": "3364",
+          "ledgersmb": "0",
+          "mart": "424.80"
+        },
+        {
+          "key": "3365",
+          "ledgersmb": "75.37",
+          "mart": "347.49"
+        },
+        {
+          "key": "3366",
+          "ledgersmb": "0",
+          "mart": "2699.98"
+        },
+        {
+          "key": "3367",
+          "ledgersmb": "0",
+          "mart": "139.93"
+        },
+        {
+          "key": "3368",
+          "ledgersmb": "0",
+          "mart": "519.75"
+        },
+        {
+          "key": "3369",
+          "ledgersmb": "1119.08",
+          "mart": "962.49"
+        },
+        {
+          "key": "3370",
+          "ledgersmb": "1183.28",
+          "mart": "1153.53"
+        },
+        {
+          "key": "3371",
+          "ledgersmb": "3075.62",
+          "mart": "1446.16"
+        },
+        {
+          "key": "3372",
+          "ledgersmb": "1136.01",
+          "mart": "397.42"
+        },
+        {
+          "key": "3373",
+          "ledgersmb": "878.74",
+          "mart": "0"
+        },
+        {
+          "key": "3374",
+          "ledgersmb": "0",
+          "mart": "1807.62"
+        },
+        {
+          "key": "3375",
+          "ledgersmb": "3673.35",
+          "mart": "195.76"
+        },
+        {
+          "key": "3376",
+          "ledgersmb": "325.30",
+          "mart": "1787.08"
+        },
+        {
+          "key": "3377",
+          "ledgersmb": "0",
+          "mart": "1633.29"
+        },
+        {
+          "key": "3378",
+          "ledgersmb": "0",
+          "mart": "727.66"
+        },
+        {
+          "key": "3379",
+          "ledgersmb": "0",
+          "mart": "400.52"
+        },
+        {
+          "key": "3380",
+          "ledgersmb": "0",
+          "mart": "304.60"
+        },
+        {
+          "key": "3381",
+          "ledgersmb": "851.23",
+          "mart": "204.73"
+        },
+        {
+          "key": "3382",
+          "ledgersmb": "1319.99",
+          "mart": "24.57"
+        },
+        {
+          "key": "3383",
+          "ledgersmb": "2158.95",
+          "mart": "456.48"
+        },
+        {
+          "key": "3385",
+          "ledgersmb": "0",
+          "mart": "1360.89"
+        },
+        {
+          "key": "3386",
+          "ledgersmb": "0",
+          "mart": "1089.92"
+        },
+        {
+          "key": "3387",
+          "ledgersmb": "1761.68",
+          "mart": "1067.53"
+        },
+        {
+          "key": "3388",
+          "ledgersmb": "1411.92",
+          "mart": "1274.01"
+        },
+        {
+          "key": "3389",
+          "ledgersmb": "482.53",
+          "mart": "147.81"
+        },
+        {
+          "key": "3390",
+          "ledgersmb": "414.37",
+          "mart": "1223.75"
+        },
+        {
+          "key": "3391",
+          "ledgersmb": "1261.77",
+          "mart": "200.76"
+        },
+        {
+          "key": "3392",
+          "ledgersmb": "771.28",
+          "mart": "1763.13"
+        },
+        {
+          "key": "3393",
+          "ledgersmb": "1100.43",
+          "mart": "857.80"
+        },
+        {
+          "key": "3394",
+          "ledgersmb": "2284.82",
+          "mart": "0"
+        },
+        {
+          "key": "3395",
+          "ledgersmb": "205.08",
+          "mart": "1404.66"
+        },
+        {
+          "key": "3396",
+          "ledgersmb": "1091.07",
+          "mart": "144.88"
+        },
+        {
+          "key": "3397",
+          "ledgersmb": "0",
+          "mart": "710.47"
+        },
+        {
+          "key": "3398",
+          "ledgersmb": "85.07",
+          "mart": "310.04"
+        },
+        {
+          "key": "3399",
+          "ledgersmb": "0",
+          "mart": "1173.45"
+        },
+        {
+          "key": "3400",
+          "ledgersmb": "0",
+          "mart": "136.82"
+        },
+        {
+          "key": "3401",
+          "ledgersmb": "3154.61",
+          "mart": "2360.60"
+        },
+        {
+          "key": "3402",
+          "ledgersmb": "596.14",
+          "mart": "1396.98"
+        },
+        {
+          "key": "3403",
+          "ledgersmb": "1415.14",
+          "mart": "0"
+        },
+        {
+          "key": "3404",
+          "ledgersmb": "1159.47",
+          "mart": "971.56"
+        },
+        {
+          "key": "3405",
+          "ledgersmb": "0",
+          "mart": "182.41"
+        },
+        {
+          "key": "3406",
+          "ledgersmb": "94.50",
+          "mart": "215.11"
+        },
+        {
+          "key": "3407",
+          "ledgersmb": "1155.89",
+          "mart": "1346.18"
+        },
+        {
+          "key": "3408",
+          "ledgersmb": "273.92",
+          "mart": "331.27"
+        },
+        {
+          "key": "3409",
+          "ledgersmb": "1182.48",
+          "mart": "1728.00"
+        },
+        {
+          "key": "3410",
+          "ledgersmb": "1788.32",
+          "mart": "589.36"
+        },
+        {
+          "key": "3411",
+          "ledgersmb": "0",
+          "mart": "902.65"
+        },
+        {
+          "key": "3412",
+          "ledgersmb": "0",
+          "mart": "383.35"
+        },
+        {
+          "key": "3413",
+          "ledgersmb": "1082.35",
+          "mart": "2485.39"
+        },
+        {
+          "key": "3414",
+          "ledgersmb": "1161.66",
+          "mart": "422.44"
+        },
+        {
+          "key": "3415",
+          "ledgersmb": "1341.87",
+          "mart": "470.36"
+        },
+        {
+          "key": "3416",
+          "ledgersmb": "0",
+          "mart": "28.06"
+        },
+        {
+          "key": "3417",
+          "ledgersmb": "1063.17",
+          "mart": "0"
+        },
+        {
+          "key": "3418",
+          "ledgersmb": "195.62",
+          "mart": "2089.47"
+        },
+        {
+          "key": "3419",
+          "ledgersmb": "2042.39",
+          "mart": "1082.47"
+        },
+        {
+          "key": "3420",
+          "ledgersmb": "887.67",
+          "mart": "390.68"
+        },
+        {
+          "key": "3421",
+          "ledgersmb": "604.21",
+          "mart": "4162.23"
+        },
+        {
+          "key": "3422",
+          "ledgersmb": "1086.07",
+          "mart": "205.18"
+        },
+        {
+          "key": "3423",
+          "ledgersmb": "0",
+          "mart": "797.02"
+        },
+        {
+          "key": "3424",
+          "ledgersmb": "30.99",
+          "mart": "362.20"
+        },
+        {
+          "key": "3425",
+          "ledgersmb": "4268.72",
+          "mart": "1027.66"
+        },
+        {
+          "key": "3426",
+          "ledgersmb": "0",
+          "mart": "35.44"
+        },
+        {
+          "key": "3427",
+          "ledgersmb": "0",
+          "mart": "3.72"
+        },
+        {
+          "key": "3428",
+          "ledgersmb": "465.94",
+          "mart": "391.80"
+        },
+        {
+          "key": "3429",
+          "ledgersmb": "695.15",
+          "mart": "0"
+        },
+        {
+          "key": "3430",
+          "ledgersmb": "1724.08",
+          "mart": "2867.20"
+        },
+        {
+          "key": "3431",
+          "ledgersmb": "249.14",
+          "mart": "407.99"
+        },
+        {
+          "key": "3432",
+          "ledgersmb": "1573.29",
+          "mart": "454.15"
+        },
+        {
+          "key": "3433",
+          "ledgersmb": "686.99",
+          "mart": "469.48"
+        },
+        {
+          "key": "3434",
+          "ledgersmb": "0",
+          "mart": "1456.79"
+        },
+        {
+          "key": "3435",
+          "ledgersmb": "3137.96",
+          "mart": "310.04"
+        },
+        {
+          "key": "3436",
+          "ledgersmb": "809.59",
+          "mart": "1415.35"
+        },
+        {
+          "key": "3437",
+          "ledgersmb": "60.86",
+          "mart": "1404.24"
+        },
+        {
+          "key": "3438",
+          "ledgersmb": "0",
+          "mart": "438.45"
+        },
+        {
+          "key": "3439",
+          "ledgersmb": "0",
+          "mart": "1112.28"
+        },
+        {
+          "key": "3441",
+          "ledgersmb": "0",
+          "mart": "697.07"
+        },
+        {
+          "key": "3442",
+          "ledgersmb": "830.91",
+          "mart": "90.18"
+        },
+        {
+          "key": "3443",
+          "ledgersmb": "387.55",
+          "mart": "249.02"
+        },
+        {
+          "key": "3444",
+          "ledgersmb": "1103.34",
+          "mart": "694.39"
+        },
+        {
+          "key": "3445",
+          "ledgersmb": "443.19",
+          "mart": "1254.88"
+        },
+        {
+          "key": "3446",
+          "ledgersmb": "1885.14",
+          "mart": "2064.99"
+        },
+        {
+          "key": "3447",
+          "ledgersmb": "1011.66",
+          "mart": "236.00"
+        },
+        {
+          "key": "3448",
+          "ledgersmb": "149.16",
+          "mart": "1257.05"
+        },
+        {
+          "key": "3449",
+          "ledgersmb": "0",
+          "mart": "1721.21"
+        },
+        {
+          "key": "3450",
+          "ledgersmb": "1478.48",
+          "mart": "1251.19"
+        },
+        {
+          "key": "3451",
+          "ledgersmb": "441.25",
+          "mart": "266.19"
+        },
+        {
+          "key": "3452",
+          "ledgersmb": "152.88",
+          "mart": "483.00"
+        },
+        {
+          "key": "3453",
+          "ledgersmb": "0",
+          "mart": "3299.73"
+        },
+        {
+          "key": "3454",
+          "ledgersmb": "3052.77",
+          "mart": "507.14"
+        },
+        {
+          "key": "3455",
+          "ledgersmb": "371.63",
+          "mart": "1791.69"
+        },
+        {
+          "key": "3456",
+          "ledgersmb": "1265.09",
+          "mart": "398.28"
+        },
+        {
+          "key": "3457",
+          "ledgersmb": "0",
+          "mart": "316.41"
+        },
+        {
+          "key": "3458",
+          "ledgersmb": "0",
+          "mart": "775.57"
+        },
+        {
+          "key": "3459",
+          "ledgersmb": "403.75",
+          "mart": "770.00"
+        },
+        {
+          "key": "3460",
+          "ledgersmb": "316.05",
+          "mart": "256.00"
+        },
+        {
+          "key": "3461",
+          "ledgersmb": "0",
+          "mart": "1053.37"
+        },
+        {
+          "key": "3463",
+          "ledgersmb": "824.73",
+          "mart": "0"
+        },
+        {
+          "key": "3464",
+          "ledgersmb": "408.62",
+          "mart": "0"
+        },
+        {
+          "key": "3465",
+          "ledgersmb": "276.68",
+          "mart": "0"
+        },
+        {
+          "key": "3466",
+          "ledgersmb": "1449.09",
+          "mart": "0"
+        },
+        {
+          "key": "3467",
+          "ledgersmb": "1722.19",
+          "mart": "0"
+        },
+        {
+          "key": "3468",
+          "ledgersmb": "1952.72",
+          "mart": "0"
+        },
+        {
+          "key": "3469",
+          "ledgersmb": "457.30",
+          "mart": "0"
+        },
+        {
+          "key": "3471",
+          "ledgersmb": "1496.51",
+          "mart": "0"
+        },
+        {
+          "key": "3472",
+          "ledgersmb": "436.43",
+          "mart": "0"
+        },
+        {
+          "key": "3473",
+          "ledgersmb": "932.24",
+          "mart": "0"
+        },
+        {
+          "key": "3474",
+          "ledgersmb": "2845.19",
+          "mart": "0"
+        },
+        {
+          "key": "3475",
+          "ledgersmb": "2433.05",
+          "mart": "0"
+        },
+        {
+          "key": "3476",
+          "ledgersmb": "283.86",
+          "mart": "0"
+        },
+        {
+          "key": "3477",
+          "ledgersmb": "2382.11",
+          "mart": "0"
+        },
+        {
+          "key": "3478",
+          "ledgersmb": "183.57",
+          "mart": "0"
+        },
+        {
+          "key": "3479",
+          "ledgersmb": "1582.03",
+          "mart": "0"
+        },
+        {
+          "key": "3480",
+          "ledgersmb": "807.10",
+          "mart": "0"
+        },
+        {
+          "key": "3481",
+          "ledgersmb": "1601.73",
+          "mart": "0"
+        },
+        {
+          "key": "3482",
+          "ledgersmb": "850.56",
+          "mart": "0"
+        },
+        {
+          "key": "3484",
+          "ledgersmb": "1386.67",
+          "mart": "0"
+        },
+        {
+          "key": "3485",
+          "ledgersmb": "1621.01",
+          "mart": "0"
+        },
+        {
+          "key": "3486",
+          "ledgersmb": "390.62",
+          "mart": "0"
+        },
+        {
+          "key": "3487",
+          "ledgersmb": "398.89",
+          "mart": "0"
+        },
+        {
+          "key": "3489",
+          "ledgersmb": "1397.06",
+          "mart": "0"
+        },
+        {
+          "key": "3490",
+          "ledgersmb": "1372.31",
+          "mart": "0"
+        },
+        {
+          "key": "3491",
+          "ledgersmb": "623.22",
+          "mart": "0"
+        },
+        {
+          "key": "3492",
+          "ledgersmb": "821.48",
+          "mart": "0"
+        },
+        {
+          "key": "3493",
+          "ledgersmb": "310.04",
+          "mart": "0"
+        },
+        {
+          "key": "3494",
+          "ledgersmb": "1117.76",
+          "mart": "0"
+        },
+        {
+          "key": "3497",
+          "ledgersmb": "816.15",
+          "mart": "0"
+        },
+        {
+          "key": "3498",
+          "ledgersmb": "2084.72",
+          "mart": "0"
+        },
+        {
+          "key": "3499",
+          "ledgersmb": "1687.14",
+          "mart": "0"
+        },
+        {
+          "key": "3500",
+          "ledgersmb": "2223.92",
+          "mart": "0"
+        },
+        {
+          "key": "3501",
+          "ledgersmb": "2746.48",
+          "mart": "0"
+        },
+        {
+          "key": "3502",
+          "ledgersmb": "809.35",
+          "mart": "0"
+        },
+        {
+          "key": "3503",
+          "ledgersmb": "508.08",
+          "mart": "0"
+        },
+        {
+          "key": "3504",
+          "ledgersmb": "411.35",
+          "mart": "0"
+        },
+        {
+          "key": "3506",
+          "ledgersmb": "1183.28",
+          "mart": "0"
+        },
+        {
+          "key": "3507",
+          "ledgersmb": "691.82",
+          "mart": "0"
+        },
+        {
+          "key": "3508",
+          "ledgersmb": "198.51",
+          "mart": "0"
+        },
+        {
+          "key": "3509",
+          "ledgersmb": "91.69",
+          "mart": "0"
+        },
+        {
+          "key": "3510",
+          "ledgersmb": "1477.02",
+          "mart": "0"
+        },
+        {
+          "key": "3511",
+          "ledgersmb": "588.82",
+          "mart": "0"
+        },
+        {
+          "key": "3512",
+          "ledgersmb": "1791.67",
+          "mart": "0"
+        },
+        {
+          "key": "3513",
+          "ledgersmb": "1093.33",
+          "mart": "0"
+        },
+        {
+          "key": "3515",
+          "ledgersmb": "353.39",
+          "mart": "0"
+        },
+        {
+          "key": "3516",
+          "ledgersmb": "789.51",
+          "mart": "0"
+        },
+        {
+          "key": "3517",
+          "ledgersmb": "1307.38",
+          "mart": "0"
+        },
+        {
+          "key": "3518",
+          "ledgersmb": "1307.78",
+          "mart": "0"
+        },
+        {
+          "key": "3519",
+          "ledgersmb": "229.93",
+          "mart": "0"
+        },
+        {
+          "key": "3520",
+          "ledgersmb": "172.67",
+          "mart": "0"
+        },
+        {
+          "key": "3521",
+          "ledgersmb": "473.46",
+          "mart": "0"
+        },
+        {
+          "key": "3522",
+          "ledgersmb": "920.85",
+          "mart": "0"
+        },
+        {
+          "key": "3524",
+          "ledgersmb": "287.80",
+          "mart": "0"
+        },
+        {
+          "key": "3525",
+          "ledgersmb": "1712.44",
+          "mart": "0"
+        },
+        {
+          "key": "3526",
+          "ledgersmb": "1323.27",
+          "mart": "0"
+        },
+        {
+          "key": "3527",
+          "ledgersmb": "1696.74",
+          "mart": "0"
+        },
+        {
+          "key": "3528",
+          "ledgersmb": "38.96",
+          "mart": "0"
+        },
+        {
+          "key": "3529",
+          "ledgersmb": "2178.45",
+          "mart": "0"
+        },
+        {
+          "key": "3530",
+          "ledgersmb": "340.38",
+          "mart": "0"
+        },
+        {
+          "key": "3531",
+          "ledgersmb": "1287.08",
+          "mart": "0"
+        },
+        {
+          "key": "3533",
+          "ledgersmb": "428.94",
+          "mart": "0"
+        },
+        {
+          "key": "3534",
+          "ledgersmb": "291.90",
+          "mart": "0"
+        },
+        {
+          "key": "3535",
+          "ledgersmb": "799.72",
+          "mart": "0"
+        },
+        {
+          "key": "3536",
+          "ledgersmb": "2325.00",
+          "mart": "0"
+        },
+        {
+          "key": "3537",
+          "ledgersmb": "786.41",
+          "mart": "0"
+        },
+        {
+          "key": "3538",
+          "ledgersmb": "909.94",
+          "mart": "0"
+        },
+        {
+          "key": "3539",
+          "ledgersmb": "681.72",
+          "mart": "0"
+        },
+        {
+          "key": "3541",
+          "ledgersmb": "218.47",
+          "mart": "0"
+        },
+        {
+          "key": "3542",
+          "ledgersmb": "626.63",
+          "mart": "0"
+        },
+        {
+          "key": "3543",
+          "ledgersmb": "699.35",
+          "mart": "0"
+        },
+        {
+          "key": "3544",
+          "ledgersmb": "471.27",
+          "mart": "0"
+        },
+        {
+          "key": "3545",
+          "ledgersmb": "614.01",
+          "mart": "0"
+        },
+        {
+          "key": "3546",
+          "ledgersmb": "518.42",
+          "mart": "0"
+        },
+        {
+          "key": "3547",
+          "ledgersmb": "574.33",
+          "mart": "0"
+        },
+        {
+          "key": "3548",
+          "ledgersmb": "506.45",
+          "mart": "0"
+        },
+        {
+          "key": "3549",
+          "ledgersmb": "681.68",
+          "mart": "0"
+        },
+        {
+          "key": "3550",
+          "ledgersmb": "1508.36",
+          "mart": "0"
+        },
+        {
+          "key": "3551",
+          "ledgersmb": "509.16",
+          "mart": "0"
+        },
+        {
+          "key": "3552",
+          "ledgersmb": "938.60",
+          "mart": "0"
+        },
+        {
+          "key": "3553",
+          "ledgersmb": "1701.45",
+          "mart": "0"
+        },
+        {
+          "key": "3556",
+          "ledgersmb": "1550.12",
+          "mart": "0"
+        },
+        {
+          "key": "3557",
+          "ledgersmb": "3334.53",
+          "mart": "0"
+        },
+        {
+          "key": "3558",
+          "ledgersmb": "597.42",
+          "mart": "0"
+        },
+        {
+          "key": "3559",
+          "ledgersmb": "317.07",
+          "mart": "0"
+        },
+        {
+          "key": "3560",
+          "ledgersmb": "989.46",
+          "mart": "0"
+        },
+        {
+          "key": "3561",
+          "ledgersmb": "937.86",
+          "mart": "0"
+        },
+        {
+          "key": "3562",
+          "ledgersmb": "1180.42",
+          "mart": "0"
+        },
+        {
+          "key": "3563",
+          "ledgersmb": "1571.72",
+          "mart": "0"
+        },
+        {
+          "key": "3565",
+          "ledgersmb": "1505.40",
+          "mart": "0"
+        },
+        {
+          "key": "3566",
+          "ledgersmb": "465.06",
+          "mart": "0"
+        },
+        {
+          "key": "3567",
+          "ledgersmb": "1123.39",
+          "mart": "0"
+        },
+        {
+          "key": "3568",
+          "ledgersmb": "2149.19",
+          "mart": "0"
+        },
+        {
+          "key": "3569",
+          "ledgersmb": "1264.32",
+          "mart": "0"
+        },
+        {
+          "key": "3570",
+          "ledgersmb": "1794.74",
+          "mart": "0"
+        },
+        {
+          "key": "3571",
+          "ledgersmb": "434.64",
+          "mart": "0"
+        },
+        {
+          "key": "3572",
+          "ledgersmb": "438.49",
+          "mart": "0"
+        },
+        {
+          "key": "3573",
+          "ledgersmb": "607.59",
+          "mart": "0"
+        },
+        {
+          "key": "3574",
+          "ledgersmb": "238.05",
+          "mart": "0"
+        },
+        {
+          "key": "3575",
+          "ledgersmb": "1426.20",
+          "mart": "0"
+        },
+        {
+          "key": "3576",
+          "ledgersmb": "1425.69",
+          "mart": "0"
+        },
+        {
+          "key": "3577",
+          "ledgersmb": "403.22",
+          "mart": "0"
+        },
+        {
+          "key": "3578",
+          "ledgersmb": "1282.44",
+          "mart": "0"
+        },
+        {
+          "key": "3580",
+          "ledgersmb": "497.29",
+          "mart": "0"
+        },
+        {
+          "key": "3581",
+          "ledgersmb": "205.68",
+          "mart": "0"
+        },
+        {
+          "key": "3582",
+          "ledgersmb": "14.57",
+          "mart": "0"
+        },
+        {
+          "key": "3583",
+          "ledgersmb": "1134.20",
+          "mart": "0"
+        },
+        {
+          "key": "3585",
+          "ledgersmb": "2424.68",
+          "mart": "0"
+        },
+        {
+          "key": "3586",
+          "ledgersmb": "197.63",
+          "mart": "0"
+        },
+        {
+          "key": "3587",
+          "ledgersmb": "498.91",
+          "mart": "0"
+        },
+        {
+          "key": "3588",
+          "ledgersmb": "180.72",
+          "mart": "0"
+        },
+        {
+          "key": "3589",
+          "ledgersmb": "1588.14",
+          "mart": "0"
+        },
+        {
+          "key": "3590",
+          "ledgersmb": "141.73",
+          "mart": "0"
+        },
+        {
+          "key": "3591",
+          "ledgersmb": "615.35",
+          "mart": "0"
+        },
+        {
+          "key": "3592",
+          "ledgersmb": "156.90",
+          "mart": "0"
+        },
+        {
+          "key": "3593",
+          "ledgersmb": "395.66",
+          "mart": "0"
+        },
+        {
+          "key": "3594",
+          "ledgersmb": "1323.42",
+          "mart": "0"
+        },
+        {
+          "key": "3595",
+          "ledgersmb": "233.98",
+          "mart": "0"
+        },
+        {
+          "key": "3596",
+          "ledgersmb": "1144.96",
+          "mart": "0"
+        },
+        {
+          "key": "3597",
+          "ledgersmb": "329.03",
+          "mart": "0"
+        },
+        {
+          "key": "3598",
+          "ledgersmb": "672.11",
+          "mart": "0"
+        },
+        {
+          "key": "3599",
+          "ledgersmb": "77.51",
+          "mart": "0"
+        },
+        {
+          "key": "3601",
+          "ledgersmb": "1674.03",
+          "mart": "0"
+        },
+        {
+          "key": "3603",
+          "ledgersmb": "836.10",
+          "mart": "0"
+        },
+        {
+          "key": "3604",
+          "ledgersmb": "4.86",
+          "mart": "0"
+        },
+        {
+          "key": "3605",
+          "ledgersmb": "1614.67",
+          "mart": "0"
+        },
+        {
+          "key": "3606",
+          "ledgersmb": "1664.05",
+          "mart": "0"
+        },
+        {
+          "key": "3607",
+          "ledgersmb": "1485.57",
+          "mart": "0"
+        },
+        {
+          "key": "3608",
+          "ledgersmb": "1459.53",
+          "mart": "0"
+        },
+        {
+          "key": "3609",
+          "ledgersmb": "1480.32",
+          "mart": "0"
+        },
+        {
+          "key": "3610",
+          "ledgersmb": "1583.00",
+          "mart": "0"
+        },
+        {
+          "key": "3611",
+          "ledgersmb": "1385.78",
+          "mart": "0"
+        },
+        {
+          "key": "3612",
+          "ledgersmb": "2594.04",
+          "mart": "0"
+        },
+        {
+          "key": "3613",
+          "ledgersmb": "695.46",
+          "mart": "0"
+        },
+        {
+          "key": "3614",
+          "ledgersmb": "935.90",
+          "mart": "0"
+        },
+        {
+          "key": "3615",
+          "ledgersmb": "1076.96",
+          "mart": "0"
+        },
+        {
+          "key": "3616",
+          "ledgersmb": "1423.70",
+          "mart": "0"
+        },
+        {
+          "key": "3617",
+          "ledgersmb": "711.96",
+          "mart": "0"
+        },
+        {
+          "key": "3620",
+          "ledgersmb": "1384.68",
+          "mart": "0"
+        },
+        {
+          "key": "3621",
+          "ledgersmb": "56.13",
+          "mart": "0"
+        },
+        {
+          "key": "3622",
+          "ledgersmb": "1286.97",
+          "mart": "0"
+        },
+        {
+          "key": "3623",
+          "ledgersmb": "683.97",
+          "mart": "0"
+        },
+        {
+          "key": "3624",
+          "ledgersmb": "1645.81",
+          "mart": "0"
+        },
+        {
+          "key": "3625",
+          "ledgersmb": "606.44",
+          "mart": "0"
+        },
+        {
+          "key": "3626",
+          "ledgersmb": "95.77",
+          "mart": "0"
+        },
+        {
+          "key": "3627",
+          "ledgersmb": "363.04",
+          "mart": "0"
+        },
+        {
+          "key": "3628",
+          "ledgersmb": "242.09",
+          "mart": "0"
+        },
+        {
+          "key": "3629",
+          "ledgersmb": "554.41",
+          "mart": "0"
+        },
+        {
+          "key": "3630",
+          "ledgersmb": "697.81",
+          "mart": "0"
+        },
+        {
+          "key": "3631",
+          "ledgersmb": "1959.17",
+          "mart": "0"
+        },
+        {
+          "key": "3632",
+          "ledgersmb": "3963.37",
+          "mart": "0"
+        },
+        {
+          "key": "3633",
+          "ledgersmb": "912.21",
+          "mart": "0"
+        },
+        {
+          "key": "3634",
+          "ledgersmb": "727.38",
+          "mart": "0"
+        },
+        {
+          "key": "3636",
+          "ledgersmb": "771.95",
+          "mart": "0"
+        },
+        {
+          "key": "3637",
+          "ledgersmb": "92.69",
+          "mart": "0"
+        },
+        {
+          "key": "3638",
+          "ledgersmb": "910.94",
+          "mart": "0"
+        },
+        {
+          "key": "3639",
+          "ledgersmb": "1253.55",
+          "mart": "0"
+        },
+        {
+          "key": "3640",
+          "ledgersmb": "359.18",
+          "mart": "0"
+        },
+        {
+          "key": "3641",
+          "ledgersmb": "1366.09",
+          "mart": "0"
+        },
+        {
+          "key": "3642",
+          "ledgersmb": "617.78",
+          "mart": "0"
+        },
+        {
+          "key": "3643",
+          "ledgersmb": "310.04",
+          "mart": "0"
+        },
+        {
+          "key": "3644",
+          "ledgersmb": "887.31",
+          "mart": "0"
+        },
+        {
+          "key": "3645",
+          "ledgersmb": "1684.04",
+          "mart": "0"
+        },
+        {
+          "key": "3646",
+          "ledgersmb": "1118.09",
+          "mart": "0"
+        },
+        {
+          "key": "3647",
+          "ledgersmb": "1075.76",
+          "mart": "0"
+        },
+        {
+          "key": "3648",
+          "ledgersmb": "21.56",
+          "mart": "0"
+        },
+        {
+          "key": "3650",
+          "ledgersmb": "663.06",
+          "mart": "0"
+        },
+        {
+          "key": "3651",
+          "ledgersmb": "814.40",
+          "mart": "0"
+        },
+        {
+          "key": "3652",
+          "ledgersmb": "596.35",
+          "mart": "0"
+        },
+        {
+          "key": "3653",
+          "ledgersmb": "1185.36",
+          "mart": "0"
+        },
+        {
+          "key": "3654",
+          "ledgersmb": "1938.45",
+          "mart": "0"
+        },
+        {
+          "key": "3655",
+          "ledgersmb": "2779.80",
+          "mart": "0"
+        },
+        {
+          "key": "3656",
+          "ledgersmb": "49.74",
+          "mart": "0"
+        },
+        {
+          "key": "3657",
+          "ledgersmb": "303.60",
+          "mart": "0"
+        },
+        {
+          "key": "3658",
+          "ledgersmb": "1388.70",
+          "mart": "0"
+        },
+        {
+          "key": "3659",
+          "ledgersmb": "168.63",
+          "mart": "0"
+        },
+        {
+          "key": "3661",
+          "ledgersmb": "1697.18",
+          "mart": "0"
+        },
+        {
+          "key": "3662",
+          "ledgersmb": "442.81",
+          "mart": "0"
+        },
+        {
+          "key": "3663",
+          "ledgersmb": "785.68",
+          "mart": "0"
+        },
+        {
+          "key": "3664",
+          "ledgersmb": "1322.06",
+          "mart": "0"
+        },
+        {
+          "key": "3665",
+          "ledgersmb": "1203.47",
+          "mart": "0"
+        },
+        {
+          "key": "3667",
+          "ledgersmb": "232.34",
+          "mart": "0"
+        },
+        {
+          "key": "3668",
+          "ledgersmb": "1576.63",
+          "mart": "0"
+        },
+        {
+          "key": "3669",
+          "ledgersmb": "81.78",
+          "mart": "0"
+        },
+        {
+          "key": "3670",
+          "ledgersmb": "457.94",
+          "mart": "0"
+        },
+        {
+          "key": "3671",
+          "ledgersmb": "1722.96",
+          "mart": "0"
+        },
+        {
+          "key": "3672",
+          "ledgersmb": "266.43",
+          "mart": "0"
+        },
+        {
+          "key": "3673",
+          "ledgersmb": "501.31",
+          "mart": "0"
+        },
+        {
+          "key": "3674",
+          "ledgersmb": "177.15",
+          "mart": "0"
+        },
+        {
+          "key": "3675",
+          "ledgersmb": "2043.72",
+          "mart": "0"
+        },
+        {
+          "key": "3676",
+          "ledgersmb": "856.01",
+          "mart": "0"
+        },
+        {
+          "key": "3678",
+          "ledgersmb": "1852.64",
+          "mart": "0"
+        },
+        {
+          "key": "3679",
+          "ledgersmb": "890.10",
+          "mart": "0"
+        },
+        {
+          "key": "3680",
+          "ledgersmb": "1312.41",
+          "mart": "0"
+        },
+        {
+          "key": "3681",
+          "ledgersmb": "754.98",
+          "mart": "0"
+        },
+        {
+          "key": "3682",
+          "ledgersmb": "1034.21",
+          "mart": "0"
+        },
+        {
+          "key": "3683",
+          "ledgersmb": "638.92",
+          "mart": "0"
+        },
+        {
+          "key": "3684",
+          "ledgersmb": "1768.97",
+          "mart": "0"
+        }
+      ],
+      "passed": false,
+      "oracle": "acc_trans on the AR control account"
+    },
+    {
+      "check": "stock on hand",
+      "compared": 108,
+      "differences": [
+        {
+          "key": "BEA-1023",
+          "ledgersmb": "58.00",
+          "mart": "174.00"
+        },
+        {
+          "key": "BEA-1024",
+          "ledgersmb": "61.00",
+          "mart": "118.00"
+        },
+        {
+          "key": "BEA-1025",
+          "ledgersmb": "94.00",
+          "mart": "193.00"
+        },
+        {
+          "key": "BEA-1026",
+          "ledgersmb": "45.00",
+          "mart": "301.00"
+        },
+        {
+          "key": "BEA-1027",
+          "ledgersmb": "74.00",
+          "mart": "153.00"
+        },
+        {
+          "key": "BEA-1028",
+          "ledgersmb": "48.00",
+          "mart": "410.00"
+        },
+        {
+          "key": "BEA-1029",
+          "ledgersmb": "106.00",
+          "mart": "261.00"
+        },
+        {
+          "key": "BEA-1030",
+          "ledgersmb": "98.00",
+          "mart": "332.00"
+        },
+        {
+          "key": "BEA-1031",
+          "ledgersmb": "77.00",
+          "mart": "618.00"
+        },
+        {
+          "key": "BEA-1032",
+          "ledgersmb": "66.00",
+          "mart": "187.00"
+        },
+        {
+          "key": "BEA-1033",
+          "ledgersmb": "60.00",
+          "mart": "137.00"
+        },
+        {
+          "key": "BEA-1034",
+          "ledgersmb": "38.00",
+          "mart": "124.00"
+        },
+        {
+          "key": "BEA-1035",
+          "ledgersmb": "41.00",
+          "mart": "679.00"
+        },
+        {
+          "key": "BEA-1036",
+          "ledgersmb": "42.00",
+          "mart": "348.00"
+        },
+        {
+          "key": "BEA-1037",
+          "ledgersmb": "82.00",
+          "mart": "100.00"
+        },
+        {
+          "key": "BEA-1038",
+          "ledgersmb": "84.00",
+          "mart": "253.00"
+        },
+        {
+          "key": "ELE-1053",
+          "ledgersmb": "83.00",
+          "mart": "720.00"
+        },
+        {
+          "key": "ELE-1054",
+          "ledgersmb": "63.00",
+          "mart": "235.00"
+        },
+        {
+          "key": "ELE-1055",
+          "ledgersmb": "138.00",
+          "mart": "114.00"
+        },
+        {
+          "key": "ELE-1056",
+          "ledgersmb": "51.00",
+          "mart": "131.00"
+        },
+        {
+          "key": "ELE-1057",
+          "ledgersmb": "68.00",
+          "mart": "157.00"
+        },
+        {
+          "key": "ELE-1058",
+          "ledgersmb": "66.00",
+          "mart": "342.00"
+        },
+        {
+          "key": "ELE-1059",
+          "ledgersmb": "105.00",
+          "mart": "183.00"
+        },
+        {
+          "key": "ELE-1060",
+          "ledgersmb": "36.00",
+          "mart": "205.00"
+        },
+        {
+          "key": "ELE-1061",
+          "ledgersmb": "86.00",
+          "mart": "170.00"
+        },
+        {
+          "key": "ELE-1062",
+          "ledgersmb": "24.00",
+          "mart": "203.00"
+        },
+        {
+          "key": "ELE-1063",
+          "ledgersmb": "146.00",
+          "mart": "880.00"
+        },
+        {
+          "key": "ELE-1064",
+          "ledgersmb": "103.00",
+          "mart": "572.00"
+        },
+        {
+          "key": "ELE-1065",
+          "ledgersmb": "85.00",
+          "mart": "294.00"
+        },
+        {
+          "key": "ELE-1066",
+          "ledgersmb": "74.00",
+          "mart": "325.00"
+        },
+        {
+          "key": "ELE-1067",
+          "ledgersmb": "59.00",
+          "mart": "176.00"
+        },
+        {
+          "key": "ELE-1068",
+          "ledgersmb": "79.00",
+          "mart": "839.00"
+        },
+        {
+          "key": "ELE-1069",
+          "ledgersmb": "73.00",
+          "mart": "550.00"
+        },
+        {
+          "key": "ELE-1070",
+          "ledgersmb": "110.00",
+          "mart": "418.00"
+        },
+        {
+          "key": "FAS-1001",
+          "ledgersmb": "115.00",
+          "mart": "311.00"
+        },
+        {
+          "key": "FAS-1002",
+          "ledgersmb": "26.00",
+          "mart": "234.00"
+        },
+        {
+          "key": "FAS-1003",
+          "ledgersmb": "125.00",
+          "mart": "85.00"
+        },
+        {
+          "key": "FAS-1004",
+          "ledgersmb": "163.00",
+          "mart": "539.00"
+        },
+        {
+          "key": "FAS-1005",
+          "ledgersmb": "49.00",
+          "mart": "115.00"
+        },
+        {
+          "key": "FAS-1006",
+          "ledgersmb": "64.00",
+          "mart": "320.00"
+        },
+        {
+          "key": "FAS-1007",
+          "ledgersmb": "56.00",
+          "mart": "133.00"
+        },
+        {
+          "key": "FAS-1008",
+          "ledgersmb": "95.00",
+          "mart": "189.00"
+        },
+        {
+          "key": "FAS-1009",
+          "ledgersmb": "43.00",
+          "mart": "196.00"
+        },
+        {
+          "key": "FAS-1010",
+          "ledgersmb": "135.00",
+          "mart": "131.00"
+        },
+        {
+          "key": "FAS-1011",
+          "ledgersmb": "59.00",
+          "mart": "447.00"
+        },
+        {
+          "key": "FAS-1012",
+          "ledgersmb": "42.00",
+          "mart": "107.00"
+        },
+        {
+          "key": "FAS-1013",
+          "ledgersmb": "97.00",
+          "mart": "99.00"
+        },
+        {
+          "key": "FAS-1014",
+          "ledgersmb": "101.00",
+          "mart": "66.00"
+        },
+        {
+          "key": "FAS-1015",
+          "ledgersmb": "127.00",
+          "mart": "84.00"
+        },
+        {
+          "key": "FAS-1016",
+          "ledgersmb": "28.00",
+          "mart": "111.00"
+        },
+        {
+          "key": "FAS-1017",
+          "ledgersmb": "15.00",
+          "mart": "359.00"
+        },
+        {
+          "key": "FAS-1018",
+          "ledgersmb": "72.00",
+          "mart": "210.00"
+        },
+        {
+          "key": "FAS-1019",
+          "ledgersmb": "101.00",
+          "mart": "139.00"
+        },
+        {
+          "key": "FAS-1020",
+          "ledgersmb": "40.00",
+          "mart": "188.00"
+        },
+        {
+          "key": "FAS-1021",
+          "ledgersmb": "29.00",
+          "mart": "98.00"
+        },
+        {
+          "key": "FAS-1022",
+          "ledgersmb": "26.00",
+          "mart": "48.00"
+        },
+        {
+          "key": "HYD-1039",
+          "ledgersmb": "27.00",
+          "mart": "260.00"
+        },
+        {
+          "key": "HYD-1040",
+          "ledgersmb": "115.00",
+          "mart": "614.00"
+        },
+        {
+          "key": "HYD-1041",
+          "ledgersmb": "48.00",
+          "mart": "190.00"
+        },
+        {
+          "key": "HYD-1042",
+          "ledgersmb": "124.00",
+          "mart": "392.00"
+        },
+        {
+          "key": "HYD-1043",
+          "ledgersmb": "67.00",
+          "mart": "356.00"
+        },
+        {
+          "key": "HYD-1044",
+          "ledgersmb": "44.00",
+          "mart": "672.00"
+        },
+        {
+          "key": "HYD-1045",
+          "ledgersmb": "149.00",
+          "mart": "268.00"
+        },
+        {
+          "key": "HYD-1046",
+          "ledgersmb": "57.00",
+          "mart": "411.00"
+        },
+        {
+          "key": "HYD-1047",
+          "ledgersmb": "95.00",
+          "mart": "59.00"
+        },
+        {
+          "key": "HYD-1048",
+          "ledgersmb": "37.00",
+          "mart": "212.00"
+        },
+        {
+          "key": "HYD-1049",
+          "ledgersmb": "66.00",
+          "mart": "346.00"
+        },
+        {
+          "key": "HYD-1050",
+          "ledgersmb": "77.00",
+          "mart": "240.00"
+        },
+        {
+          "key": "HYD-1051",
+          "ledgersmb": "110.00",
+          "mart": "425.00"
+        },
+        {
+          "key": "HYD-1052",
+          "ledgersmb": "133.00",
+          "mart": "500.00"
+        },
+        {
+          "key": "RAW-1071",
+          "ledgersmb": "79.00",
+          "mart": "166.00"
+        },
+        {
+          "key": "RAW-1072",
+          "ledgersmb": "66.00",
+          "mart": "603.00"
+        },
+        {
+          "key": "RAW-1073",
+          "ledgersmb": "81.00",
+          "mart": "103.00"
+        },
+        {
+          "key": "RAW-1074",
+          "ledgersmb": "28.00",
+          "mart": "204.00"
+        },
+        {
+          "key": "RAW-1075",
+          "ledgersmb": "142.00",
+          "mart": "184.00"
+        },
+        {
+          "key": "RAW-1076",
+          "ledgersmb": "129.00",
+          "mart": "97.00"
+        },
+        {
+          "key": "RAW-1077",
+          "ledgersmb": "47.00",
+          "mart": "76.00"
+        },
+        {
+          "key": "RAW-1078",
+          "ledgersmb": "25.00",
+          "mart": "443.00"
+        },
+        {
+          "key": "RAW-1079",
+          "ledgersmb": "59.00",
+          "mart": "94.00"
+        },
+        {
+          "key": "RAW-1080",
+          "ledgersmb": "42.00",
+          "mart": "224.00"
+        },
+        {
+          "key": "RAW-1081",
+          "ledgersmb": "43.00",
+          "mart": "204.00"
+        },
+        {
+          "key": "RAW-1082",
+          "ledgersmb": "112.00",
+          "mart": "262.00"
+        },
+        {
+          "key": "RAW-1083",
+          "ledgersmb": "40.00",
+          "mart": "270.00"
+        },
+        {
+          "key": "RAW-1084",
+          "ledgersmb": "81.00",
+          "mart": "496.00"
+        },
+        {
+          "key": "RAW-1085",
+          "ledgersmb": "110.00",
+          "mart": "681.00"
+        },
+        {
+          "key": "RAW-1086",
+          "ledgersmb": "109.00",
+          "mart": "74.00"
+        },
+        {
+          "key": "RAW-1087",
+          "ledgersmb": "21.00",
+          "mart": "115.00"
+        },
+        {
+          "key": "RAW-1088",
+          "ledgersmb": "94.00",
+          "mart": "316.00"
+        },
+        {
+          "key": "RAW-1089",
+          "ledgersmb": "18.00",
+          "mart": "504.00"
+        },
+        {
+          "key": "RAW-1090",
+          "ledgersmb": "47.00",
+          "mart": "160.00"
+        },
+        {
+          "key": "RAW-1091",
+          "ledgersmb": "46.00",
+          "mart": "52.00"
+        },
+        {
+          "key": "RAW-1092",
+          "ledgersmb": "72.00",
+          "mart": "282.00"
+        },
+        {
+          "key": "TOO-1093",
+          "ledgersmb": "35.00",
+          "mart": "81.00"
+        },
+        {
+          "key": "TOO-1094",
+          "ledgersmb": "47.00",
+          "mart": "34.00"
+        },
+        {
+          "key": "TOO-1095",
+          "ledgersmb": "41.00",
+          "mart": "99.00"
+        },
+        {
+          "key": "TOO-1096",
+          "ledgersmb": "96.00",
+          "mart": "412.00"
+        },
+        {
+          "key": "TOO-1097",
+          "ledgersmb": "92.00",
+          "mart": "219.00"
+        },
+        {
+          "key": "TOO-1098",
+          "ledgersmb": "17.00",
+          "mart": "86.00"
+        },
+        {
+          "key": "TOO-1099",
+          "ledgersmb": "67.00",
+          "mart": "389.00"
+        },
+        {
+          "key": "TOO-1100",
+          "ledgersmb": "69.00",
+          "mart": "105.00"
+        },
+        {
+          "key": "TOO-1101",
+          "ledgersmb": "19.00",
+          "mart": "57.00"
+        },
+        {
+          "key": "TOO-1102",
+          "ledgersmb": "87.00",
+          "mart": "456.00"
+        },
+        {
+          "key": "TOO-1103",
+          "ledgersmb": "128.00",
+          "mart": "185.00"
+        },
+        {
+          "key": "TOO-1104",
+          "ledgersmb": "114.00",
+          "mart": "185.00"
+        },
+        {
+          "key": "TOO-1105",
+          "ledgersmb": "45.00",
+          "mart": "100.00"
+        },
+        {
+          "key": "TOO-1106",
+          "ledgersmb": "31.00",
+          "mart": "153.00"
+        },
+        {
+          "key": "TOO-1107",
+          "ledgersmb": "35.00",
+          "mart": "202.00"
+        },
+        {
+          "key": "TOO-1108",
+          "ledgersmb": "90.00",
+          "mart": "72.00"
+        }
+      ],
+      "passed": false,
+      "oracle": "parts.onhand"
+    },
+    {
+      "check": "raw row counts",
+      "compared": 31,
+      "differences": [
+        {
+          "key": "acc_trans",
+          "ledgersmb": "43490",
+          "mart": "41248"
+        },
+        {
+          "key": "ap",
+          "ledgersmb": "413",
+          "mart": "223"
+        },
+        {
+          "key": "ar",
+          "ledgersmb": "3271",
+          "mart": "3238"
+        },
+        {
+          "key": "gl",
+          "ledgersmb": "136",
+          "mart": "116"
+        },
+        {
+          "key": "invoice",
+          "ledgersmb": "11130",
+          "mart": "10148"
+        },
+        {
+          "key": "oe",
+          "ledgersmb": "2112",
+          "mart": "2128"
+        },
+        {
+          "key": "open_item",
+          "ledgersmb": "3684",
+          "mart": "3461"
+        },
+        {
+          "key": "orderitems",
+          "ledgersmb": "6177",
+          "mart": "6241"
+        },
+        {
+          "key": "payment",
+          "ledgersmb": "3286",
+          "mart": "3046"
+        },
+        {
+          "key": "transactions",
+          "ledgersmb": "7106",
+          "mart": "6623"
+        }
+      ],
+      "passed": false,
+      "oracle": "count(*) per table"
+    }
+  ],
+  "passed": false
+}

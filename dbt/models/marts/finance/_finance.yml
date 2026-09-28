@@ -1,0 +1,100 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Calendar from the first to the last posting date, one row per day.
+    columns:
+      - name: date_day
+        tests: [unique, not_null]
+
+  - name: dim_account
+    description: The chart of accounts (see stg_lsmb__accounts).
+    columns:
+      - name: account_id
+        tests: [unique, not_null]
+
+  - name: dim_counterparty
+    description: Customers and vendors at the credit-account grain (see stg_lsmb__counterparties).
+    columns:
+      - name: counterparty_id
+        tests: [unique, not_null]
+
+  - name: fct_journal_lines
+    description: >
+      Grain: one journal line — the atomic financial fact. Every financial mart aggregates this
+      model, so they cannot disagree about what was posted.
+    columns:
+      - name: journal_line_id
+        tests: [unique, not_null]
+      - name: account_id
+        tests:
+          - relationships: {to: ref('dim_account'), field: account_id}
+
+  - name: mart_trial_balance_monthly
+    description: >
+      Account × month trial balance: opening balance, period debits, period credits, closing
+      balance, all in the account's natural sign. Every account appears in every month, so a
+      month's trial balance is complete even for accounts without activity.
+      Asserted: tests/assert_trial_balance_debits_equal_credits.sql.
+    columns:
+      - name: closing_balance
+        description: Opening + natural-sign activity to month end.
+      - name: period_debits
+        tests: [non_negative]
+      - name: period_credits
+        tests: [non_negative]
+
+  - name: mart_income_statement_monthly
+    description: >
+      Profit and loss by month. Revenue = income accounts, COGS = 5010 (LedgerSMB FIFO COGS plus
+      stock-count shrinkage), operating expenses by chart heading. Percentages are of revenue.
+    columns:
+      - name: month_start
+        tests: [unique, not_null]
+      - name: revenue
+        tests: [non_negative]
+      - name: gross_margin_pct
+        description: (revenue − COGS) / revenue × 100.
+
+  - name: mart_balance_sheet_monthly
+    description: >
+      Month-end balance sheet. The ledger has no year-end closing entries, so earnings to date
+      (cumulative income − expense) are an explicit equity line. Asserted:
+      tests/assert_balance_sheet_balances.sql (assets = liabilities + equity, every month).
+    columns:
+      - name: month_end
+        tests: [unique, not_null]
+
+  - name: mart_ar_aging
+    description: >
+      Receivables aging per customer as of `var('as_of_date')`: not yet due, 1–30, 31–60, 61–90 and
+      over 90 days past due. The total ties to the AR control account
+      (tests/assert_ar_subledger_ties_to_gl.sql).
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+      - name: total_open
+        tests: [non_negative]
+
+  - name: mart_ap_aging
+    description: Payables aging per vendor as of `var('as_of_date')`; ties to the AP control account.
+    columns:
+      - name: vendor_id
+        tests: [unique, not_null]
+
+  - name: mart_cash_flow_monthly
+    description: >
+      Direct-method cash flow on the bank account (1060) by month, classified by the other side of
+      each transaction: customer receipts, supplier payments, payroll, capital expenditure,
+      financing, other operating.
+    columns:
+      - name: month_start
+        tests: [unique, not_null]
+
+  - name: mart_working_capital_monthly
+    description: >
+      DSO, DPO and DIO per month on a 30-day month, from month-end AR/AP/inventory balances and
+      the month's revenue and COGS.
+    columns:
+      - name: month_start
+        tests: [unique, not_null]

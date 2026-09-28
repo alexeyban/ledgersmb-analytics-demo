@@ -147,6 +147,7 @@ ACC = {
     "accum_dep": "1825",     # Accum. Amort. -Furn. & Equip. (contra)
     "ap": "2100",            # Accounts Payable            AP (open-item managed)
     "sales_tax": "2150",     # Sales Tax                   AR_tax, IC_taxpart
+    "loan": "2620",          # Bank Loans
     "capital": "3350",       # Common Shares
     "sales": "4010",         # Sales                       AR_amount, IC_sale, IC_income
     "fx_gain": "4450",       # Foreign Exchange Gain
@@ -155,6 +156,7 @@ ACC = {
     "payroll_tax": "5440",   # Benefits - Payroll Taxes
     "depreciation": "5660",  # Amortization Expense
     "insurance": "5685",     # Insurance
+    "interest": "5690",      # Interest & Bank Charges
     "rent": "5760",          # Rent
     "telephone": "5780",     # Telephone
     "utilities": "5790",     # Utilities
@@ -214,7 +216,7 @@ def make_parts(cur: psycopg.Cursor, st: State, rng: random.Random) -> None:
                 (
                     number, desc, "hr" if service else "ea", price, price, cost,
                     None if service else money(rng.uniform(0.01, 12)),
-                    0 if service else rng.randint(20, 200),
+                    0 if service else rng.randint(15, 60),
                     None if service else acct(st, "inventory"),
                     acct(st, "sales") if service else acct(st, "sales"),
                     acct(st, "cogs") if service else acct(st, "cogs"),
@@ -226,7 +228,7 @@ def make_parts(cur: psycopg.Cursor, st: State, rng: random.Random) -> None:
                 "INSERT INTO partstax (parts_id, chart_id) VALUES (%s, %s)", (pid, acct(st, "sales_tax"))
             )
             st.parts.append(Part(pid, number, g, service, cost, price,
-                                 0 if service else rng.randint(20, 200),
+                                 0 if service else rng.randint(15, 60),
                                  popularity=rng.paretovariate(1.6)))
     st.counts["parts"] = n
 
@@ -496,7 +498,7 @@ def simulate(conn: psycopg.Connection, st: State, rng: random.Random) -> None:
         for vendor_chunk in range(0, len(goods), 8):
             chunk = goods[vendor_chunk:vendor_chunk + 8]
             post_purchase(cur, st, rng, START, st.vendors[vendor_chunk // 8 % len(st.vendors)],
-                          [(p, Decimal(max(p.rop * 2, 40))) for p in chunk])
+                          [(p, Decimal(max(int(p.rop * 1.5), 20))) for p in chunk])
     conn.commit()
 
     day = START
@@ -507,7 +509,7 @@ def simulate(conn: psycopg.Connection, st: State, rng: random.Random) -> None:
             for i in range(0, len(low), 6):
                 vendor = rng.choice(st.vendors)
                 post_purchase(cur, st, rng, day, vendor,
-                              [(p, Decimal(p.rop * rng.randint(2, 4))) for p in low[i:i + 6]])
+                              [(p, Decimal(p.rop * rng.randint(1, 2))) for p in low[i:i + 6]])
 
             # 2) sales
             for _ in range(_poisson(rng, daily_demand(day))):
@@ -562,8 +564,40 @@ def simulate(conn: psycopg.Connection, st: State, rng: random.Random) -> None:
                         [("depreciation", money(-2000)), ("accum_dep", money(2000))])
                 if day.month in (3, 6, 9, 12):
                     stock_count(cur, st, rng, day)
+                treasury(cur, st, day)
         conn.commit()
         day += dt.timedelta(days=1)
+
+
+def balance_of(cur, st: State, key: str) -> Decimal:
+    """Natural-sign balance of a debit-normal account (debits − credits)."""
+    cur.execute("SELECT coalesce(-sum(amount_bc), 0) FROM acc_trans WHERE chart_id = %s",
+                (acct(st, key),))
+    return Decimal(cur.fetchone()[0])
+
+
+def treasury(cur, st: State, day: dt.date) -> None:
+    """Month-end cash management: interest on the loan, then draw or repay the revolving facility.
+
+    A distributor building stock burns cash before it earns it; without financing the bank account
+    went deeply negative (the first run ended $1.34M overdrawn), which no real business allows.
+    """
+    loan = -balance_of(cur, st, "loan")  # a liability: its balance is a credit
+    if loan > 0:
+        interest = money(loan * Decimal("0.0065"))  # ~7.8% p.a.
+        post_gl(cur, st, day, f"INT-{day:%Y%m}", "Loan interest",
+                [("interest", -interest), ("cash", interest)])
+    cash = balance_of(cur, st, "cash")
+    if cash < 200_000:
+        draw = money(((250_000 - cash) // 50_000 + 1) * 50_000)
+        post_gl(cur, st, day, f"LOAN-{day:%Y%m}", "Revolving credit facility drawdown",
+                [("cash", -draw), ("loan", draw)])
+        st.counts["loan_draws"] += 1
+    elif cash > 700_000 and loan > 0:
+        repay = money(min(loan, cash - 500_000))
+        post_gl(cur, st, day, f"REPAY-{day:%Y%m}", "Revolving credit facility repayment",
+                [("loan", -repay), ("cash", repay)])
+        st.counts["loan_repayments"] += 1
 
 
 def _poisson(rng: random.Random, lam: float) -> int:

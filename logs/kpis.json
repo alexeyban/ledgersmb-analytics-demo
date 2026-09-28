@@ -1,0 +1,795 @@
+{
+  "pnl_total": {
+    "title": "Profit & loss, whole period",
+    "columns": [
+      "total_revenue",
+      "total_cogs",
+      "total_gross_profit",
+      "gross_margin_pct",
+      "total_payroll",
+      "total_general_admin",
+      "total_net_income",
+      "net_margin_pct"
+    ],
+    "rows": [
+      [
+        "3142870.83",
+        "1830988.64",
+        "1311882.19",
+        "41.00",
+        "805827.01",
+        "329298.83",
+        "176756.35",
+        "5.00"
+      ]
+    ]
+  },
+  "pnl_monthly": {
+    "title": "Monthly P&L",
+    "columns": [
+      "month",
+      "revenue",
+      "cogs",
+      "gross_margin_pct",
+      "net_income",
+      "net_margin_pct"
+    ],
+    "rows": [
+      [
+        "2025-01",
+        "146160.25",
+        "85827.55",
+        "41.00",
+        "3495.81",
+        "2.00"
+      ],
+      [
+        "2025-02",
+        "121368.20",
+        "70707.77",
+        "41.00",
+        "-8093.45",
+        "-6.00"
+      ],
+      [
+        "2025-03",
+        "150088.90",
+        "86973.89",
+        "42.00",
+        "2835.83",
+        "1.00"
+      ],
+      [
+        "2025-04",
+        "173440.59",
+        "94937.47",
+        "45.00",
+        "17170.67",
+        "9.00"
+      ],
+      [
+        "2025-05",
+        "187278.78",
+        "111827.38",
+        "40.00",
+        "13814.25",
+        "7.00"
+      ],
+      [
+        "2025-06",
+        "163357.77",
+        "96786.58",
+        "40.00",
+        "4765.14",
+        "2.00"
+      ],
+      [
+        "2025-07",
+        "194349.90",
+        "116642.61",
+        "39.00",
+        "14825.38",
+        "7.00"
+      ],
+      [
+        "2025-08",
+        "182789.91",
+        "108181.11",
+        "40.00",
+        "11695.77",
+        "6.00"
+      ],
+      [
+        "2025-09",
+        "174803.61",
+        "100224.99",
+        "42.00",
+        "11744.14",
+        "6.00"
+      ],
+      [
+        "2025-10",
+        "220980.15",
+        "128868.58",
+        "41.00",
+        "28230.73",
+        "12.00"
+      ],
+      [
+        "2025-11",
+        "196909.75",
+        "110270.51",
+        "43.00",
+        "22249.08",
+        "11.00"
+      ],
+      [
+        "2025-12",
+        "169420.84",
+        "99556.19",
+        "41.00",
+        "5696.40",
+        "3.00"
+      ],
+      [
+        "2026-01",
+        "139297.67",
+        "83676.70",
+        "39.00",
+        "-9380.08",
+        "-6.00"
+      ],
+      [
+        "2026-02",
+        "103615.92",
+        "62963.02",
+        "39.00",
+        "-24104.27",
+        "-23.00"
+      ],
+      [
+        "2026-03",
+        "195745.68",
+        "119497.39",
+        "38.00",
+        "10745.12",
+        "5.00"
+      ],
+      [
+        "2026-04",
+        "211298.91",
+        "117062.18",
+        "44.00",
+        "28785.65",
+        "13.00"
+      ],
+      [
+        "2026-05",
+        "218657.96",
+        "124382.46",
+        "43.00",
+        "28280.34",
+        "12.00"
+      ],
+      [
+        "2026-06",
+        "193306.04",
+        "112602.26",
+        "41.00",
+        "13999.84",
+        "7.00"
+      ]
+    ]
+  },
+  "balance_sheet": {
+    "title": "Balance sheet at period end",
+    "columns": [
+      "month_end",
+      "total_assets",
+      "total_liabilities",
+      "contributed_equity",
+      "retained_earnings_to_date",
+      "total_liabilities_and_equity"
+    ],
+    "rows": [
+      [
+        "2026-06-30",
+        "1422079.24",
+        "795322.89",
+        "450000.00",
+        "176756.35",
+        "1422079.24"
+      ]
+    ]
+  },
+  "working_capital": {
+    "title": "Working capital (last 6 months)",
+    "columns": [
+      "month",
+      "accounts_receivable",
+      "accounts_payable",
+      "inventory",
+      "dso_days",
+      "dpo_days",
+      "dio_days"
+    ],
+    "rows": [
+      [
+        "2026-06",
+        "373669.79",
+        "89621.36",
+        "460634.47",
+        "57.90",
+        "23.70",
+        "122.70"
+      ],
+      [
+        "2026-05",
+        "401298.00",
+        "190501.39",
+        "477999.66",
+        "54.90",
+        "45.90",
+        "115.20"
+      ],
+      [
+        "2026-04",
+        "371689.73",
+        "140036.92",
+        "450461.01",
+        "52.50",
+        "35.70",
+        "115.20"
+      ],
+      [
+        "2026-03",
+        "309326.31",
+        "134904.93",
+        "445332.04",
+        "47.40",
+        "33.60",
+        "111.60"
+      ],
+      [
+        "2026-02",
+        "245219.89",
+        "89111.61",
+        "444627.26",
+        "70.80",
+        "42.30",
+        "211.80"
+      ],
+      [
+        "2026-01",
+        "284700.29",
+        "105673.32",
+        "449202.00",
+        "61.20",
+        "37.80",
+        "160.80"
+      ]
+    ]
+  },
+  "ar_aging": {
+    "title": "Receivables aging (as of 2026-06-30)",
+    "columns": [
+      "open",
+      "not_due",
+      "d1_30",
+      "d31_60",
+      "d61_90",
+      "d90_plus"
+    ],
+    "rows": [
+      [
+        "373669.79",
+        "287773.83",
+        "65511.94",
+        "20384.02",
+        "0.00",
+        "0.00"
+      ]
+    ]
+  },
+  "worst_debtors": {
+    "title": "Customers with the most overdue receivables",
+    "columns": [
+      "customer_name",
+      "segment",
+      "total_open",
+      "over_30",
+      "oldest_days_past_due"
+    ],
+    "rows": [
+      [
+        "Redwood Group Inc.",
+        "OEM Manufacturer",
+        "11421.96",
+        "6448.84",
+        38
+      ],
+      [
+        "Alder Fabrication Inc.",
+        "Distributor",
+        "25179.28",
+        "5640.77",
+        38
+      ],
+      [
+        "Summit Fabrication Inc.",
+        "OEM Manufacturer",
+        "6367.65",
+        "3009.30",
+        33
+      ],
+      [
+        "Quarry Fabrication Inc.",
+        "Distributor",
+        "5205.85",
+        "2111.17",
+        52
+      ],
+      [
+        "Cascade Group Inc.",
+        "OEM Manufacturer",
+        "5973.04",
+        "1793.66",
+        44
+      ],
+      [
+        "Crescent Industries Inc.",
+        "Distributor",
+        "39005.96",
+        "732.07",
+        32
+      ],
+      [
+        "Granite Manufacturing Inc.",
+        "OEM Manufacturer",
+        "5126.67",
+        "648.21",
+        37
+      ],
+      [
+        "Horizon Group Inc.",
+        "OEM Manufacturer",
+        "31220.76",
+        "0.00",
+        3
+      ]
+    ]
+  },
+  "cash_flow": {
+    "title": "Cash flow, whole period",
+    "columns": [
+      "receipts",
+      "suppliers",
+      "payroll",
+      "capex",
+      "financing",
+      "other",
+      "net"
+    ],
+    "rows": [
+      [
+        "2974902.57",
+        "-2202001.75",
+        "-805827.01",
+        "-120000.00",
+        "450000.00",
+        "206701.17",
+        "503774.98"
+      ]
+    ]
+  },
+  "part_groups": {
+    "title": "Product groups: revenue and margin",
+    "columns": [
+      "part_group",
+      "group_revenue",
+      "group_margin",
+      "margin_pct",
+      "units"
+    ],
+    "rows": [
+      [
+        "Hydraulics",
+        "808973.96",
+        "302300.58",
+        "37.00",
+        "3077.0000"
+      ],
+      [
+        "Raw Materials \u2014 Steel",
+        "497576.14",
+        "123608.28",
+        "24.00",
+        "3853.0000"
+      ],
+      [
+        "Electrical Components",
+        "441042.31",
+        "200521.00",
+        "45.00",
+        "9901.0000"
+      ],
+      [
+        "Raw Materials \u2014 Polymers",
+        "400318.36",
+        "103672.24",
+        "25.00",
+        "6687.0000"
+      ],
+      [
+        "Tools & Consumables",
+        "351759.21",
+        "146316.66",
+        "41.00",
+        "5153.0000"
+      ],
+      [
+        "Bearings & Seals",
+        "309142.04",
+        "143140.04",
+        "46.00",
+        "10379.0000"
+      ],
+      [
+        "Services",
+        "271762.29",
+        "271762.29",
+        "100.00",
+        "1769.0000"
+      ],
+      [
+        "Fasteners",
+        "62296.52",
+        "35871.56",
+        "57.00",
+        "20117.0000"
+      ]
+    ]
+  },
+  "top_customers": {
+    "title": "Top customers by revenue",
+    "columns": [
+      "customer_name",
+      "segment",
+      "revenue",
+      "gross_margin_pct",
+      "avg_days_to_pay",
+      "open_receivables"
+    ],
+    "rows": [
+      [
+        "Horizon Group Inc.",
+        "OEM Manufacturer",
+        "269787.18",
+        "43.00",
+        47.5,
+        "31220.76"
+      ],
+      [
+        "Frontier Industries Inc.",
+        "Distributor",
+        "182690.93",
+        "42.00",
+        49.0,
+        "18265.16"
+      ],
+      [
+        "Crescent Industries Inc.",
+        "Distributor",
+        "171451.47",
+        "43.00",
+        86.6,
+        "39005.96"
+      ],
+      [
+        "Alder Fabrication Inc.",
+        "Distributor",
+        "159674.47",
+        "39.00",
+        92.1,
+        "25179.28"
+      ],
+      [
+        "Anchor Fabrication Inc.",
+        "OEM Manufacturer",
+        "157270.91",
+        "41.00",
+        31.7,
+        "5615.10"
+      ],
+      [
+        "Anchor Systems Inc.",
+        "Maintenance & Repair",
+        "152976.01",
+        "42.00",
+        32.6,
+        "10949.83"
+      ],
+      [
+        "Delta Maintenance Inc.",
+        "OEM Manufacturer",
+        "111076.32",
+        "40.00",
+        87.8,
+        "16869.69"
+      ],
+      [
+        "Falcon Industries Inc.",
+        "Distributor",
+        "90389.13",
+        "42.00",
+        33.0,
+        "9495.90"
+      ],
+      [
+        "Alder Systems Inc.",
+        "Maintenance & Repair",
+        "83395.68",
+        "43.00",
+        34.4,
+        "8271.74"
+      ],
+      [
+        "Ridge Engineering Inc.",
+        "Distributor",
+        "79729.62",
+        "45.00",
+        58.2,
+        "7994.21"
+      ]
+    ]
+  },
+  "abc": {
+    "title": "ABC classification (trailing 12 months)",
+    "columns": [
+      "abc_class",
+      "parts",
+      "class_revenue",
+      "share_pct"
+    ],
+    "rows": [
+      [
+        "A",
+        49,
+        "1769820.64",
+        "80.00"
+      ],
+      [
+        "B",
+        33,
+        "340108.24",
+        "15.00"
+      ],
+      [
+        "C",
+        32,
+        "91247.46",
+        "4.00"
+      ]
+    ]
+  },
+  "inventory": {
+    "title": "Inventory position",
+    "columns": [
+      "stocked_parts",
+      "value",
+      "below_rop",
+      "avg_days_of_supply"
+    ],
+    "rows": [
+      [
+        108,
+        "460634.47",
+        26,
+        140.3
+      ]
+    ]
+  },
+  "reorder_now": {
+    "title": "Parts below reorder point",
+    "columns": [
+      "part_number",
+      "part_group",
+      "on_hand_quantity",
+      "reorder_point",
+      "days_of_supply"
+    ],
+    "rows": [
+      [
+        "RAW-1087",
+        "Raw Materials \u2014 Polymers",
+        "21.0000",
+        "57.0000",
+        "2.9000"
+      ],
+      [
+        "TOO-1101",
+        "Tools & Consumables",
+        "19.0000",
+        "39.0000",
+        "5.5000"
+      ],
+      [
+        "FAS-1012",
+        "Fasteners",
+        "42.0000",
+        "58.0000",
+        "9.0000"
+      ],
+      [
+        "FAS-1017",
+        "Fasteners",
+        "15.0000",
+        "24.0000",
+        "9.7000"
+      ],
+      [
+        "BEA-1034",
+        "Bearings & Seals",
+        "38.0000",
+        "60.0000",
+        "10.1000"
+      ],
+      [
+        "FAS-1020",
+        "Fasteners",
+        "40.0000",
+        "49.0000",
+        "13.4000"
+      ],
+      [
+        "FAS-1022",
+        "Fasteners",
+        "26.0000",
+        "34.0000",
+        "13.7000"
+      ],
+      [
+        "FAS-1002",
+        "Fasteners",
+        "26.0000",
+        "60.0000",
+        "15.3000"
+      ],
+      [
+        "TOO-1098",
+        "Tools & Consumables",
+        "17.0000",
+        "53.0000",
+        "21.9000"
+      ],
+      [
+        "FAS-1021",
+        "Fasteners",
+        "29.0000",
+        "33.0000",
+        "23.1000"
+      ]
+    ]
+  },
+  "shrinkage": {
+    "title": "Stock-count variance (shrinkage)",
+    "columns": [
+      "count_date",
+      "counted",
+      "with_variance",
+      "units",
+      "value"
+    ],
+    "rows": [
+      [
+        "2025-03-31",
+        108,
+        28,
+        "-47.0000",
+        "-2349.10"
+      ],
+      [
+        "2025-06-30",
+        108,
+        24,
+        "-44.0000",
+        "-1427.20"
+      ],
+      [
+        "2025-09-30",
+        108,
+        22,
+        "-41.0000",
+        "-2289.06"
+      ],
+      [
+        "2025-12-31",
+        108,
+        26,
+        "-48.0000",
+        "-2764.92"
+      ],
+      [
+        "2026-03-31",
+        108,
+        29,
+        "-52.0000",
+        "-3956.17"
+      ],
+      [
+        "2026-06-30",
+        108,
+        30,
+        "-52.0000",
+        "-2524.01"
+      ]
+    ]
+  },
+  "backlog": {
+    "title": "Open sales-order backlog",
+    "columns": [
+      "open_orders",
+      "value",
+      "late",
+      "avg_age_days"
+    ],
+    "rows": [
+      [
+        6,
+        "3388.14",
+        3,
+        11.8
+      ]
+    ]
+  },
+  "suppliers": {
+    "title": "Top suppliers by spend",
+    "columns": [
+      "vendor_name",
+      "total_spend",
+      "invoices"
+    ],
+    "rows": [
+      [
+        "Sterling Manufacturing Ltd.",
+        "178659.62",
+        29
+      ],
+      [
+        "Silverline Systems Ltd.",
+        "155802.53",
+        20
+      ],
+      [
+        "Canyon Industries Ltd.",
+        "150463.03",
+        16
+      ],
+      [
+        "Silverline Supply Ltd.",
+        "135427.94",
+        14
+      ],
+      [
+        "Canyon Maintenance Ltd.",
+        "131081.60",
+        24
+      ],
+      [
+        "Ironwood Manufacturing Ltd.",
+        "119455.61",
+        16
+      ],
+      [
+        "Ironwood Supply Ltd.",
+        "111649.50",
+        18
+      ],
+      [
+        "Granite Maintenance Ltd.",
+        "110100.51",
+        15
+      ]
+    ]
+  }
+}

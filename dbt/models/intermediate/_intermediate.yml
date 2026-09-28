@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: int_journal_lines_enriched
+    description: >
+      Journal lines joined to their account and transaction, with `natural_amount`: the line's
+      effect on the account's natural balance (debit − credit for assets and expenses, credit −
+      debit for liabilities, equity and income). Summing natural_amount by account gives a balance
+      with the sign an accountant expects.
+    columns:
+      - name: journal_line_id
+        tests: [unique, not_null]
+      - name: natural_amount
+        description: Signed effect on the account's natural balance.
+
+  - name: int_sales_lines
+    description: >
+      Sales-invoice lines with revenue and the exact FIFO cost of goods sold that LedgerSMB posted
+      for each line (joined through acc_trans.invoice_id on the COGS account). Services carry no
+      COGS (`has_cogs = false`).
+    columns:
+      - name: invoice_line_id
+        tests: [unique, not_null]
+      - name: revenue
+        tests: [non_negative]
+      - name: cogs
+        tests: [non_negative]
+
+  - name: int_purchase_lines
+    description: Purchase-invoice lines — goods received from vendors, at unit cost.
+    columns:
+      - name: invoice_line_id
+        tests: [unique, not_null]
+
+  - name: int_open_item_balances
+    description: >
+      The outstanding balance of every AR and AP open item as of `var('as_of_date')`, computed from
+      the journal lines on the open-item-managed control accounts (1200 AR, 2100 AP), with
+      days_past_due against the document's due date. The basis of aging.
+    columns:
+      - name: open_item_id
+        tests: [unique, not_null]
+      - name: ledger
+        tests:
+          - accepted_values: {values: ['AR', 'AP']}

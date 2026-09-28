@@ -1,0 +1,51 @@
+{
+  "period": [
+    "2025-01-01",
+    "2026-06-30"
+  ],
+  "checks": [
+    {
+      "check": "trial balance",
+      "compared": 66,
+      "differences": [],
+      "passed": true,
+      "oracle": "trial_balance__generate()"
+    },
+    {
+      "check": "income statement (accrual)",
+      "compared": 10,
+      "differences": [],
+      "passed": true,
+      "oracle": "pnl__income_statement_accrual()"
+    },
+    {
+      "check": "balance sheet",
+      "compared": 19,
+      "differences": [],
+      "passed": true,
+      "oracle": "report__balance_sheet(\u2026, 'ultimo')"
+    },
+    {
+      "check": "AR open items",
+      "compared": 371,
+      "differences": [],
+      "passed": true,
+      "oracle": "acc_trans on the AR control account"
+    },
+    {
+      "check": "stock on hand",
+      "compared": 108,
+      "differences": [],
+      "passed": true,
+      "oracle": "parts.onhand"
+    },
+    {
+      "check": "raw row counts",
+      "compared": 31,
+      "differences": [],
+      "passed": true,
+      "oracle": "count(*) per table"
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,179 @@
+{
+  "summary": {
+    "ekos_mcp_queries": 243,
+    "ekos_mcp_errors": 0,
+    "ekos_asks": 24,
+    "migrate_commands": 486,
+    "llm_calls": 53,
+    "llm_tokens_in": 20877,
+    "llm_tokens_out": 46939,
+    "claude_code_context_consumed_estimate": 351958
+  },
+  "per_model": {
+    "ollama:qwen2.5:1.5b": {
+      "calls": 1,
+      "ok": 1,
+      "input_tokens": 35,
+      "output_tokens": 3,
+      "ms": 12116
+    },
+    "openai:deepseek-v4-flash": {
+      "calls": 45,
+      "http_403": 32,
+      "input_tokens": 13555,
+      "output_tokens": 46266,
+      "ms": 310883,
+      "ok": 13
+    },
+    "ollama:llama3:latest": {
+      "calls": 6,
+      "ok": 6,
+      "input_tokens": 7287,
+      "output_tokens": 670,
+      "ms": 163587
+    },
+    "openai:no-such-model-demo-check": {
+      "calls": 1,
+      "http_400": 1,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "ms": 1438
+    }
+  },
+  "per_purpose": {
+    "proxy smoke test | qwen2.5:1.5b": {
+      "calls": 1,
+      "ok": 1,
+      "input_tokens": 35,
+      "output_tokens": 3
+    },
+    "EKOS compile: SQL semantic naming (recover) | deepseek-v4-flash": {
+      "calls": 33,
+      "ok": 7,
+      "input_tokens": 5653,
+      "output_tokens": 42290
+    },
+    "EKOS ask: grounded Q&A | deepseek-v4-flash": {
+      "calls": 12,
+      "ok": 6,
+      "input_tokens": 7902,
+      "output_tokens": 3976
+    },
+    "EKOS ask: grounded Q&A | llama3:latest": {
+      "calls": 6,
+      "ok": 6,
+      "input_tokens": 7287,
+      "output_tokens": 670
+    },
+    "connectivity probe (no generation) | no-such-model-demo-check": {
+      "calls": 1,
+      "ok": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  },
+  "ekos_mcp_by_step_tool": {
+    "2-discovery | ekos_status": 1,
+    "2-discovery | ekos_ekl": 26,
+    "2-discovery | ekos_state": 7,
+    "2-discovery | ekos_neighborhood": 7,
+    "2-discovery | ekos_dependents": 3,
+    "2-discovery | ekos_impact": 3,
+    "2-discovery | ekos_search": 7,
+    "2-discovery | ekos_query": 3,
+    "8-documentation | ekos_ekl": 93,
+    "8-documentation | ekos_state": 93
+  },
+  "migrate_commands": {
+    "migration.log | init": 1,
+    "migration.log | discover": 1,
+    "migration.log | profile": 1,
+    "migration.log | assess": 1,
+    "migration.log | map": 1,
+    "migration.log | load": 36,
+    "migration.log | validate": 30,
+    "migration.log | review": 6,
+    "migration.log | approve": 12,
+    "migration.log | report": 1,
+    "migration_attempt1.log | init": 1,
+    "migration_attempt1.log | discover": 2,
+    "migration_attempt1.log | profile": 2,
+    "migration_attempt1.log | assess": 1,
+    "migration_attempt1.log | map": 1,
+    "migration_attempt1.log | load": 40,
+    "migration_attempt1.log | validate": 39,
+    "migration_attempt1.log | review": 7,
+    "migration_attempt1.log | approve": 7,
+    "migration_attempt2.log | init": 1,
+    "migration_attempt2.log | discover": 1,
+    "migration_attempt2.log | profile": 4,
+    "migration_attempt2.log | assess": 1,
+    "migration_attempt2.log | map": 13,
+    "migration_attempt2.log | load": 34,
+    "migration_attempt2.log | validate": 135,
+    "migration_attempt2.log | review": 8,
+    "migration_attempt2.log | approve": 9,
+    "migration_attempt3.log | init": 1,
+    "migration_attempt3.log | discover": 1,
+    "migration_attempt3.log | profile": 1,
+    "migration_attempt3.log | assess": 1,
+    "migration_attempt3.log | map": 1,
+    "migration_attempt3.log | load": 36,
+    "migration_attempt3.log | validate": 30,
+    "migration_attempt3.log | review": 6,
+    "migration_attempt3.log | approve": 12,
+    "migration_attempt3.log | report": 1
+  },
+  "claude_code_checkpoints": [
+    {
+      "phase": "start",
+      "timestamp_utc": "2026-09-28T12:40:00Z",
+      "context_tokens_remaining": "15000000",
+      "note": "counter when the demo request arrived (session context budget; an ESTIMATE of Claude Code usage",
+      "null": [
+        " not a billing figure)"
+      ]
+    },
+    {
+      "phase": "0-scaffold",
+      "timestamp_utc": "2026-09-28T12:45:00Z",
+      "context_tokens_remaining": "14985472",
+      "note": "plan + repo scaffold + environment discovery"
+    },
+    {
+      "phase": "2-ekos-rebuild",
+      "timestamp_utc": "2026-09-28T14:41:00Z",
+      "context_tokens_remaining": "14919734",
+      "note": "schema loader (4 fixes) + EKOS config/proxy + LedgerSMB rebuild + schema/procedure research"
+    },
+    {
+      "phase": "3-data",
+      "timestamp_utc": "2026-09-28T15:20:00Z",
+      "context_tokens_remaining": "14868014",
+      "note": "discovery + generator (5 fixes found by checking against LedgerSMB) + integrity verification"
+    },
+    {
+      "phase": "5-validated",
+      "timestamp_utc": "2026-09-28T15:40:00Z",
+      "context_tokens_remaining": "14730494",
+      "note": "migration: 9 EKOS defects found+fixed (pg-live",
+      "null": [
+        " load",
+        " policy",
+        " approval",
+        " evidence",
+        " typemap",
+        " sampling",
+        " canonical scale",
+        " NULL/length/empty-set",
+        " exit code)"
+      ]
+    },
+    {
+      "phase": "6-pipelines",
+      "timestamp_utc": "2026-09-28T16:00:00Z",
+      "context_tokens_remaining": "14648042",
+      "note": "dbt project (38 models/124 tests) + python pipelines + realism fix; starting full end-to-end run"
+    }
+  ]
+}

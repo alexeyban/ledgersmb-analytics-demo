@@ -1,0 +1,177 @@
+version: 2
+
+models:
+  - name: stg_lsmb__accounts
+    description: >
+      The general-ledger chart of accounts, one row per account: LedgerSMB's US General chart
+      (locale/coa/us/General.xml) as loaded through LedgerSMB's own account__save(). Carries the
+      heading, the category (A/L/Q/I/E), the link roles that tell LedgerSMB what an account is for
+      (AR, AP, IC_sale, IC_cogs, …), and whether the account is debit-normal.
+    tests:
+      - equal_rowcount_to_source: {source_name: lsmb_raw, table_name: account}
+    columns:
+      - name: account_id
+        description: LedgerSMB account.id — the key every journal line references.
+        tests: [unique, not_null]
+      - name: account_number
+        description: The account number from the chart (e.g. 1200 Accounts Receivables).
+        tests: [unique, not_null]
+      - name: account_category
+        description: A asset, L liability, Q equity, I income, E expense.
+        tests:
+          - not_null
+          - accepted_values: {values: ['A', 'L', 'Q', 'I', 'E']}
+      - name: is_debit_normal
+        description: True for assets and expenses, which grow with debits; drives natural_amount.
+      - name: link_roles
+        description: LedgerSMB account_link roles, e.g. ['AR'] or ['AR_amount','IC_income','IC_sale'].
+
+  - name: stg_lsmb__journal_lines
+    description: >
+      Every journal line (LedgerSMB acc_trans), 1:1 with the source. LedgerSMB stores one signed
+      amount per line, negative = debit and positive = credit (verified in
+      sql/modules/trial_balance.sql). This model splits it into debit_amount and credit_amount so
+      that no downstream model re-derives the convention.
+    tests:
+      - equal_rowcount_to_source: {source_name: lsmb_raw, table_name: acc_trans}
+      - expression_is_true: {expression: "debit_amount = 0 or credit_amount = 0"}
+    columns:
+      - name: journal_line_id
+        description: acc_trans.entry_id.
+        tests: [unique, not_null]
+      - name: transaction_id
+        description: The parent transaction (transactions.id).
+        tests:
+          - not_null
+          - relationships: {to: ref('stg_lsmb__transactions'), field: transaction_id}
+      - name: account_id
+        tests:
+          - not_null
+          - relationships: {to: ref('stg_lsmb__accounts'), field: account_id}
+      - name: debit_amount
+        description: The debit side of the line (≥ 0).
+        tests: [non_negative]
+      - name: credit_amount
+        description: The credit side of the line (≥ 0).
+        tests: [non_negative]
+      - name: invoice_line_id
+        description: >
+          Set on sales, COGS and inventory lines. LedgerSMB's FIFO procedure
+          (cogs__add_for_ar_line) tags the COGS lines it posts with the sales-invoice line, which is
+          what makes per-line margin exact.
+      - name: open_item_id
+        description: The AR/AP open item this line belongs to (only on open-item-managed accounts).
+
+  - name: stg_lsmb__transactions
+    description: Transaction headers — the common parent of AR, AP, GL, payment and adjustment entries.
+    tests:
+      - equal_rowcount_to_source: {source_name: lsmb_raw, table_name: transactions}
+    columns:
+      - name: transaction_id
+        tests: [unique, not_null]
+      - name: transaction_type_code
+        description: ar, ap, gl, pa (payment), ia (inventory adjustment), …
+        tests:
+          - not_null
+          - accepted_values: {values: ['ar', 'ap', 'gl', 'pa', 'ia', 'op', 'up', 'as', 'ye', 'fa', 'fd', 'oa']}
+
+  - name: stg_lsmb__ar_invoices
+    description: Customer invoices (LedgerSMB ar), with the date taken from the transaction header.
+    tests:
+      - equal_rowcount_to_source: {source_name: lsmb_raw, table_name: ar}
+      - expression_is_true: {expression: "due_date >= invoice_date"}
+    columns:
+      - name: transaction_id
+        tests: [unique, not_null]
+      - name: invoice_number
+        tests: [unique, not_null]
+      - name: counterparty_id
+        tests:
+          - not_null
+          - relationships: {to: ref('stg_lsmb__counterparties'), field: counterparty_id}
+      - name: gross_amount
+        tests: [non_negative]
+
+  - name: stg_lsmb__ap_invoices
+    description: Vendor invoices (LedgerSMB ap).
+    tests:
+      - equal_rowcount_to_source: {source_name: lsmb_raw, table_name: ap}
+    columns:
+      - name: transaction_id
+        tests: [unique, not_null]
+      - name: counterparty_id
+        tests:
+          - relationships: {to: ref('stg_lsmb__counterparties'), field: counterparty_id}
+
+  - name: stg_lsmb__invoice_lines
+    description: >
+      Invoice lines, AR and AP alike. LedgerSMB signs the quantity by direction: positive on
+      sales, negative on purchases (sql/modules/COGS.sql). `quantity` is the absolute amount.
+    tests:
+      - equal_rowcount_to_source: {source_name: lsmb_raw, table_name: invoice}
+    columns:
+      - name: invoice_line_id
+        tests: [unique, not_null]
+      - name: part_id
+        tests:
+          - relationships: {to: ref('stg_lsmb__parts'), field: part_id}
+      - name: quantity
+        tests: [non_negative]
+
+  - name: stg_lsmb__parts
+    description: Goods and services. Stocked goods have an inventory account; services do not.
+    tests:
+      - equal_rowcount_to_source: {source_name: lsmb_raw, table_name: parts}
+    columns:
+      - name: part_id
+        tests: [unique, not_null]
+      - name: part_number
+        tests: [unique, not_null]
+      - name: on_hand_quantity
+        tests: [non_negative]
+
+  - name: stg_lsmb__counterparties
+    description: >
+      Customers and vendors at the grain AR/AP documents use: LedgerSMB's entity_credit_account (a
+      company can hold several). Enriched with the company name, business segment and billing city.
+    tests:
+      - equal_rowcount_to_source: {source_name: lsmb_raw, table_name: entity_credit_account}
+    columns:
+      - name: counterparty_id
+        tests: [unique, not_null]
+      - name: counterparty_type
+        tests:
+          - accepted_values: {values: ['customer', 'vendor']}
+
+  - name: stg_lsmb__payments
+    description: Payment headers as posted by LedgerSMB's payment_post(); receipts and disbursements.
+    columns:
+      - name: payment_id
+        tests: [unique, not_null]
+      - name: payment_direction
+        tests:
+          - accepted_values: {values: ['receipt', 'disbursement']}
+
+  - name: stg_lsmb__sales_orders
+    description: Sales orders (oe_class 1). `is_closed` = fully shipped and invoiced.
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+
+  - name: stg_lsmb__order_lines
+    description: Sales-order lines with ordered and shipped quantities.
+    columns:
+      - name: order_line_id
+        tests: [unique, not_null]
+      - name: ordered_quantity
+        tests: [non_negative]
+
+  - name: stg_lsmb__inventory_counts
+    description: >
+      Physical stock counts (inventory_report + inventory_report_line), one row per counted part per
+      count. variance = counted − expected; the value is posted to the GL as an 'ia' transaction.
+    columns:
+      - name: part_id
+        tests:
+          - not_null
+          - relationships: {to: ref('stg_lsmb__parts'), field: part_id}

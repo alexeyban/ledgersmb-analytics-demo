@@ -1,0 +1,81 @@
+version: 2
+
+models:
+  - name: dim_part
+    description: Goods and services with group, pricing and stock settings (see stg_lsmb__parts).
+    columns:
+      - name: part_id
+        tests: [unique, not_null]
+
+  - name: fct_sales_lines
+    description: >
+      Grain: one sales-invoice line. Revenue, FIFO COGS as LedgerSMB posted it, and gross margin,
+      with customer and product context. Revenue and COGS tie to the GL
+      (tests/assert_sales_revenue_ties_to_gl.sql, tests/assert_sales_cogs_ties_to_gl.sql).
+    columns:
+      - name: invoice_line_id
+        tests: [unique, not_null]
+      - name: customer_id
+        tests:
+          - relationships: {to: ref('dim_counterparty'), field: counterparty_id}
+      - name: part_id
+        tests:
+          - relationships: {to: ref('dim_part'), field: part_id}
+
+  - name: fct_purchase_lines
+    description: "Grain: one purchase-invoice line (goods received), with vendor and part context."
+    columns:
+      - name: invoice_line_id
+        tests: [unique, not_null]
+
+  - name: mart_sales_by_part_group_monthly
+    description: Product-group performance by month — volume, revenue, FIFO COGS, gross margin and margin %.
+
+  - name: mart_customer_profitability
+    description: >
+      Per customer over the period: revenue, gross margin, invoice count, average days from
+      invoice to full settlement (from LedgerSMB's payments), and currently open receivables.
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+
+  - name: mart_inventory_movements_monthly
+    description: >
+      Stocked part × month: received, sold and count-adjusted quantities and the running on-hand
+      they imply. Asserted to reproduce the on-hand quantity LedgerSMB holds
+      (tests/assert_inventory_movements_reconstruct_on_hand.sql).
+
+  - name: mart_inventory_position
+    description: >
+      Current stock per stocked part as of `var('as_of_date')`: quantity, value at last cost,
+      90-day average daily usage, days of supply, and whether it is below its reorder point.
+    columns:
+      - name: part_id
+        tests: [unique, not_null]
+      - name: on_hand_quantity
+        tests: [non_negative]
+
+  - name: mart_stock_count_variance
+    description: >
+      Physical-count variance (shrinkage) per count date and part group, in quantity and value.
+      Ties to the inventory-adjustment postings (tests/assert_stock_variance_posted_to_gl.sql).
+
+  - name: mart_order_backlog
+    description: Open sales orders as of `var('as_of_date')` with value, line count, age and lateness.
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+
+  - name: mart_abc_analysis
+    description: >
+      ABC classification of parts by trailing-12-month revenue: A = parts making up the first 80%
+      of revenue, B = next 15%, C = the rest.
+    columns:
+      - name: part_id
+        tests: [unique, not_null]
+      - name: abc_class
+        tests:
+          - accepted_values: {values: ['A', 'B', 'C']}
+
+  - name: mart_supplier_spend_monthly
+    description: Purchasing spend by vendor and month.

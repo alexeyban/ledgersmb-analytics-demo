@@ -3,3 +3,6 @@ start,2026-09-28T12:40:00Z,15000000,counter when the demo request arrived (sessi
 0-scaffold,2026-09-28T12:45:00Z,14985472,plan + repo scaffold + environment discovery
 2-ekos-rebuild,2026-09-28T14:41:00Z,14919734,schema loader (4 fixes) + EKOS config/proxy + LedgerSMB rebuild + schema/procedure research
 3-data,2026-09-28T15:20:00Z,14868014,discovery + generator (5 fixes found by checking against LedgerSMB) + integrity verification
+5-validated,2026-09-28T15:40:00Z,14730494,migration: 9 EKOS defects found+fixed (pg-live, load, policy, approval, evidence, typemap, sampling, canonical scale, NULL/length/empty-set, exit code)
+6-pipelines,2026-09-28T16:00:00Z,14648042,dbt project (38 models/124 tests) + python pipelines + realism fix; starting full end-to-end run
+7-docs,2026-09-28T16:15:00Z,14524750,confluence pages, report/query-log generators, 50-slide deck, analyst SQL, DDL dump; 2 more EKOS governance defects fixed
