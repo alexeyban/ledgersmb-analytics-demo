@@ -1,6 +1,6 @@
 # LedgerSMB → ClickHouse analytics, with EKOS
 
-An end-to-end, evidence-backed demo. The **LedgerSMB** ERP (Perl + PostgreSQL) is migrated to
+An end-to-end, evidence-backed demo. The **LedgerSMB** (https://github.com/ledgersmb/LedgerSMB) ERP (Perl + PostgreSQL) is migrated to
 **ClickHouse** by **EKOS Migrate** (RFC 0154–0168), modelled in **dbt**, orchestrated in **Python**,
 and reconciled to the cent against LedgerSMB's own reports. Every AI interaction is logged, with
 tokens per model.
