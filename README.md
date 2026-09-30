@@ -12,7 +12,7 @@ tokens per model.
 
 | Read | For |
 |---|---|
-| [`presentation/index.html`](presentation/index.html) | the detailed deck (50 slides; ← → to navigate, O overview, T theme) |
+| [`presentation/index.html`]([https://alexeyban.github.io/EKOS/presentations/ledgersmb-analytics-migration.html]) | the detailed deck (50 slides; ← → to navigate, O overview, T theme) |
 | [`docs/REPORT.md`](docs/REPORT.md) | where EKOS, Claude Code and other LLMs were used; tokens per model |
 | [`docs/QUERY_LOG.md`](docs/QUERY_LOG.md) | every EKOS query and answer |
 | [`docs/confluence/`](docs/confluence/) | the Confluence pages, 01 → 08 |
